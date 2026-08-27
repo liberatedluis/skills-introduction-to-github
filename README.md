@@ -33,7 +33,14 @@ Open http://localhost:8080
 
 `scripts/serve.py` hosts the app and proxies eBible chapter files so hundreds of minority-language translations can load in the browser.
 
-## Tests
+## PDFs
+
+Print-friendly 6×9 chapter PDFs live in `pdfs/`. Every page is marked **ChristSupply.Net**.
+
+```bash
+python3 scripts/make_pdf.py --samples
+```
+
 
 ```bash
 python3 tests/test_catalog.py

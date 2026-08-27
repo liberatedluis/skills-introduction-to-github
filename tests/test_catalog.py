@@ -39,7 +39,19 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("pageMark", js)
         self.assertIn("txtBanner", js)
 
-    def test_books_complete(self):
+    def test_sample_pdfs_exist(self):
+        pdf_dir = ROOT / "pdfs"
+        names = [
+            "ChristSupply.Net-English-Genesis-1.pdf",
+            "ChristSupply.Net-English-John-3.pdf",
+            "ChristSupply.Net-English-Matthew-5.pdf",
+            "ChristSupply.Net-Spanish-Genesis-1.pdf",
+        ]
+        for name in names:
+            path = pdf_dir / name
+            self.assertTrue(path.exists(), name)
+            self.assertGreater(path.stat().st_size, 1000, name)
+
         books = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
         self.assertEqual(len(books), 66)
         self.assertEqual(books[0]["usfm"], "GEN")
