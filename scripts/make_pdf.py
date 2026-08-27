@@ -16,8 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 BOOKS = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
 CATALOG = json.loads((ROOT / "data" / "languages.json").read_text(encoding="utf-8"))
 SITE = "ChristSupply.Net"
-BRAND = "Christ Supply Bible"
-CREDIT = "built by Cursor with Liberated"
+BRAND = "Christ Supply Holy Bible"
+CREDIT = "Made by Liberated Luis With Cursor, Claude Opus, and MacBook"
 
 UA = {"User-Agent": "ChristSupplyBible/1.0"}
 

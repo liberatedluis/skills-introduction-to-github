@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 .cache/
 pdfs/.chrome-profile/
-__pycache__/
+pdfs/holy-bibles/*.pdf
 
 # Compiled source #
 ###################
@@ -40,3 +40,5 @@ __pycache__/
 .Trashes
 ehthumbs.db
 Thumbs.db
+pdfs/holy-bibles/build-log.json
+pdfs/holy-bibles/index.html

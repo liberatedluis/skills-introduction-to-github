@@ -1,7 +1,7 @@
 const SITE = "ChristSupply.Net";
 const SITE_URL = "https://christsupply.net";
-const BRAND = "Christ Supply Bible";
-const CREDIT = "built by Cursor with Liberated";
+const BRAND = "Christ Supply Holy Bible";
+const CREDIT = "Made by Liberated Luis With Cursor, Claude Opus, and MacBook";
 const STORAGE_THEME = "csb-theme";
 const STORAGE_LANG = "csb-lang";
 
