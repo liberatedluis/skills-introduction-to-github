@@ -68,11 +68,17 @@ html[data-theme="light"] .scanlines { opacity: 0.08; }
 }
 
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 6;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   padding: 0.85rem 1rem 0.4rem;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
 }
 .brand {
   display: flex;
@@ -191,11 +197,18 @@ html[data-theme="light"] .scanlines { opacity: 0.08; }
   text-transform: uppercase;
   color: var(--gold);
   border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  background: color-mix(in srgb, var(--bg-2) 88%, var(--accent));
+}
+.page-mark:not(.foot) {
+  position: sticky;
+  top: 3.4rem;
+  z-index: 4;
 }
 .page-mark.foot {
   border-bottom: 0;
   border-top: 1px solid var(--line);
+  position: sticky;
+  bottom: 0;
 }
 .page-body { padding: 1rem 1.1rem 1.2rem; }
 .page-body h2 {
@@ -336,7 +349,12 @@ html[data-theme="dark"] .pdf-sheet {
     page-break-after: always;
   }
   .pdf-sheet:last-child { break-after: auto; page-break-after: auto; }
-  .page-mark { letter-spacing: 0.2em; }
+  .page-mark:not(.foot),
+  .page-mark.foot {
+    position: static;
+    top: auto;
+    bottom: auto;
+  }
   @page {
     size: 6in 9in;
     margin: 16mm 14mm 18mm 14mm;

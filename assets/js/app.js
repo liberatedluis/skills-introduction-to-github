@@ -150,6 +150,13 @@ function renderVerses(verses) {
     .join("");
 }
 
+function chunkVerses(verses, size = 12) {
+  if (!verses.length) return [[]];
+  const pages = [];
+  for (let i = 0; i < verses.length; i += size) pages.push(verses.slice(i, i + size));
+  return pages;
+}
+
 function plate(title, verses, pageNo) {
   return `
     <article class="page-plate" data-page="${pageNo}">
@@ -160,6 +167,12 @@ function plate(title, verses, pageNo) {
       </div>
       ${pageMark("foot", `${CREDIT}`)}
     </article>`;
+}
+
+function renderPlates(title, verses, pageNo) {
+  return chunkVerses(verses)
+    .map((part, index) => plate(index === 0 ? title : `${title} (cont.)`, part, pageNo + index))
+    .join("");
 }
 
 function txtBanner(pageNo, title) {
@@ -174,21 +187,25 @@ function txtBanner(pageNo, title) {
 }
 
 function toTxt(lang, bookMeta, chapter, verses, source, pageNo) {
-  const lines = [
-    txtBanner(pageNo, `${bookMeta.name} ${chapter}`),
-    "",
-    `Language: ${lang.native} / ${lang.name} (${lang.iso})`,
-    `Source: ${source.name || source.id}`,
-    `Site: ${SITE_URL}`,
-    "",
-    ...verses.map((v) => `${v.verse}  ${v.text}`),
-    "",
-    `-`.repeat(64),
-    SITE,
-    CREDIT,
-    "",
-  ];
-  return lines.join("\n");
+  const pages = chunkVerses(verses, 12);
+  const blocks = pages.map((part, index) => {
+    const n = pageNo + index;
+    return [
+      txtBanner(n, `${bookMeta.name} ${chapter}`),
+      "",
+      `Language: ${lang.native} / ${lang.name} (${lang.iso})`,
+      `Source: ${source.name || source.id}`,
+      `Site: ${SITE_URL}`,
+      "",
+      ...part.map((v) => `${v.verse}  ${v.text}`),
+      "",
+      "-".repeat(64),
+      SITE,
+      CREDIT,
+      "",
+    ].join("\n");
+  });
+  return blocks.join("\n\n");
 }
 
 function setStatus(message) {
@@ -277,8 +294,11 @@ async function render() {
   try {
     const { source, verses } = await loadChapter(lang, book, chapter);
     const heading = `${title} — ${lang.native}`;
-    views.scroll.innerHTML = plate(heading, verses, pageNo);
-    views.pdf.innerHTML = `<div class="pdf-sheet">${plate(heading, verses, pageNo)}</div>`;
+    const pages = chunkVerses(verses);
+    views.scroll.innerHTML = renderPlates(heading, verses, pageNo);
+    views.pdf.innerHTML = pages
+      .map((part, index) => `<div class="pdf-sheet">${plate(index === 0 ? heading : `${heading} (cont.)`, part, pageNo + index)}</div>`)
+      .join("");
     views.txt.innerHTML = `<pre>${toTxt(lang, book, chapter, verses, source, pageNo)}</pre>`;
     setStatus(`${describeLang(lang)} · ${verses.length} verses · marked ${SITE}`);
     history.replaceState(
