@@ -304,37 +304,58 @@ def load_ebible_verses(translation_id: str) -> list[tuple[str, int, int, str]]:
     return verses
 
 
+def _getbible_book_iter(data: object) -> list[dict]:
+    if isinstance(data, dict):
+        books = data.get("books") or data
+    else:
+        books = data
+    if isinstance(books, list):
+        return [row for row in books if isinstance(row, dict)]
+    if isinstance(books, dict):
+        if "verses" in books or "chapters" in books:
+            return [books]
+        return [row for row in books.values() if isinstance(row, dict)]
+    return []
+
+
 def load_getbible_verses(translation_id: str) -> list[tuple[str, int, int, str]]:
     data = json.loads(fetch(f"https://api.getbible.net/v2/{translation_id}.json").decode("utf-8"))
     verses = []
-    books = data.get("books") or data
-    if isinstance(books, dict) and "verses" not in books:
-        iterable = books.values() if all(isinstance(v, dict) for v in books.values()) else []
-        for book in iterable:
-            usfm = None
-            name = book.get("name") or ""
-            nr = book.get("nr") or book.get("book_nr")
-            if isinstance(nr, int) and 1 <= nr <= 66:
-                usfm = BOOKS[nr - 1]["usfm"]
-            chapters = book.get("chapters") or {}
-            if isinstance(chapters, dict):
-                chapter_iter = chapters.values()
-            else:
-                chapter_iter = chapters
-            for chapter in chapter_iter:
+    for book in _getbible_book_iter(data):
+        usfm = None
+        name = book.get("name") or ""
+        try:
+            nr = int(book.get("nr") or book.get("book_nr") or 0)
+        except (TypeError, ValueError):
+            nr = 0
+        if 1 <= nr <= 66:
+            usfm = BOOKS[nr - 1]["usfm"]
+        chapters = book.get("chapters") or {}
+        if isinstance(chapters, dict):
+            chapter_iter = chapters.values()
+        else:
+            chapter_iter = chapters
+        for chapter in chapter_iter:
+            if not isinstance(chapter, dict):
+                continue
+            try:
                 ch = int(chapter.get("chapter") or chapter.get("nr") or 0)
-                for verse in chapter.get("verses") or []:
-                    verses.append(
-                        (
-                            usfm or name or "UNK",
-                            int(verse.get("chapter") or ch or 1),
-                            int(verse.get("verse") or 0),
-                            verse.get("text") or "",
-                        )
+            except (TypeError, ValueError):
+                ch = 0
+            for verse in chapter.get("verses") or []:
+                if not isinstance(verse, dict):
+                    continue
+                verses.append(
+                    (
+                        usfm or name or "UNK",
+                        int(verse.get("chapter") or ch or 1),
+                        int(verse.get("verse") or 0),
+                        verse.get("text") or "",
                     )
-    if not verses:
-        if isinstance(data, list):
-            for row in data:
+                )
+    if not verses and isinstance(data, list):
+        for row in data:
+            if isinstance(row, dict) and row.get("text"):
                 verses.append((str(row.get("book") or "UNK"), int(row.get("chapter") or 1), int(row.get("verse") or 1), row.get("text") or ""))
     if not verses:
         raise RuntimeError("could not parse getbible json")

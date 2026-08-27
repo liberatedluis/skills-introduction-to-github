@@ -67,6 +67,35 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len({row["id"] for row in catalog}), 1300)
         self.assertTrue(any(row["id"] == "engwebp" for row in catalog))
 
+    def test_getbible_list_of_books_parses(self):
+        from make_holy_bible_pdfs import _getbible_book_iter, load_getbible_verses
+
+        sample = {
+            "translation": "Cherokee New Testament",
+            "books": [
+                {
+                    "nr": 40,
+                    "name": "Matthew",
+                    "chapters": [
+                        {
+                            "chapter": 1,
+                            "verses": [{"chapter": 1, "verse": 1, "text": "ᎾᏍᎩ"}],
+                        }
+                    ],
+                }
+            ],
+        }
+        books = _getbible_book_iter(sample)
+        self.assertEqual(len(books), 1)
+        self.assertEqual(books[0]["nr"], 40)
+
+        import make_holy_bible_pdfs as pdfs
+
+        pdfs.fetch = lambda url: json.dumps(sample).encode("utf-8")
+        verses = load_getbible_verses("che1860")
+        self.assertEqual(verses[0][0], "MAT")
+        self.assertEqual(verses[0][3], "ᎾᏍᎩ")
+
     def test_script_fonts_cover_print_scripts(self):
         from make_holy_bible_pdfs import detect_script, font_for, normalize_script
 
