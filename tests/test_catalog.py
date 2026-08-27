@@ -19,8 +19,8 @@ class CatalogTests(unittest.TestCase):
 
     def test_languages_json(self):
         payload = json.loads((ROOT / "data" / "languages.json").read_text(encoding="utf-8"))
-        self.assertEqual(payload["brand"], "Christ Supply Bible")
-        self.assertEqual(payload["credit"], "built by Cursor with Liberated")
+        self.assertEqual(payload["brand"], "Christ Supply Holy Bible")
+        self.assertEqual(payload["credit"], "Made by Liberated Luis With Cursor, Claude Opus, and MacBook")
         self.assertEqual(payload["site"], "ChristSupply.Net")
         self.assertEqual(payload["count"], 300)
         self.assertEqual(len(payload["languages"]), 300)
@@ -37,13 +37,50 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("print-running", css)
         self.assertIn('const SITE = "ChristSupply.Net"', js)
         self.assertIn("pageMark", js)
-        self.assertIn("txtBanner", js)
+        self.assertIn("Christ Supply Holy Bible", html)
+        self.assertIn("Made by Liberated Luis With Cursor, Claude Opus, and MacBook", html)
+        self.assertIn('const BRAND = "Christ Supply Holy Bible"', js)
 
-    def test_books_complete(self):
+    def test_sample_pdfs_exist(self):
+        pdf_dir = ROOT / "pdfs"
+        names = [
+            "ChristSupply.Net-English-Genesis-1.pdf",
+            "ChristSupply.Net-English-John-3.pdf",
+            "ChristSupply.Net-English-Matthew-5.pdf",
+            "ChristSupply.Net-Spanish-Genesis-1.pdf",
+        ]
+        for name in names:
+            path = pdf_dir / name
+            self.assertTrue(path.exists(), name)
+            self.assertGreater(path.stat().st_size, 1000, name)
+
         books = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
         self.assertEqual(len(books), 66)
         self.assertEqual(books[0]["usfm"], "GEN")
         self.assertEqual(books[-1]["usfm"], "REV")
+
+    def test_1300_print_catalog(self):
+        from make_holy_bible_pdfs import build_catalog
+
+        catalog = build_catalog()
+        self.assertEqual(len(catalog), 1300)
+        self.assertEqual(len({row["id"] for row in catalog}), 1300)
+        self.assertTrue(any(row["id"] == "engwebp" for row in catalog))
+
+    def test_script_fonts_cover_print_scripts(self):
+        from make_holy_bible_pdfs import detect_script, font_for, normalize_script
+
+        self.assertEqual(detect_script("בראשית ברא אלהים"), "Hebrew")
+        self.assertEqual(detect_script("فِي الْبَدْءِ"), "Arabic")
+        self.assertEqual(detect_script("आरम्भ में"), "Devanagari")
+        self.assertEqual(detect_script("ⴰⴷⵔⴰⵔ"), "Tifinagh")
+        self.assertEqual(normalize_script("Tifenagh"), "Tifinagh")
+        self.assertEqual(normalize_script("Amheric"), "Ethiopic")
+        self.assertEqual(normalize_script("Burmese"), "Myanmar")
+        for script in ("Latin", "Hebrew", "Arabic", "Devanagari", "Tifinagh", "Myanmar", "Thai", "CJK"):
+            path = font_for(script)
+            self.assertTrue(path.exists(), f"{script} -> {path}")
+
 
 
 if __name__ == "__main__":
