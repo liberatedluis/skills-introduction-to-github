@@ -57,6 +57,8 @@ class CatalogTests(unittest.TestCase):
         books = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
         self.assertEqual(len(books), 66)
         self.assertEqual(books[0]["usfm"], "GEN")
+        self.assertEqual(books[-1]["usfm"], "REV")
+
     def test_1300_print_catalog(self):
         from make_holy_bible_pdfs import build_catalog
 
@@ -64,6 +66,20 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(len(catalog), 1300)
         self.assertEqual(len({row["id"] for row in catalog}), 1300)
         self.assertTrue(any(row["id"] == "engwebp" for row in catalog))
+
+    def test_script_fonts_cover_print_scripts(self):
+        from make_holy_bible_pdfs import detect_script, font_for, normalize_script
+
+        self.assertEqual(detect_script("בראשית ברא אלהים"), "Hebrew")
+        self.assertEqual(detect_script("فِي الْبَدْءِ"), "Arabic")
+        self.assertEqual(detect_script("आरम्भ में"), "Devanagari")
+        self.assertEqual(detect_script("ⴰⴷⵔⴰⵔ"), "Tifinagh")
+        self.assertEqual(normalize_script("Tifenagh"), "Tifinagh")
+        self.assertEqual(normalize_script("Amheric"), "Ethiopic")
+        self.assertEqual(normalize_script("Burmese"), "Myanmar")
+        for script in ("Latin", "Hebrew", "Arabic", "Devanagari", "Tifinagh", "Myanmar", "Thai", "CJK"):
+            path = font_for(script)
+            self.assertTrue(path.exists(), f"{script} -> {path}")
 
 
 

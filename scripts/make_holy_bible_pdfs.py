@@ -9,10 +9,9 @@ import json
 import re
 import sys
 import zipfile
+from collections import Counter
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from io import BytesIO
 from pathlib import Path
-from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from fpdf import FPDF
@@ -27,46 +26,163 @@ CJK = Path("/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf")
 CSV_PATH = ROOT / "data" / "ebible-translations.csv"
 BOOKS = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
 BOOK_NAMES = {row["usfm"]: row["name"] for row in BOOKS}
-BOOK_ORDER = {row["usfm"]: row["id"] for row in BOOKS}
 CACHE = ROOT / ".cache" / "vpl"
 OUT_DIR = ROOT / "pdfs" / "holy-bibles"
 UA = {"User-Agent": "ChristSupplyHolyBible/1.0"}
 
 VPL_LINE = re.compile(r"^(\S+)\s+(\d+):(\d+)\s+(.*)$")
 
+SCRIPT_ALIASES = {
+    "latin": "Latin",
+    "cyrillic": "Cyrillic",
+    "greek": "Greek",
+    "arabic": "Arabic",
+    "hebrew": "Hebrew",
+    "devanagari": "Devanagari",
+    "devanagari (nagari)": "Devanagari",
+    "bengali": "Bengali",
+    "tamil": "Tamil",
+    "telugu": "Telugu",
+    "malayalam": "Malayalam",
+    "kannada": "Kannada",
+    "gujarati": "Gujarati",
+    "oriya": "Oriya",
+    "gurmukhi": "Gurmukhi",
+    "thai": "Thai",
+    "ethiopic": "Ethiopic",
+    "ethiopic (geʻez)": "Ethiopic",
+    "ethiopic (ge'ez)": "Ethiopic",
+    "amheric": "Ethiopic",
+    "amharic": "Ethiopic",
+    "tibetan": "Tibetan",
+    "syriac": "Syriac",
+    "coptic": "Coptic",
+    "sinhala": "Sinhala",
+    "georgian": "Georgian",
+    "armenian": "Armenian",
+    "thaana": "Thaana",
+    "cherokee": "Cherokee",
+    "cjk": "CJK",
+    "chinese": "CJK",
+    "han (simplified variant)": "CJK",
+    "han (traditional variant)": "CJK",
+    "tifenagh": "Tifinagh",
+    "tifinagh": "Tifinagh",
+    "burmese": "Myanmar",
+    "myanmar": "Myanmar",
+    "gothic": "Gothic",
+    "khmer": "Khmer",
+    "lao": "Lao",
+    "latin (roman) with papua new guinea enhancements": "Latin",
+    "code for uncoded script": "Latin",
+    "code for inherited script": "Latin",
+}
+
 SCRIPT_FONTS = {
     "Latin": NOTO / "NotoSerif-Regular.ttf",
     "Cyrillic": NOTO / "NotoSerif-Regular.ttf",
     "Greek": NOTO / "NotoSerif-Regular.ttf",
     "Arabic": NOTO / "NotoNaskhArabic-Regular.ttf",
-    "Hebrew": NOTO / "NotoSansHebrew-Regular.ttf",
+    "Hebrew": NOTO / "NotoSerifHebrew-Regular.ttf",
     "Devanagari": NOTO / "NotoSerifDevanagari-Regular.ttf",
-    "Devanagari (Nagari)": NOTO / "NotoSerifDevanagari-Regular.ttf",
     "Bengali": NOTO / "NotoSerifBengali-Regular.ttf",
-    "Tamil": NOTO / "NotoSansTamil-Regular.ttf",
-    "Telugu": NOTO / "NotoSansTelugu-Regular.ttf",
+    "Tamil": NOTO / "NotoSerifTamil-Regular.ttf",
+    "Telugu": NOTO / "NotoSerifTelugu-Regular.ttf",
     "Malayalam": NOTO / "NotoSerifMalayalam-Regular.ttf",
-    "Kannada": NOTO / "NotoSansKannada-Regular.ttf",
-    "Gujarati": NOTO / "NotoSansGujarati-Regular.ttf",
+    "Kannada": NOTO / "NotoSerifKannada-Regular.ttf",
+    "Gujarati": NOTO / "NotoSerifGujarati-Regular.ttf",
     "Oriya": NOTO / "NotoSansOriya-Regular.ttf",
-    "Gurmukhi": NOTO / "NotoSansGurmukhi-Regular.ttf",
-    "Thai": NOTO / "NotoLoopedThai-Regular.ttf",
-    "Ethiopic": NOTO / "NotoSansEthiopic-Regular.ttf",
+    "Gurmukhi": NOTO / "NotoSerifGurmukhi-Regular.ttf",
+    "Thai": NOTO / "NotoSerifThai-Regular.ttf",
+    "Ethiopic": NOTO / "NotoSerifEthiopic-Regular.ttf",
     "Tibetan": NOTO / "NotoSerifTibetan-Regular.ttf",
     "Syriac": NOTO / "NotoSansSyriac-Regular.ttf",
     "Coptic": NOTO / "NotoSansCoptic-Regular.ttf",
-    "Sinhala": NOTO / "NotoSansSinhala-Regular.ttf",
-    "Georgian": NOTO / "NotoSansGeorgian-Regular.ttf",
-    "Armenian": NOTO / "NotoSansArmenian-Regular.ttf",
+    "Sinhala": NOTO / "NotoSerifSinhala-Regular.ttf",
+    "Georgian": NOTO / "NotoSerifGeorgian-Regular.ttf",
+    "Armenian": NOTO / "NotoSerifArmenian-Regular.ttf",
     "Thaana": NOTO / "NotoSansThaana-Regular.ttf",
     "Cherokee": NOTO / "NotoSansCherokee-Regular.ttf",
     "CJK": CJK,
-    "Chinese": CJK,
+    "Tifinagh": NOTO / "NotoSansTifinagh-Regular.ttf",
+    "Myanmar": NOTO / "NotoSerifMyanmar-Regular.ttf",
+    "Gothic": NOTO / "NotoSansGothic-Regular.ttf",
+    "Khmer": NOTO / "NotoSerifKhmer-Regular.ttf",
+    "Lao": NOTO / "NotoSerifLao-Regular.ttf",
 }
+
+FALLBACK_FILES = [
+    ("FbHebrew", NOTO / "NotoSerifHebrew-Regular.ttf"),
+    ("FbHebrewSans", NOTO / "NotoSansHebrew-Regular.ttf"),
+    ("FbArabic", NOTO / "NotoNaskhArabic-Regular.ttf"),
+    ("FbNastaliq", NOTO / "NotoNastaliqUrdu-Regular.ttf"),
+    ("FbDevanagari", NOTO / "NotoSerifDevanagari-Regular.ttf"),
+    ("FbBengali", NOTO / "NotoSerifBengali-Regular.ttf"),
+    ("FbGujarati", NOTO / "NotoSerifGujarati-Regular.ttf"),
+    ("FbGurmukhi", NOTO / "NotoSerifGurmukhi-Regular.ttf"),
+    ("FbOriya", NOTO / "NotoSansOriya-Regular.ttf"),
+    ("FbTamil", NOTO / "NotoSerifTamil-Regular.ttf"),
+    ("FbTelugu", NOTO / "NotoSerifTelugu-Regular.ttf"),
+    ("FbKannada", NOTO / "NotoSerifKannada-Regular.ttf"),
+    ("FbMalayalam", NOTO / "NotoSerifMalayalam-Regular.ttf"),
+    ("FbSinhala", NOTO / "NotoSerifSinhala-Regular.ttf"),
+    ("FbThai", NOTO / "NotoSerifThai-Regular.ttf"),
+    ("FbLao", NOTO / "NotoSerifLao-Regular.ttf"),
+    ("FbTibetan", NOTO / "NotoSerifTibetan-Regular.ttf"),
+    ("FbMyanmar", NOTO / "NotoSerifMyanmar-Regular.ttf"),
+    ("FbKhmer", NOTO / "NotoSerifKhmer-Regular.ttf"),
+    ("FbEthiopic", NOTO / "NotoSerifEthiopic-Regular.ttf"),
+    ("FbArmenian", NOTO / "NotoSerifArmenian-Regular.ttf"),
+    ("FbGeorgian", NOTO / "NotoSerifGeorgian-Regular.ttf"),
+    ("FbSyriac", NOTO / "NotoSansSyriac-Regular.ttf"),
+    ("FbCoptic", NOTO / "NotoSansCoptic-Regular.ttf"),
+    ("FbThaana", NOTO / "NotoSansThaana-Regular.ttf"),
+    ("FbCherokee", NOTO / "NotoSansCherokee-Regular.ttf"),
+    ("FbTifinagh", NOTO / "NotoSansTifinagh-Regular.ttf"),
+    ("FbGothic", NOTO / "NotoSansGothic-Regular.ttf"),
+    ("FbSymbols", NOTO / "NotoSansSymbols2-Regular.ttf"),
+    ("CJK", CJK),
+]
+
+UNICODE_RANGES = (
+    ("Hebrew", 0x0590, 0x05FF),
+    ("Arabic", 0x0600, 0x06FF),
+    ("Arabic", 0x0750, 0x077F),
+    ("Arabic", 0x08A0, 0x08FF),
+    ("Arabic", 0xFB50, 0xFDFF),
+    ("Syriac", 0x0700, 0x074F),
+    ("Thaana", 0x0780, 0x07BF),
+    ("Devanagari", 0x0900, 0x097F),
+    ("Bengali", 0x0980, 0x09FF),
+    ("Gurmukhi", 0x0A00, 0x0A7F),
+    ("Gujarati", 0x0A80, 0x0AFF),
+    ("Oriya", 0x0B00, 0x0B7F),
+    ("Tamil", 0x0B80, 0x0BFF),
+    ("Telugu", 0x0C00, 0x0C7F),
+    ("Kannada", 0x0C80, 0x0CFF),
+    ("Malayalam", 0x0D00, 0x0D7F),
+    ("Sinhala", 0x0D80, 0x0DFF),
+    ("Thai", 0x0E00, 0x0E7F),
+    ("Lao", 0x0E80, 0x0EFF),
+    ("Tibetan", 0x0F00, 0x0FFF),
+    ("Myanmar", 0x1000, 0x109F),
+    ("Ethiopic", 0x1200, 0x137F),
+    ("Cherokee", 0x13A0, 0x13FF),
+    ("Khmer", 0x1780, 0x17FF),
+    ("Georgian", 0x10A0, 0x10FF),
+    ("Armenian", 0x0530, 0x058F),
+    ("Coptic", 0x2C80, 0x2CFF),
+    ("Tifinagh", 0x2D30, 0x2D7F),
+    ("Gothic", 0x10330, 0x1034F),
+    ("CJK", 0x3040, 0x30FF),
+    ("CJK", 0x3400, 0x4DBF),
+    ("CJK", 0x4E00, 0x9FFF),
+    ("CJK", 0xAC00, 0xD7AF),
+)
 
 GETBIBLE_EXTRAS = [
     {"id": "che1860", "title": "Cherokee New Testament 1860", "language": "Cherokee", "script": "Cherokee", "rtl": False},
-    {"id": "gothic", "title": "Gothic Bible portions", "language": "Gothic", "script": "Latin", "rtl": False},
+    {"id": "gothic", "title": "Gothic Bible portions", "language": "Gothic", "script": "Gothic", "rtl": False},
     {"id": "sahidic", "title": "Sahidic Coptic New Testament", "language": "Coptic", "script": "Coptic", "rtl": False},
     {"id": "manxgaelic", "title": "Manx Gaelic Bible portions", "language": "Manx Gaelic", "script": "Latin", "rtl": False},
     {"id": "potawatomi", "title": "Potawatomi Matthew and Acts 1844", "language": "Potawatomi", "script": "Latin", "rtl": False},
@@ -106,7 +222,8 @@ def fetch(url: str) -> bytes:
 
 
 def build_catalog() -> list[dict]:
-    rows = list(csv.DictReader(CSV_PATH.open(newline="", encoding="utf-8-sig")))
+    with CSV_PATH.open(newline="", encoding="utf-8-sig") as handle:
+        rows = list(csv.DictReader(handle))
     catalog = []
     for row in rows:
         if row.get("Redistributable") != "True" or row.get("downloadable") != "True":
@@ -193,7 +310,6 @@ def load_getbible_verses(translation_id: str) -> list[tuple[str, int, int, str]]
     books = data.get("books") or data
     if isinstance(books, dict) and "verses" not in books:
         iterable = books.values() if all(isinstance(v, dict) for v in books.values()) else []
-        # v2 dump is often { "1": { name, chapters: { "1": { verses: [] }}}}
         for book in iterable:
             usfm = None
             name = book.get("name") or ""
@@ -217,7 +333,6 @@ def load_getbible_verses(translation_id: str) -> list[tuple[str, int, int, str]]
                         )
                     )
     if not verses:
-        # alternate: array of verse objects
         if isinstance(data, list):
             for row in data:
                 verses.append((str(row.get("book") or "UNK"), int(row.get("chapter") or 1), int(row.get("verse") or 1), row.get("text") or ""))
@@ -226,11 +341,49 @@ def load_getbible_verses(translation_id: str) -> list[tuple[str, int, int, str]]
     return verses
 
 
+def normalize_script(script: str) -> str:
+    return SCRIPT_ALIASES.get((script or "Latin").strip().lower(), "Latin")
+
+
+def detect_script(text: str) -> str:
+    counts: Counter[str] = Counter()
+    for ch in text:
+        code = ord(ch)
+        for name, start, end in UNICODE_RANGES:
+            if start <= code <= end:
+                counts[name] += 1
+                break
+    if not counts:
+        return "Latin"
+    return counts.most_common(1)[0][0]
+
+
+def choose_script(meta: dict, verses: list[tuple[str, int, int, str]]) -> str:
+    mapped = normalize_script(meta.get("script") or "Latin")
+    sample = " ".join(body for _, _, _, body in verses[:800] if body)
+    detected = detect_script(sample[:120000])
+    if mapped in {"Latin", "Cyrillic", "Greek"} and detected not in {"Latin", "Cyrillic", "Greek"}:
+        return detected
+    if mapped in SCRIPT_FONTS:
+        return mapped
+    return detected
+
+
 def font_for(script: str) -> Path:
-    path = SCRIPT_FONTS.get(script, SCRIPT_FONTS["Latin"])
+    path = SCRIPT_FONTS.get(normalize_script(script), SCRIPT_FONTS["Latin"])
     if path.exists():
         return path
-    return SCRIPT_FONTS["Latin"]
+    latin = SCRIPT_FONTS["Latin"]
+    return latin if latin.exists() else path
+
+
+def pdf_complete(path: Path) -> bool:
+    if not path.exists() or path.stat().st_size < 1000:
+        return False
+    with path.open("rb") as handle:
+        handle.seek(max(0, path.stat().st_size - 2048))
+        tail = handle.read()
+    return b"%%EOF" in tail
 
 
 class HolyBiblePDF(FPDF):
@@ -243,9 +396,20 @@ class HolyBiblePDF(FPDF):
         self.set_margins(14, 16, 14)
         self.add_font("Brand", "", str(NOTO / "NotoSerif-Regular.ttf"))
         self.add_font("Body", "", str(body_font))
-        if CJK.exists():
-            self.add_font("CJK", "", str(CJK))
-            self.set_fallback_fonts(["CJK", "Brand"])
+        fallback_names = ["Body"]
+        for family, path in FALLBACK_FILES:
+            if not path.exists():
+                continue
+            try:
+                self.add_font(family, "", str(path))
+                fallback_names.append(family)
+            except Exception:
+                continue
+        self.set_fallback_fonts(fallback_names)
+        try:
+            self.set_text_shaping(True, direction="rtl" if rtl else "ltr")
+        except Exception:
+            pass
 
     def header(self):
         if not self.show_marks:
@@ -277,13 +441,16 @@ class HolyBiblePDF(FPDF):
 
 def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
-    pdf = HolyBiblePDF(meta["language"] or meta["id"], font_for(meta.get("script") or "Latin"), meta.get("rtl", False))
+    script = choose_script(meta, verses)
+    rtl = bool(meta.get("rtl")) or script in {"Arabic", "Hebrew", "Syriac", "Thaana"}
+    pdf = HolyBiblePDF(meta["language"] or meta["id"], font_for(script), rtl)
     pdf.set_title(f"{BRAND} — {meta['title']}")
     pdf.set_author(CREDIT)
     pdf.set_creator(f"{BRAND} · {SITE}")
-    def _center(pdf: HolyBiblePDF, text: str, height: float) -> None:
-        pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(pdf.epw, height, text, align="C")
+
+    def _center(doc: HolyBiblePDF, text: str, height: float) -> None:
+        doc.set_x(doc.l_margin)
+        doc.multi_cell(doc.epw, height, text, align="C")
 
     pdf.add_page()
     pdf.set_font("Brand", size=11)
@@ -294,9 +461,9 @@ def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -
     pdf.set_text_color(26, 21, 16)
     _center(pdf, BRAND, 9)
     pdf.ln(4)
-    pdf.set_font("Brand", size=13)
+    pdf.set_font("Body", size=13)
     _center(pdf, meta["title"], 7)
-    pdf.set_font("Brand", size=10)
+    pdf.set_font("Body", size=10)
     pdf.set_text_color(106, 84, 32)
     _center(pdf, f"{meta.get('native') or ''} / {meta['language']}".strip(" /"), 6)
     pdf.ln(6)
@@ -318,6 +485,7 @@ def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -
     current_book = None
     chapter_buf: list[str] = []
     current_chapter = None
+    body_align = "R" if rtl else "L"
 
     def flush_chapter():
         nonlocal chapter_buf
@@ -326,7 +494,7 @@ def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -
         pdf.set_font("Body", size=10)
         pdf.set_text_color(26, 21, 16)
         pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(pdf.epw, 5, "\n".join(chapter_buf))
+        pdf.multi_cell(pdf.epw, 5, "\n".join(chapter_buf), align=body_align)
         chapter_buf = []
 
     pdf.add_page()
@@ -352,11 +520,13 @@ def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -
             pdf.cell(pdf.epw, 6, f"{BOOK_NAMES.get(book, book)} {chapter}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         chapter_buf.append(f"{verse}  {text}")
     flush_chapter()
-    pdf.output(str(dest))
+    tmp = dest.with_suffix(".pdf.tmp")
+    pdf.output(str(tmp))
+    tmp.replace(dest)
 
 
-def generate_one(meta: dict, dest: Path) -> dict:
-    if dest.exists() and dest.stat().st_size > 1000:
+def generate_one(meta: dict, dest: Path, force: bool = False) -> dict:
+    if not force and pdf_complete(dest):
         return {"id": meta["id"], "status": "exists", "path": str(dest), "bytes": dest.stat().st_size}
     try:
         if meta["source"] == "ebible":
@@ -366,44 +536,93 @@ def generate_one(meta: dict, dest: Path) -> dict:
         write_pdf(meta, verses, dest)
         return {"id": meta["id"], "status": "ok", "path": str(dest), "bytes": dest.stat().st_size, "verses": len(verses)}
     except Exception as err:  # noqa: BLE001
+        tmp = dest.with_suffix(".pdf.tmp")
+        if tmp.exists():
+            tmp.unlink()
         return {"id": meta["id"], "status": "error", "error": str(err)[:300]}
+
+
+def write_index(out: Path, catalog: list[dict], results: list[dict]) -> None:
+    by_id = {row["id"]: row for row in catalog}
+    ok = sum(1 for row in results if row["status"] in {"ok", "exists"})
+    items = []
+    for row in sorted(results, key=lambda item: item["id"]):
+        meta = by_id.get(row["id"], {})
+        title = meta.get("title") or row["id"]
+        language = meta.get("language") or ""
+        items.append(
+            f"<li><a href='ChristSupplyHolyBible-{row['id']}.pdf'>{title}</a> — {language} — {row['status']}</li>"
+        )
+    (out / "index.html").write_text(
+        (
+            "<!doctype html><meta charset='utf-8'>"
+            f"<title>{BRAND}</title>"
+            f"<h1>{BRAND}</h1><p>{CREDIT}</p>"
+            f"<p>{SITE} · {ok}/{len(results)} print PDFs · 6×9 in</p>"
+            f"<ul>{''.join(items)}</ul>"
+        ),
+        encoding="utf-8",
+    )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=0)
-    parser.add_argument("--workers", type=int, default=6)
+    parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--only")
+    parser.add_argument("--force", action="store_true")
     parser.add_argument("--out", default=str(OUT_DIR))
     args = parser.parse_args()
     catalog = build_catalog()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "catalog.json").write_text(json.dumps({"brand": BRAND, "credit": CREDIT, "site": SITE, "count": len(catalog), "translations": catalog}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (out / "catalog.json").write_text(
+        json.dumps(
+            {"brand": BRAND, "credit": CREDIT, "site": SITE, "count": len(catalog), "translations": catalog},
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     jobs = catalog
     if args.only:
         jobs = [row for row in catalog if row["id"] == args.only]
         if not jobs:
-            jobs = [{"id": args.only, "source": "ebible", "title": args.only, "language": args.only, "native": args.only, "script": "Latin", "rtl": False, "copyright": "", "coverage": "unknown", "verses": 0}]
+            jobs = [
+                {
+                    "id": args.only,
+                    "source": "ebible",
+                    "title": args.only,
+                    "language": args.only,
+                    "native": args.only,
+                    "script": "Latin",
+                    "rtl": False,
+                    "copyright": "",
+                    "coverage": "unknown",
+                    "verses": 0,
+                }
+            ]
     if args.limit:
         jobs = jobs[: args.limit]
     results = []
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
-        futures = {pool.submit(generate_one, meta, out / f"ChristSupplyHolyBible-{meta['id']}.pdf"): meta for meta in jobs}
+        futures = {
+            pool.submit(generate_one, meta, out / f"ChristSupplyHolyBible-{meta['id']}.pdf", args.force): meta
+            for meta in jobs
+        }
         for fut in as_completed(futures):
             result = fut.result()
             results.append(result)
             print(f"{result['status']:6} {result['id']} {result.get('bytes', '')} {result.get('error', '')}", flush=True)
+            if len(results) % 25 == 0:
+                (out / "progress.json").write_text(
+                    json.dumps({"done": len(results), "total": len(jobs), "ok": sum(1 for r in results if r["status"] in {"ok", "exists"})}, indent=2),
+                    encoding="utf-8",
+                )
     ok = sum(1 for r in results if r["status"] in {"ok", "exists"})
     (out / "build-log.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
-    index_rows = "\n".join(
-        f"<li><a href='ChristSupplyHolyBible-{r['id']}.pdf'>{r['id']}</a> — {r['status']}</li>"
-        for r in sorted(results, key=lambda x: x["id"])
-    )
-    (out / "index.html").write_text(
-        f"<!doctype html><meta charset='utf-8'><title>{BRAND}</title><h1>{BRAND}</h1><p>{CREDIT}</p><p>{SITE} · {ok}/{len(results)} PDFs</p><ul>{index_rows}</ul>",
-        encoding="utf-8",
-    )
+    write_index(out, catalog, results)
     print(f"done {ok}/{len(results)} -> {out}")
 
 

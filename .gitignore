@@ -4,6 +4,8 @@ __pycache__/
 .cache/
 pdfs/.chrome-profile/
 pdfs/holy-bibles/*.pdf
+pdfs/holy-bibles/*.pdf.tmp
+pdfs/holy-bibles/progress.json
 
 # Compiled source #
 ###################

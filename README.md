@@ -17,7 +17,8 @@ Every Bible page — on screen, in TXT, and in print — is marked **ChristSuppl
 Open, redistributable texts from [eBible.org](https://ebible.org) (1,291) plus 9 public-domain editions from getBible, written as print PDFs in `pdfs/holy-bibles/`.
 
 ```bash
-python3 scripts/make_holy_bible_pdfs.py --workers 8
+python3 -m pip install -r requirements.txt
+python3 scripts/make_holy_bible_pdfs.py --workers 4
 python3 scripts/make_holy_bible_pdfs.py --only engwebp
 ```
 
