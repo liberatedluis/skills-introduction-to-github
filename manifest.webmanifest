@@ -1,0 +1,10 @@
+{
+  "name": "Christ Supply Bible",
+  "short_name": "ChristSupply",
+  "description": "Christ Supply Bible — built by Cursor with Liberated. ChristSupply.Net",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#020402",
+  "theme_color": "#041208",
+  "lang": "en"
+}
