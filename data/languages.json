@@ -1,0 +1,5435 @@
+{
+  "brand": "Christ Supply Bible",
+  "credit": "built by Cursor with Liberated",
+  "site": "ChristSupply.Net",
+  "siteUrl": "https://christsupply.net",
+  "count": 300,
+  "withText": 130,
+  "languages": [
+    {
+      "rank": 1,
+      "iso": "eng",
+      "name": "English",
+      "native": "English",
+      "speakersM": 1490.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Worldwide",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "WEB",
+          "name": "World English Bible"
+        },
+        {
+          "kind": "getbible",
+          "id": "kjv",
+          "name": "kjv"
+        },
+        {
+          "kind": "ebible",
+          "id": "engwebp",
+          "name": "World English Bible",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 2,
+      "iso": "cmn",
+      "name": "Mandarin Chinese",
+      "native": "普通话",
+      "speakersM": 1180.0,
+      "script": "Hans",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "PCBS",
+          "name": "Peking Committee Bible 1899"
+        },
+        {
+          "kind": "getbible",
+          "id": "cus",
+          "name": "cus"
+        },
+        {
+          "kind": "ebible",
+          "id": "cmnswcb",
+          "name": "世界中文圣经",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 3,
+      "iso": "hin",
+      "name": "Hindi",
+      "native": "हिन्दी",
+      "speakersM": 611.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "HIOV",
+          "name": "Hindi O.V."
+        },
+        {
+          "kind": "ebible",
+          "id": "hin2017",
+          "name": "इंडियन रिवाइज्ड वर्जन (IRV) हिंदी - 2019",
+          "copyright": "Copyright © 2017, 2018, 2019 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 4,
+      "iso": "spa",
+      "name": "Spanish",
+      "native": "Español",
+      "speakersM": 561.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Worldwide",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "RV2004",
+          "name": "Reina Valera Gómez 2004"
+        },
+        {
+          "kind": "getbible",
+          "id": "valera",
+          "name": "valera"
+        },
+        {
+          "kind": "ebible",
+          "id": "spaRV1909",
+          "name": "Santa Biblia — Reina Valera 1909",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 5,
+      "iso": "arb",
+      "name": "Standard Arabic",
+      "native": "العربية الفصحى",
+      "speakersM": 335.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "MENA",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "SVD",
+          "name": "Smith and Van Dyke"
+        },
+        {
+          "kind": "getbible",
+          "id": "arabicsv",
+          "name": "arabicsv"
+        },
+        {
+          "kind": "ebible",
+          "id": "arb-vd",
+          "name": "الكتاب المقدس باللغة العربية، فان دايك",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 6,
+      "iso": "fra",
+      "name": "French",
+      "native": "Français",
+      "speakersM": 334.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Worldwide",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "FRLSG",
+          "name": "Bible Segond 1910"
+        },
+        {
+          "kind": "getbible",
+          "id": "ls1910",
+          "name": "ls1910"
+        },
+        {
+          "kind": "ebible",
+          "id": "frasbl",
+          "name": "Sainte Bible libre pour le monde",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 7,
+      "iso": "ben",
+      "name": "Bengali",
+      "native": "বাংলা",
+      "speakersM": 274.0,
+      "script": "Beng",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "benobcv",
+          "name": "Biblica® মুক্তভাবে বাংলা সমকালীন সংস্করণের",
+          "copyright": "Copyright © 2022 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 8,
+      "iso": "por",
+      "name": "Portuguese",
+      "native": "Português",
+      "speakersM": 269.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Worldwide",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "TB10",
+          "name": "Tradução Brasileira 2010"
+        },
+        {
+          "kind": "getbible",
+          "id": "almeida",
+          "name": "almeida"
+        },
+        {
+          "kind": "ebible",
+          "id": "porbrbsl",
+          "name": "Bíblia Portuguesa Mundial",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 9,
+      "iso": "ind",
+      "name": "Indonesian",
+      "native": "Bahasa Indonesia",
+      "speakersM": 255.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "TB",
+          "name": "Terjemahan Baru"
+        },
+        {
+          "kind": "ebible",
+          "id": "indags",
+          "name": "Alkitab Gratis untuk Semua",
+          "copyright": "Copyright © 2021-2023 Jonathan Gallagher",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 10,
+      "iso": "urd",
+      "name": "Urdu",
+      "native": "اردو",
+      "speakersM": 246.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "urd",
+          "name": "इंडियन रिवाइज्ड वर्जन (IRV) उर्दू - 2019",
+          "copyright": "Copyright © 2019 Bridge Connectivity Solutions Pvt. Ltd.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 11,
+      "iso": "rus",
+      "name": "Russian",
+      "native": "Русский",
+      "speakersM": 210.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Eurasia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "SYNOD",
+          "name": "Синодальный перевод"
+        },
+        {
+          "kind": "getbible",
+          "id": "synodal",
+          "name": "synodal"
+        },
+        {
+          "kind": "ebible",
+          "id": "russyn",
+          "name": "Синодальный перевод",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 12,
+      "iso": "deu",
+      "name": "German",
+      "native": "Deutsch",
+      "speakersM": 133.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "LUT",
+          "name": "Luther 1912"
+        },
+        {
+          "kind": "getbible",
+          "id": "luther1545",
+          "name": "luther1545"
+        },
+        {
+          "kind": "ebible",
+          "id": "deuelo",
+          "name": "Darby Unrevidierte Elberfelder",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 13,
+      "iso": "jpn",
+      "name": "Japanese",
+      "native": "日本語",
+      "speakersM": 126.0,
+      "script": "Jpan",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "JPKJV",
+          "name": "口語訳聖書 1954/1955"
+        },
+        {
+          "kind": "getbible",
+          "id": "japkougo",
+          "name": "japkougo"
+        },
+        {
+          "kind": "ebible",
+          "id": "jpnm",
+          "name": "フリーダム・バイブル",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 14,
+      "iso": "pcm",
+      "name": "Nigerian Pidgin",
+      "native": "Naijá",
+      "speakersM": 121.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "pcm",
+          "name": "Nigerian Pidgin",
+          "copyright": "Copyright © 2019 Wycliffe Bible Translators, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 15,
+      "iso": "arz",
+      "name": "Egyptian Arabic",
+      "native": "مصرى",
+      "speakersM": 118.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "North Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 16,
+      "iso": "mar",
+      "name": "Marathi",
+      "native": "मराठी",
+      "speakersM": 99.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "mar",
+          "name": "इंडियन रीवाइज्ड वर्जन (IRV) - मराठी",
+          "copyright": "Copyright © 2017, 2019 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 17,
+      "iso": "tel",
+      "name": "Telugu",
+      "native": "తెలుగు",
+      "speakersM": 96.0,
+      "script": "Telu",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "tel2017",
+          "name": "ఇండియన్ రివైజ్డ్ వెర్షన్ (IRV) - తెలుగు -2019",
+          "copyright": "Copyright © 2017, 2019 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 18,
+      "iso": "tur",
+      "name": "Turkish",
+      "native": "Türkçe",
+      "speakersM": 90.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "turkish",
+          "name": "turkish"
+        },
+        {
+          "kind": "ebible",
+          "id": "turytc",
+          "name": "Yorumsuz Türkçe Çeviri (YTC)",
+          "copyright": "Copyright © 2023-2025 İsmail Serinken and eBible.org",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 19,
+      "iso": "tam",
+      "name": "Tamil",
+      "native": "தமிழ்",
+      "speakersM": 87.0,
+      "script": "Taml",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "TAMOVR",
+          "name": "Tamil O.V."
+        },
+        {
+          "kind": "ebible",
+          "id": "tam2017",
+          "name": "இண்டியன் ரிவைஸ்டு வெர்ஸன் (IRV) - தமிழ்",
+          "copyright": "Copyright © 2017, 2019 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 20,
+      "iso": "yue",
+      "name": "Yue Chinese",
+      "native": "粵語",
+      "speakersM": 86.0,
+      "script": "Hant",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "CUV",
+          "name": "Chinese Union Traditional"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 21,
+      "iso": "vie",
+      "name": "Vietnamese",
+      "native": "Tiếng Việt",
+      "speakersM": 86.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "VI1934",
+          "name": "Kinh Thánh 1934"
+        },
+        {
+          "kind": "getbible",
+          "id": "vietnamese",
+          "name": "vietnamese"
+        },
+        {
+          "kind": "ebible",
+          "id": "vie1934",
+          "name": "Kinh Thánh",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 22,
+      "iso": "wuu",
+      "name": "Wu Chinese",
+      "native": "吴语",
+      "speakersM": 83.0,
+      "script": "Hans",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 23,
+      "iso": "kor",
+      "name": "Korean",
+      "native": "한국어",
+      "speakersM": 82.0,
+      "script": "Kore",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "KRV",
+          "name": "개역한글"
+        },
+        {
+          "kind": "getbible",
+          "id": "korean",
+          "name": "korean"
+        },
+        {
+          "kind": "ebible",
+          "id": "kor",
+          "name": "한국어 성경",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 24,
+      "iso": "pnb",
+      "name": "Western Punjabi",
+      "native": "پنجابی",
+      "speakersM": 90.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 25,
+      "iso": "jav",
+      "name": "Javanese",
+      "native": "Basa Jawa",
+      "speakersM": 84.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 26,
+      "iso": "ita",
+      "name": "Italian",
+      "native": "Italiano",
+      "speakersM": 68.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "NR06",
+          "name": "Nuova Riveduta 2006"
+        },
+        {
+          "kind": "getbible",
+          "id": "giovanni",
+          "name": "giovanni"
+        },
+        {
+          "kind": "ebible",
+          "id": "ita1927",
+          "name": "Riveduta Bibbia 1927",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 27,
+      "iso": "hau",
+      "name": "Hausa",
+      "native": "Hausa",
+      "speakersM": 77.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "hausa",
+          "name": "Biblica® Buɗaɗɗen Littafi Mai Tsarki, Sabon Rai Don Kowa™",
+          "copyright": "Copyright © 2009, 2020 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 28,
+      "iso": "tha",
+      "name": "Thai",
+      "native": "ไทย",
+      "speakersM": 61.0,
+      "script": "Thai",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "thai",
+          "name": "thai"
+        },
+        {
+          "kind": "ebible",
+          "id": "thaKJV",
+          "name": "พระคัมภีร์ภาษาไทยฉบับ KJV",
+          "copyright": "Copyright © 2003 Philip Pope",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 29,
+      "iso": "guj",
+      "name": "Gujarati",
+      "native": "ગુજરાતી",
+      "speakersM": 62.0,
+      "script": "Gujr",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "guj2017",
+          "name": "ઇન્ડિયન રીવાઇઝ્ડ વર્ઝન ગુજરાતી - 2019",
+          "copyright": "Copyright © 2019 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 30,
+      "iso": "pes",
+      "name": "Iranian Persian",
+      "native": "فارسی",
+      "speakersM": 77.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "POV",
+          "name": "Persian Old Version"
+        },
+        {
+          "kind": "ebible",
+          "id": "pesOPV",
+          "name": "ترجمه قدیم",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 31,
+      "iso": "bho",
+      "name": "Bhojpuri",
+      "native": "भोजपुरी",
+      "speakersM": 53.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 32,
+      "iso": "kan",
+      "name": "Kannada",
+      "native": "ಕನ್ನಡ",
+      "speakersM": 59.0,
+      "script": "Knda",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "KNCL",
+          "name": "Kannada C.L."
+        },
+        {
+          "kind": "ebible",
+          "id": "kanokcv",
+          "name": "Biblica® ಉಚಿತ ಕನ್ನಡ ಸಮಕಾಲಿಕ ಭಾಷಾಂತರ",
+          "copyright": "Copyright © 1999, 2020, 2022 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 33,
+      "iso": "apc",
+      "name": "Levantine Arabic",
+      "native": "الشامية",
+      "speakersM": 55.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 34,
+      "iso": "swh",
+      "name": "Swahili",
+      "native": "Kiswahili",
+      "speakersM": 200.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "SUV",
+          "name": "Swahili Union Version 1997"
+        },
+        {
+          "kind": "getbible",
+          "id": "swahili",
+          "name": "swahili"
+        },
+        {
+          "kind": "ebible",
+          "id": "swhonen",
+          "name": "Biblica® Toleo Wazi Neno: Bibilia Takatifu™",
+          "copyright": "Copyright © 1984, 1989, 2009, 2015 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 35,
+      "iso": "pan",
+      "name": "Eastern Punjabi",
+      "native": "ਪੰਜਾਬੀ",
+      "speakersM": 52.0,
+      "script": "Guru",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "pan",
+          "name": "ਇੰਡਿਅਨ ਰਿਵਾਇਜ਼ਡ ਵਰਜ਼ਨ (IRV) - ਪੰਜਾਬੀ",
+          "copyright": "Copyright © 2017, 2019 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 36,
+      "iso": "fil",
+      "name": "Filipino",
+      "native": "Filipino",
+      "speakersM": 83.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "tglulb",
+          "name": "banal na Bibliya",
+          "copyright": "Copyright © 2018 Door43 World Missions Community",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 37,
+      "iso": "pol",
+      "name": "Polish",
+      "native": "Polski",
+      "speakersM": 45.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "BG",
+          "name": "Biblia Gdańska 1881"
+        },
+        {
+          "kind": "getbible",
+          "id": "polgdanska",
+          "name": "polgdanska"
+        },
+        {
+          "kind": "ebible",
+          "id": "polubg",
+          "name": "Święta Biblia",
+          "copyright": "Copyright © 2018 Fundacja Wrota Nadziei",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 38,
+      "iso": "yor",
+      "name": "Yoruba",
+      "native": "Yorùbá",
+      "speakersM": 47.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "yor",
+          "name": "Biblica® ní oore ọ̀fẹ́ láti lo Bíbélì Mímọ́ ní Èdè Yorùbá Òde-Òní",
+          "copyright": "Copyright © 2009, 2017 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 39,
+      "iso": "ukr",
+      "name": "Ukrainian",
+      "native": "Українська",
+      "speakersM": 41.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "UKRK",
+          "name": "Куліш / Нечуй-Левицький / Пулюй 1903"
+        },
+        {
+          "kind": "getbible",
+          "id": "ukrogienko",
+          "name": "ukrogienko"
+        },
+        {
+          "kind": "ebible",
+          "id": "ukr1871",
+          "name": "Біблія в пер. П.Куліша та І.Пулюя, 1905",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 40,
+      "iso": "mal",
+      "name": "Malayalam",
+      "native": "മലയാളം",
+      "speakersM": 38.0,
+      "script": "Mlym",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "MOV",
+          "name": "Malayalam O.V."
+        },
+        {
+          "kind": "ebible",
+          "id": "mal",
+          "name": "ഇന്ത്യൻ റിവൈസ്ഡ് വേർഷൻ (IRV) - മലയാളം",
+          "copyright": "Copyright © 2017, 2019 Bridge Communication Systems",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 41,
+      "iso": "ory",
+      "name": "Odia",
+      "native": "ଓଡ଼ିଆ",
+      "speakersM": 38.0,
+      "script": "Orya",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "ory",
+          "name": "ଇଣ୍ଡିୟାନ ରିୱାଇସ୍ଡ୍ ୱରସନ୍ ଓଡିଆ",
+          "copyright": "Copyright © 2017, 2019, 2021 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 42,
+      "iso": "mya",
+      "name": "Burmese",
+      "native": "မြန်မာ",
+      "speakersM": 43.0,
+      "script": "Mymr",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "judson",
+          "name": "judson"
+        },
+        {
+          "kind": "ebible",
+          "id": "myajvb",
+          "name": "မြန်မာကျမ်းစာ",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 43,
+      "iso": "pbu",
+      "name": "Northern Pashto",
+      "native": "پښتو",
+      "speakersM": 40.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 44,
+      "iso": "snd",
+      "name": "Sindhi",
+      "native": "سنڌي",
+      "speakersM": 32.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 45,
+      "iso": "amh",
+      "name": "Amharic",
+      "native": "አማርኛ",
+      "speakersM": 57.0,
+      "script": "Ethi",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "amh",
+          "name": "መጽሐፍ ቅዱስ",
+          "copyright": "Copyright © 1962, 2003 United Bible Societies",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 46,
+      "iso": "uzb",
+      "name": "Uzbek",
+      "native": "Oʻzbekcha",
+      "speakersM": 36.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 47,
+      "iso": "ron",
+      "name": "Romanian",
+      "native": "Română",
+      "speakersM": 25.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "VDCL",
+          "name": "Cornilescu 1931"
+        },
+        {
+          "kind": "getbible",
+          "id": "cornilescu",
+          "name": "cornilescu"
+        },
+        {
+          "kind": "ebible",
+          "id": "ronbtf",
+          "name": "Biblia Traducerea Fidela",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 48,
+      "iso": "azj",
+      "name": "North Azerbaijani",
+      "native": "Azərbaycan",
+      "speakersM": 24.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 49,
+      "iso": "ceb",
+      "name": "Cebuano",
+      "native": "Cebuano",
+      "speakersM": 28.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "cebulb",
+          "name": "Balaan nga Bibliya",
+          "copyright": "Copyright © 2019 Door43 World Missions Community",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 50,
+      "iso": "nld",
+      "name": "Dutch",
+      "native": "Nederlands",
+      "speakersM": 30.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "DSV",
+          "name": "Statenvertaling 1619"
+        },
+        {
+          "kind": "getbible",
+          "id": "statenvertaling",
+          "name": "statenvertaling"
+        },
+        {
+          "kind": "ebible",
+          "id": "nldnbg",
+          "name": "NBG-vertaling 1951",
+          "copyright": "Copyright © 2024 Jantinus Daling",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 51,
+      "iso": "kmr",
+      "name": "Kurmanji Kurdish",
+      "native": "Kurmancî",
+      "speakersM": 20.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 52,
+      "iso": "mag",
+      "name": "Magahi",
+      "native": "मगही",
+      "speakersM": 21.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 53,
+      "iso": "npi",
+      "name": "Nepali",
+      "native": "नेपाली",
+      "speakersM": 32.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "NNRV",
+          "name": "Nepali New Revised Version"
+        },
+        {
+          "kind": "ebible",
+          "id": "npiulb",
+          "name": "पवित्र बाइबल",
+          "copyright": "Copyright © 2019 Door43 World Missions Community",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 54,
+      "iso": "sin",
+      "name": "Sinhala",
+      "native": "සිංහල",
+      "speakersM": 17.0,
+      "script": "Sinh",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 55,
+      "iso": "khm",
+      "name": "Khmer",
+      "native": "ភាសាខ្មែរ",
+      "speakersM": 18.0,
+      "script": "Khmr",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "khm",
+          "name": "ព្រះគម្ពីរខ្មែរបច្ចុប្បន្ន ២០០៥",
+          "copyright": "Copyright © 1997, 2005 Bible Society in Cambodia",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 56,
+      "iso": "mad",
+      "name": "Madurese",
+      "native": "Madhura",
+      "speakersM": 14.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 57,
+      "iso": "som",
+      "name": "Somali",
+      "native": "Soomaali",
+      "speakersM": 22.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "som",
+          "name": "Kitaabka Quduuska Ah",
+          "copyright": "Copyright © 1979, 2008 Society for International Ministries -- Kenya",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 58,
+      "iso": "aka",
+      "name": "Akan",
+      "native": "Akan",
+      "speakersM": 11.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "twi",
+          "name": "Biblica® Wonhia ɛho kwamma nhoma Akuapem Twi Nkwa Asɛm",
+          "copyright": "Copyright © 1996, 2020 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 59,
+      "iso": "ibo",
+      "name": "Igbo",
+      "native": "Igbo",
+      "speakersM": 31.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "ibo",
+          "name": "Biblica® Baịbụlụ Nsọ nʼIgbo Ndị Ugbu a nke dịrị onye ọbụla ịgụ",
+          "copyright": "Copyright © 2020 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 60,
+      "iso": "zsm",
+      "name": "Standard Malay",
+      "native": "Bahasa Melayu",
+      "speakersM": 80.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "zlmKSZI",
+          "name": "Kitab Suci Zabur dan Injil",
+          "copyright": "Copyright © 2013 Pengamat Kitab Mulia",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 61,
+      "iso": "hun",
+      "name": "Hungarian",
+      "native": "Magyar",
+      "speakersM": 13.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "KB",
+          "name": "Károli 1908"
+        },
+        {
+          "kind": "getbible",
+          "id": "karoli",
+          "name": "karoli"
+        },
+        {
+          "kind": "ebible",
+          "id": "hun",
+          "name": "Biblica® Nyitott Újszövetség: élet, igazság és világosság",
+          "copyright": "Copyright © 2021 Biblica, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 62,
+      "iso": "ell",
+      "name": "Greek",
+      "native": "Ελληνικά",
+      "speakersM": 13.0,
+      "script": "Grek",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "LXX",
+          "name": "Septuagint"
+        },
+        {
+          "kind": "getbible",
+          "id": "modern-greek",
+          "name": "modern-greek"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 63,
+      "iso": "ces",
+      "name": "Czech",
+      "native": "Čeština",
+      "speakersM": 13.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "CSP09",
+          "name": "Český studijní překlad"
+        },
+        {
+          "kind": "getbible",
+          "id": "bkr",
+          "name": "bkr"
+        },
+        {
+          "kind": "ebible",
+          "id": "ces1613",
+          "name": "Bible Kralická 1613",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 64,
+      "iso": "bel",
+      "name": "Belarusian",
+      "native": "Беларуская",
+      "speakersM": 5.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "bel",
+          "name": "Біблія (пераклад А.Бокуна)",
+          "copyright": "Copyright © 2016-2023 John the Forerunner Church of Christians of Evangelical Faith of Minsk City",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 65,
+      "iso": "kaz",
+      "name": "Kazakh",
+      "native": "Қазақша",
+      "speakersM": 16.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Central Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 66,
+      "iso": "tgk",
+      "name": "Tajik",
+      "native": "Тоҷикӣ",
+      "speakersM": 8.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Central Asia",
+      "coverage": "portions",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "tgk",
+          "name": "Хушхабар",
+          "copyright": "Copyright © 2010, 2014 Фонди «Калом»",
+          "otBooks": 2,
+          "ntBooks": 11
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 67,
+      "iso": "swe",
+      "name": "Swedish",
+      "native": "Svenska",
+      "speakersM": 13.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "SFB2015",
+          "name": "Svenska Folkbibeln 2015"
+        },
+        {
+          "kind": "getbible",
+          "id": "swedish",
+          "name": "swedish"
+        },
+        {
+          "kind": "ebible",
+          "id": "swe",
+          "name": "Svenska Kärnbibeln - en expanderad översättning",
+          "copyright": "Copyright © 2017-2024 Svenska Kärnbibeln",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 68,
+      "iso": "heb",
+      "name": "Hebrew",
+      "native": "עברית",
+      "speakersM": 9.0,
+      "script": "Hebr",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "WLC",
+          "name": "Westminster Leningrad Codex"
+        },
+        {
+          "kind": "ebible",
+          "id": "heb",
+          "name": "תנ ך עברי מודרני",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 69,
+      "iso": "cat",
+      "name": "Catalan",
+      "native": "Català",
+      "speakersM": 9.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 70,
+      "iso": "bul",
+      "name": "Bulgarian",
+      "native": "Български",
+      "speakersM": 8.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 71,
+      "iso": "dan",
+      "name": "Danish",
+      "native": "Dansk",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "danish",
+          "name": "danish"
+        },
+        {
+          "kind": "ebible",
+          "id": "dan1931",
+          "name": "Hellig Bibel",
+          "copyright": "Copyright © 1907, 1931 Det Danske Bibelselskab",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 72,
+      "iso": "fin",
+      "name": "Finnish",
+      "native": "Suomi",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "finnish1776",
+          "name": "finnish1776"
+        },
+        {
+          "kind": "ebible",
+          "id": "fin",
+          "name": "Biblica® Avoin Elävä uutinen: Uusi testamentti vapaasti kerrottuna",
+          "copyright": "Copyright © 1976 Biblica, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 73,
+      "iso": "slk",
+      "name": "Slovak",
+      "native": "Slovenčina",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "slk",
+          "name": "Biblica® Nádej pre každého, verejne dostupné",
+          "copyright": "Copyright © 1993, 2023 Biblica, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 74,
+      "iso": "nob",
+      "name": "Norwegian Bokmål",
+      "native": "Norsk bokmål",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "DNB",
+          "name": "Det Norske Bibelselskap 1930"
+        },
+        {
+          "kind": "getbible",
+          "id": "norwegian",
+          "name": "norwegian"
+        },
+        {
+          "kind": "ebible",
+          "id": "noblb",
+          "name": "Biblica® Open En Levende Bok: Det Nye Testamentet",
+          "copyright": "Copyright © 1978, 1988, 2005 Biblica, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 75,
+      "iso": "hrv",
+      "name": "Croatian",
+      "native": "Hrvatski",
+      "speakersM": 7.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "croatia",
+          "name": "croatia"
+        },
+        {
+          "kind": "ebible",
+          "id": "hrv",
+          "name": "Sveta Biblija",
+          "copyright": "public domain",
+          "otBooks": 38,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 76,
+      "iso": "srp",
+      "name": "Serbian",
+      "native": "Српски",
+      "speakersM": 12.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "srkdekavski",
+          "name": "srkdekavski"
+        },
+        {
+          "kind": "ebible",
+          "id": "srp1865",
+          "name": "Sveto Pismo ili Biblija",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 77,
+      "iso": "bos",
+      "name": "Bosnian",
+      "native": "Bosanski",
+      "speakersM": 3.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 78,
+      "iso": "lit",
+      "name": "Lithuanian",
+      "native": "Lietuvių",
+      "speakersM": 3.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "lithuanian",
+          "name": "lithuanian"
+        },
+        {
+          "kind": "ebible",
+          "id": "lit",
+          "name": "Tikinčiųjų paveldo vertimas",
+          "copyright": "Copyright © 2022-2024 Believers' Bible Society, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 79,
+      "iso": "lav",
+      "name": "Latvian",
+      "native": "Latviešu",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "latvian",
+          "name": "latvian"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 80,
+      "iso": "ekk",
+      "name": "Estonian",
+      "native": "Eesti",
+      "speakersM": 1.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "estonian",
+          "name": "estonian"
+        },
+        {
+          "kind": "ebible",
+          "id": "ekk",
+          "name": "Biblica® Vaba kasutusega Uus Testament, Pühakiri kaasaegses eesti keeles",
+          "copyright": "Copyright © 2022 Biblica, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 81,
+      "iso": "slv",
+      "name": "Slovenian",
+      "native": "Slovenščina",
+      "speakersM": 2.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 82,
+      "iso": "als",
+      "name": "Albanian Tosk",
+      "native": "Shqip",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "alb",
+          "name": "alb"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 83,
+      "iso": "hye",
+      "name": "Armenian",
+      "native": "Հայերեն",
+      "speakersM": 6.0,
+      "script": "Armn",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "westernarmenian",
+          "name": "westernarmenian"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 84,
+      "iso": "kat",
+      "name": "Georgian",
+      "native": "ქართული",
+      "speakersM": 4.0,
+      "script": "Geor",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 85,
+      "iso": "khk",
+      "name": "Halh Mongolian",
+      "native": "Монгол",
+      "speakersM": 6.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "mongolian",
+          "name": "mongolian"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 86,
+      "iso": "lao",
+      "name": "Lao",
+      "native": "ລາວ",
+      "speakersM": 7.0,
+      "script": "Laoo",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 87,
+      "iso": "hat",
+      "name": "Haitian Creole",
+      "native": "Kreyòl ayisyen",
+      "speakersM": 12.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Caribbean",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "hatbsa",
+          "name": "Bib Sen An",
+          "copyright": "Copyright © 2017-2023 Ron Smith",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 88,
+      "iso": "hil",
+      "name": "Hiligaynon",
+      "native": "Ilonggo",
+      "speakersM": 9.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "hil",
+          "name": "Biblica® Libre Ang Pulong Sang Dios",
+          "copyright": "Copyright © 1996, 2006, 2011, 2022 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 89,
+      "iso": "war",
+      "name": "Waray",
+      "native": "Winaray",
+      "speakersM": 3.6,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 90,
+      "iso": "min",
+      "name": "Minangkabau",
+      "native": "Baso Minang",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 91,
+      "iso": "sun",
+      "name": "Sundanese",
+      "native": "Basa Sunda",
+      "speakersM": 42.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 92,
+      "iso": "ban",
+      "name": "Balinese",
+      "native": "Basa Bali",
+      "speakersM": 3.3,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 93,
+      "iso": "bug",
+      "name": "Buginese",
+      "native": "Basa Ugi",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 94,
+      "iso": "wol",
+      "name": "Wolof",
+      "native": "Wolof",
+      "speakersM": 12.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "wolmbs",
+          "name": "Kàddug Yàlla",
+          "copyright": "Copyright © 2025 La Mission Baptiste du Sénégal",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 95,
+      "iso": "twi",
+      "name": "Twi",
+      "native": "Twi",
+      "speakersM": 9.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "twi",
+          "name": "Biblica® Wonhia ɛho kwamma nhoma Akuapem Twi Nkwa Asɛm",
+          "copyright": "Copyright © 1996, 2020 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 96,
+      "iso": "ewe",
+      "name": "Ewe",
+      "native": "Eʋegbe",
+      "speakersM": 7.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "ewe",
+          "name": "Biblica® Se aɖeke mebla Biblia zazã o Agbenya La™",
+          "copyright": "Copyright © 1988, 2006, 2020 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 97,
+      "iso": "mos",
+      "name": "Mossi",
+      "native": "Mòoré",
+      "speakersM": 8.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 98,
+      "iso": "bam",
+      "name": "Bambara",
+      "native": "Bamanankan",
+      "speakersM": 14.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 99,
+      "iso": "lin",
+      "name": "Lingala",
+      "native": "Lingála",
+      "speakersM": 20.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "lin",
+          "name": "Biblica® Salela na bonsomi Mokanda na Bomoi",
+          "copyright": "Copyright © 2020 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 100,
+      "iso": "lua",
+      "name": "Luba-Kasai",
+      "native": "Tshiluba",
+      "speakersM": 7.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 101,
+      "iso": "kik",
+      "name": "Kikuyu",
+      "native": "Gĩkũyũ",
+      "speakersM": 8.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "kik",
+          "name": "Biblica® Kiugo Gĩtheru Kĩa Ngai Kĩhingũre",
+          "copyright": "Copyright © 2013 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 102,
+      "iso": "luo",
+      "name": "Dholuo",
+      "native": "Dholuo",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "luo",
+          "name": "Biblica® Ochiw Thuolo Motingʼo Loko Manyien™",
+          "copyright": "Copyright © 2020 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 103,
+      "iso": "nya",
+      "name": "Nyanja",
+      "native": "Chichewa",
+      "speakersM": 14.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "nya",
+          "name": "Biblica® Tsekulani Mawu a Mulungu mu Chichewa Chalero",
+          "copyright": "Copyright © 2016, 2002 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 104,
+      "iso": "sna",
+      "name": "Shona",
+      "native": "chiShona",
+      "speakersM": 11.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "shona",
+          "name": "shona"
+        },
+        {
+          "kind": "ebible",
+          "id": "sna",
+          "name": "Biblica® Bhaibheri Dzvene Rakasununguka MuChiShona Chanhasi 2017",
+          "copyright": "Copyright © 2005, 2018 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 105,
+      "iso": "sot",
+      "name": "Southern Sotho",
+      "native": "Sesotho",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 106,
+      "iso": "tsn",
+      "name": "Tswana",
+      "native": "Setswana",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "tsn",
+          "name": "Biblica® Open Lefoko: La Botshelo Kgolagano e Ntsha",
+          "copyright": "Copyright © 1993 Biblica, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 107,
+      "iso": "tso",
+      "name": "Tsonga",
+      "native": "Xitsonga",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 108,
+      "iso": "xho",
+      "name": "Xhosa",
+      "native": "isiXhosa",
+      "speakersM": 12.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 109,
+      "iso": "zul",
+      "name": "Zulu",
+      "native": "isiZulu",
+      "speakersM": 14.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 110,
+      "iso": "afr",
+      "name": "Afrikaans",
+      "native": "Afrikaans",
+      "speakersM": 17.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "AFR53",
+          "name": "Afrikaans 1933/1953"
+        },
+        {
+          "kind": "getbible",
+          "id": "aov",
+          "name": "aov"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 111,
+      "iso": "nso",
+      "name": "Northern Sotho",
+      "native": "Sesotho sa Leboa",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 112,
+      "iso": "umb",
+      "name": "Umbundu",
+      "native": "Úmbúndú",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 113,
+      "iso": "bem",
+      "name": "Bemba",
+      "native": "IciBemba",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 114,
+      "iso": "run",
+      "name": "Rundi",
+      "native": "Ikirundi",
+      "speakersM": 13.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 115,
+      "iso": "kin",
+      "name": "Kinyarwanda",
+      "native": "Ikinyarwanda",
+      "speakersM": 15.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 116,
+      "iso": "lug",
+      "name": "Ganda",
+      "native": "Luganda",
+      "speakersM": 11.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "lug",
+          "name": "Biblica® Bayibuli Entukuvu, Endagaano Enkadde nʼEndagaano Empya ekwatiddwa ku katambi™",
+          "copyright": "Copyright © 1984, 1986, 1993, 2014 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 117,
+      "iso": "tir",
+      "name": "Tigrinya",
+      "native": "ትግርኛ",
+      "speakersM": 9.0,
+      "script": "Ethi",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 118,
+      "iso": "orm",
+      "name": "Oromo",
+      "native": "Afaan Oromoo",
+      "speakersM": 37.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 119,
+      "iso": "arq",
+      "name": "Algerian Arabic",
+      "native": "الدارجة الجزائرية",
+      "speakersM": 36.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "North Africa",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "arq",
+          "name": "العهد الجديد باللهجة الجزائرية",
+          "copyright": "Copyright © 2018 United Bible Societies",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 120,
+      "iso": "ary",
+      "name": "Moroccan Arabic",
+      "native": "الدارجة المغربية",
+      "speakersM": 33.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "North Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 121,
+      "iso": "aeb",
+      "name": "Tunisian Arabic",
+      "native": "تونسي",
+      "speakersM": 12.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "North Africa",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "aeb",
+          "name": "العهد الجديد بالدارجة التونسية 2022",
+          "copyright": "Copyright © 2020 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 122,
+      "iso": "afb",
+      "name": "Gulf Arabic",
+      "native": "خليجي",
+      "speakersM": 9.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 123,
+      "iso": "acw",
+      "name": "Hijazi Arabic",
+      "native": "حجازي",
+      "speakersM": 15.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 124,
+      "iso": "ars",
+      "name": "Najdi Arabic",
+      "native": "نجدي",
+      "speakersM": 18.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 125,
+      "iso": "apd",
+      "name": "Sudanese Arabic",
+      "native": "سودانية",
+      "speakersM": 32.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "North Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 126,
+      "iso": "acm",
+      "name": "Mesopotamian Arabic",
+      "native": "عراقي",
+      "speakersM": 15.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 127,
+      "iso": "tgl",
+      "name": "Tagalog",
+      "native": "Tagalog",
+      "speakersM": 45.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "tagalog",
+          "name": "tagalog"
+        },
+        {
+          "kind": "ebible",
+          "id": "tglulb",
+          "name": "banal na Bibliya",
+          "copyright": "Copyright © 2018 Door43 World Missions Community",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 128,
+      "iso": "ilo",
+      "name": "Iloko",
+      "native": "Ilokano",
+      "speakersM": 9.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "iloulb",
+          "name": "Ti Biblia",
+          "copyright": "Copyright © 2019 Door43 World Missions Community",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 129,
+      "iso": "bcl",
+      "name": "Central Bikol",
+      "native": "Bikol",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 130,
+      "iso": "pam",
+      "name": "Pampanga",
+      "native": "Kapampangan",
+      "speakersM": 2.8,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 131,
+      "iso": "pag",
+      "name": "Pangasinan",
+      "native": "Pangasinan",
+      "speakersM": 1.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 132,
+      "iso": "ace",
+      "name": "Acehnese",
+      "native": "Bahsa Acèh",
+      "speakersM": 3.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 133,
+      "iso": "bjn",
+      "name": "Banjar",
+      "native": "Bahasa Banjar",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "portions",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "bjn",
+          "name": "Bahasa Banjar",
+          "copyright": "Copyright © 2019 Wycliffe Bible Translators, Inc.",
+          "otBooks": 4,
+          "ntBooks": 1
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 134,
+      "iso": "bbc",
+      "name": "Batak Toba",
+      "native": "Hata Batak Toba",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 135,
+      "iso": "sas",
+      "name": "Sasak",
+      "native": "Sasak",
+      "speakersM": 2.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 136,
+      "iso": "mak",
+      "name": "Makasar",
+      "native": "Basa Mangkasara",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 137,
+      "iso": "tet",
+      "name": "Tetum",
+      "native": "Tetun",
+      "speakersM": 0.8,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "tet",
+          "name": "Tetun Alkitab",
+          "copyright": "Copyright © 2013 Unit Bahasa dan Budaya",
+          "otBooks": 1,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 138,
+      "iso": "hsn",
+      "name": "Xiang Chinese",
+      "native": "湘语",
+      "speakersM": 38.0,
+      "script": "Hans",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 139,
+      "iso": "gan",
+      "name": "Gan Chinese",
+      "native": "赣语",
+      "speakersM": 22.0,
+      "script": "Hans",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 140,
+      "iso": "hak",
+      "name": "Hakka Chinese",
+      "native": "客家話",
+      "speakersM": 44.0,
+      "script": "Hant",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 141,
+      "iso": "nan",
+      "name": "Min Nan Chinese",
+      "native": "閩南語",
+      "speakersM": 50.0,
+      "script": "Hant",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 142,
+      "iso": "cjy",
+      "name": "Jinyu Chinese",
+      "native": "晋语",
+      "speakersM": 45.0,
+      "script": "Hans",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 143,
+      "iso": "cdo",
+      "name": "Min Dong Chinese",
+      "native": "閩東語",
+      "speakersM": 10.0,
+      "script": "Hans",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 144,
+      "iso": "asm",
+      "name": "Assamese",
+      "native": "অসমীয়া",
+      "speakersM": 15.0,
+      "script": "Beng",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "asmfb",
+          "name": "ইণ্ডিয়ান ৰিভাইচ ভাৰচন (IRV) আচামিচ - 2019",
+          "copyright": "Copyright © 2017, 2018 Bridge Connectivity Solutions",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 145,
+      "iso": "mai",
+      "name": "Maithili",
+      "native": "मैथिली",
+      "speakersM": 34.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "mai",
+          "name": "Maithili",
+          "copyright": "Copyright © 2010 Wycliffe Bible Translators, Inc. and The Bible Society of India",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 146,
+      "iso": "awa",
+      "name": "Awadhi",
+      "native": "अवधी",
+      "speakersM": 4.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 147,
+      "iso": "hne",
+      "name": "Chhattisgarhi",
+      "native": "छत्तीसगढ़ी",
+      "speakersM": 16.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "hne",
+          "name": "Biblica® सुतंतर समकालीन छत्तीसगढ़ी अनुवाद",
+          "copyright": "Copyright © 2012, 2016, 2021, 2024 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 148,
+      "iso": "bgc",
+      "name": "Haryanvi",
+      "native": "हरियाणवी",
+      "speakersM": 13.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "bgc",
+          "name": "हरियाणवी बाइबिल",
+          "copyright": "Copyright © 2021 The Love Fellowship",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 149,
+      "iso": "mwr",
+      "name": "Marwari",
+      "native": "मारवाड़ी",
+      "speakersM": 8.0,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 150,
+      "iso": "kas",
+      "name": "Kashmiri",
+      "native": "كٲشُر",
+      "speakersM": 7.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 151,
+      "iso": "sat",
+      "name": "Santali",
+      "native": "ᱥᱟᱱᱛᱟᱲᱤ",
+      "speakersM": 7.0,
+      "script": "Olck",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 152,
+      "iso": "mni",
+      "name": "Manipuri",
+      "native": "মৈতৈলোন্",
+      "speakersM": 2.0,
+      "script": "Beng",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "mni",
+          "name": "ANOUBA WAREPNABA",
+          "copyright": "Copyright © 2022 The Word for the World International",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 153,
+      "iso": "doi",
+      "name": "Dogri",
+      "native": "डोगरी",
+      "speakersM": 2.6,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 154,
+      "iso": "kok",
+      "name": "Konkani",
+      "native": "कोंकणी",
+      "speakersM": 2.5,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 155,
+      "iso": "bod",
+      "name": "Tibetan",
+      "native": "བོད་སྐད",
+      "speakersM": 6.0,
+      "script": "Tibt",
+      "rtl": false,
+      "region": "East Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "bodn",
+          "name": "དམ་པའི་གསུང་རབ་བོད་འགྱུར་གསར་མ།",
+          "copyright": "Copyright © 2016-2023 New Tibetan Bible Translation Committee",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 156,
+      "iso": "dzo",
+      "name": "Dzongkha",
+      "native": "རྫོང་ཁ",
+      "speakersM": 0.6,
+      "script": "Tibt",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 157,
+      "iso": "new",
+      "name": "Newar",
+      "native": "नेपाल भाषा",
+      "speakersM": 0.8,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "new",
+          "name": "Newar",
+          "copyright": "Copyright © 2024 Nepal Bible Society and Wycliffe Bible Translators, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 158,
+      "iso": "brx",
+      "name": "Bodo",
+      "native": "बर'",
+      "speakersM": 1.5,
+      "script": "Deva",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 159,
+      "iso": "lus",
+      "name": "Mizo",
+      "native": "Mizo ṭawng",
+      "speakersM": 1.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 160,
+      "iso": "kha",
+      "name": "Khasi",
+      "native": "Khasi",
+      "speakersM": 1.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 161,
+      "iso": "shn",
+      "name": "Shan",
+      "native": "လိၵ်ႈတႆး",
+      "speakersM": 3.3,
+      "script": "Mymr",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 162,
+      "iso": "ksw",
+      "name": "S'gaw Karen",
+      "native": "ကညီကျိာ်",
+      "speakersM": 2.0,
+      "script": "Mymr",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 163,
+      "iso": "tts",
+      "name": "Northeastern Thai",
+      "native": "ภาษาอีสาน",
+      "speakersM": 20.0,
+      "script": "Thai",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 164,
+      "iso": "nod",
+      "name": "Northern Thai",
+      "native": "ᨣᩴᩤᨾᩮᩬᩥᨦ",
+      "speakersM": 6.0,
+      "script": "Lana",
+      "rtl": false,
+      "region": "Southeast Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "nod",
+          "name": "พระคริสตธรรมคัมภีร ภาคพันธสัญญาใหม",
+          "copyright": "Copyright © 2017 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 165,
+      "iso": "ckb",
+      "name": "Central Kurdish",
+      "native": "سۆرانی",
+      "speakersM": 8.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "ckb",
+          "name": "Biblica® وەشانی بێبەرامبەری کوردیی سۆرانیی ستاندەر",
+          "copyright": "Copyright © 2020 anonymous",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 166,
+      "iso": "prs",
+      "name": "Dari",
+      "native": "دری",
+      "speakersM": 19.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "dari",
+          "name": "dari"
+        },
+        {
+          "kind": "ebible",
+          "id": "pesOPV",
+          "name": "ترجمه قدیم",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 167,
+      "iso": "pbt",
+      "name": "Southern Pashto",
+      "native": "پښتو",
+      "speakersM": 20.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 168,
+      "iso": "bal",
+      "name": "Balochi",
+      "native": "بلوچی",
+      "speakersM": 8.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "South Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 169,
+      "iso": "tuk",
+      "name": "Turkmen",
+      "native": "Türkmençe",
+      "speakersM": 7.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 170,
+      "iso": "kir",
+      "name": "Kyrgyz",
+      "native": "Кыргызча",
+      "speakersM": 5.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Central Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 171,
+      "iso": "tat",
+      "name": "Tatar",
+      "native": "Татарча",
+      "speakersM": 5.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Eurasia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 172,
+      "iso": "bak",
+      "name": "Bashkir",
+      "native": "Башҡортса",
+      "speakersM": 1.4,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Eurasia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 173,
+      "iso": "chv",
+      "name": "Chuvash",
+      "native": "Чӑвашла",
+      "speakersM": 1.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Eurasia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 174,
+      "iso": "sah",
+      "name": "Yakut",
+      "native": "Саха тыла",
+      "speakersM": 0.5,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "North Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 175,
+      "iso": "udm",
+      "name": "Udmurt",
+      "native": "Удмурт",
+      "speakersM": 0.3,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Eurasia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 176,
+      "iso": "che",
+      "name": "Chechen",
+      "native": "Нохчийн",
+      "speakersM": 1.5,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 177,
+      "iso": "ava",
+      "name": "Avar",
+      "native": "Авар мацӏ",
+      "speakersM": 0.8,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 178,
+      "iso": "lez",
+      "name": "Lezgi",
+      "native": "Лезги",
+      "speakersM": 0.6,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 179,
+      "iso": "oss",
+      "name": "Ossetic",
+      "native": "Ирон",
+      "speakersM": 0.6,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 180,
+      "iso": "azb",
+      "name": "South Azerbaijani",
+      "native": "تۆرکجه",
+      "speakersM": 16.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "azb",
+          "name": "Azərbaycan dilində Müqəddəs Kitab",
+          "copyright": "Copyright © 2008 Müqəddəs Kitab Sirkəti",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 181,
+      "iso": "glk",
+      "name": "Gilaki",
+      "native": "گیلکی",
+      "speakersM": 2.5,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "portions",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "glk",
+          "name": "Gilaki John",
+          "copyright": "Copyright © 2014 gilakmedia.com",
+          "otBooks": 0,
+          "ntBooks": 1
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 182,
+      "iso": "mzn",
+      "name": "Mazanderani",
+      "native": "مازِرونی",
+      "speakersM": 2.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 183,
+      "iso": "lrc",
+      "name": "Northern Luri",
+      "native": "لۊری",
+      "speakersM": 1.5,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 184,
+      "iso": "lki",
+      "name": "Laki",
+      "native": "لەکی",
+      "speakersM": 1.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 185,
+      "iso": "sdh",
+      "name": "Southern Kurdish",
+      "native": "کوردی خوارین",
+      "speakersM": 3.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 186,
+      "iso": "ayl",
+      "name": "Libyan Arabic",
+      "native": "ليبي",
+      "speakersM": 4.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "North Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 187,
+      "iso": "kab",
+      "name": "Kabyle",
+      "native": "Taqbaylit",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "North Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 188,
+      "iso": "tzm",
+      "name": "Central Atlas Tamazight",
+      "native": "ⵜⴰⵎⴰⵣⵉⵖⵜ",
+      "speakersM": 3.0,
+      "script": "Tfng",
+      "rtl": false,
+      "region": "North Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 189,
+      "iso": "rif",
+      "name": "Tarifit",
+      "native": "Tmaziɣt",
+      "speakersM": 1.5,
+      "script": "Latn",
+      "rtl": true,
+      "region": "North Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "rifa",
+          "name": "أَذْلِيسْ إِقدّْسنْ",
+          "copyright": "Copyright © 2020 www.tarifit.info",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 190,
+      "iso": "shy",
+      "name": "Shawiya",
+      "native": "Tacawit",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "North Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 191,
+      "iso": "mlt",
+      "name": "Maltese",
+      "native": "Malti",
+      "speakersM": 0.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 192,
+      "iso": "isl",
+      "name": "Icelandic",
+      "native": "Íslenska",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "isl",
+          "name": "Biblica® Opna Lifandi Orð Nýja testamentið og Sálmarnir™",
+          "copyright": "Copyright © 1979, 1995 Biblica, Inc.",
+          "otBooks": 1,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 193,
+      "iso": "fao",
+      "name": "Faroese",
+      "native": "Føroyskt",
+      "speakersM": 0.07,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 194,
+      "iso": "gle",
+      "name": "Irish",
+      "native": "Gaeilge",
+      "speakersM": 1.9,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 195,
+      "iso": "gla",
+      "name": "Scottish Gaelic",
+      "native": "Gàidhlig",
+      "speakersM": 0.09,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "gaelic",
+          "name": "gaelic"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 196,
+      "iso": "cym",
+      "name": "Welsh",
+      "native": "Cymraeg",
+      "speakersM": 0.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 197,
+      "iso": "bre",
+      "name": "Breton",
+      "native": "Brezhoneg",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "portions",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "breton",
+          "name": "breton"
+        },
+        {
+          "kind": "ebible",
+          "id": "breBRG",
+          "name": "an Bibl",
+          "copyright": "public domain",
+          "otBooks": 0,
+          "ntBooks": 4
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 198,
+      "iso": "glg",
+      "name": "Galician",
+      "native": "Galego",
+      "speakersM": 2.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 199,
+      "iso": "eus",
+      "name": "Basque",
+      "native": "Euskara",
+      "speakersM": 0.9,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "basque",
+          "name": "basque"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 200,
+      "iso": "ast",
+      "name": "Asturian",
+      "native": "Asturianu",
+      "speakersM": 0.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 201,
+      "iso": "oci",
+      "name": "Occitan",
+      "native": "Occitan",
+      "speakersM": 0.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 202,
+      "iso": "lld",
+      "name": "Ladin",
+      "native": "Ladin",
+      "speakersM": 0.04,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 203,
+      "iso": "fur",
+      "name": "Friulian",
+      "native": "Furlan",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 204,
+      "iso": "vec",
+      "name": "Venetian",
+      "native": "Vèneto",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 205,
+      "iso": "nap",
+      "name": "Neapolitan",
+      "native": "Napulitano",
+      "speakersM": 5.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 206,
+      "iso": "scn",
+      "name": "Sicilian",
+      "native": "Sicilianu",
+      "speakersM": 4.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 207,
+      "iso": "srd",
+      "name": "Sardinian",
+      "native": "Sardu",
+      "speakersM": 1.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 208,
+      "iso": "rmy",
+      "name": "Vlax Romani",
+      "native": "Romani",
+      "speakersM": 1.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "rmyChergash",
+          "name": "Biblija pe romani Čergarsko čhib Srbija (Vojvodin Romani/Shiyak)",
+          "copyright": "Copyright © 2018 Pioneers",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 209,
+      "iso": "mkd",
+      "name": "Macedonian",
+      "native": "Македонски",
+      "speakersM": 2.0,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 210,
+      "iso": "cnr",
+      "name": "Montenegrin",
+      "native": "Crnogorski",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Europe",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 211,
+      "iso": "que",
+      "name": "Quechua",
+      "native": "Runasimi",
+      "speakersM": 9.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "South America",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 212,
+      "iso": "ayr",
+      "name": "Central Aymara",
+      "native": "Aymar aru",
+      "speakersM": 1.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "South America",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 213,
+      "iso": "gug",
+      "name": "Paraguayan Guarani",
+      "native": "Avañe'ẽ",
+      "speakersM": 6.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "South America",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 214,
+      "iso": "nhe",
+      "name": "Eastern Huasteca Nahuatl",
+      "native": "Nahuatl",
+      "speakersM": 1.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Mesoamerica",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "nheBl",
+          "name": "Itlajtol toteco: Santa Biblia",
+          "copyright": "Copyright © 2005 Wycliffe Bible Translators, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 215,
+      "iso": "yua",
+      "name": "Yucatec Maya",
+      "native": "Maaya t'aan",
+      "speakersM": 0.8,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Mesoamerica",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 216,
+      "iso": "quc",
+      "name": "K'iche'",
+      "native": "Qatzijob'al",
+      "speakersM": 1.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Mesoamerica",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "quctt",
+          "name": "RI KꞌAKꞌ TESTAMENTO PA TZIJOBꞌAL KꞌICHEꞌ",
+          "copyright": "Copyright © 2022 Pioneer Bible Translators",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 217,
+      "iso": "kek",
+      "name": "Q'eqchi'",
+      "native": "Q'eqchi'",
+      "speakersM": 1.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Mesoamerica",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "kekNT",
+          "name": "Li Santil hu",
+          "copyright": "Copyright © 2000 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 218,
+      "iso": "mam",
+      "name": "Mam",
+      "native": "Qyol Mam",
+      "speakersM": 0.6,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Mesoamerica",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "mamNT",
+          "name": "Acʼaj testamento (El Nuevo testamento in Mam de Todos Santos)",
+          "copyright": "Copyright © 2000 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 219,
+      "iso": "cak",
+      "name": "Kaqchikel",
+      "native": "Kaqchikel",
+      "speakersM": 0.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Mesoamerica",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "cakSNT",
+          "name": "Ri c'ac'ac' Testamento pa kach'ab'al",
+          "copyright": "Copyright © 2010 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 220,
+      "iso": "jam",
+      "name": "Jamaican Creole",
+      "native": "Jamiekan",
+      "speakersM": 3.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Caribbean",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 221,
+      "iso": "gcf",
+      "name": "Guadeloupean Creole",
+      "native": "Kréyòl Gwadloup",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Caribbean",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 222,
+      "iso": "pap",
+      "name": "Papiamento",
+      "native": "Papiamentu",
+      "speakersM": 0.3,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Caribbean",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 223,
+      "iso": "srn",
+      "name": "Sranan Tongo",
+      "native": "Sranantongo",
+      "speakersM": 0.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "South America",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "srnNT",
+          "name": "Nyun Testamenti",
+          "copyright": "Copyright © 2002 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 224,
+      "iso": "tpi",
+      "name": "Tok Pisin",
+      "native": "Tok Pisin",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "tpi",
+          "name": "Buk Baibel long Tok Pisin",
+          "copyright": "Copyright © 1969–2008 The Bible Society of Papua New Guinea",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 225,
+      "iso": "pis",
+      "name": "Pijin",
+      "native": "Pijin",
+      "speakersM": 0.3,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 226,
+      "iso": "bis",
+      "name": "Bislama",
+      "native": "Bislama",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 227,
+      "iso": "fij",
+      "name": "Fijian",
+      "native": "Na Vosa Vakaviti",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 228,
+      "iso": "smo",
+      "name": "Samoan",
+      "native": "Gagana Samoa",
+      "speakersM": 0.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 229,
+      "iso": "ton",
+      "name": "Tongan",
+      "native": "Lea faka-Tonga",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "ton",
+          "name": "KO E TOHI TAPU KĀTOA",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 230,
+      "iso": "mri",
+      "name": "Maori",
+      "native": "Te Reo Māori",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "maori",
+          "name": "maori"
+        },
+        {
+          "kind": "ebible",
+          "id": "mri2012",
+          "name": "Paipera Tapu 2012",
+          "copyright": "Copyright © 2012 Bible Society New Zealand Charitable Trust",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 231,
+      "iso": "haw",
+      "name": "Hawaiian",
+      "native": "ʻŌlelo Hawaiʻi",
+      "speakersM": 0.02,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "haw1868",
+          "name": "Baibala Hemolele",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 232,
+      "iso": "cha",
+      "name": "Chamorro",
+      "native": "Fino' Chamoru",
+      "speakersM": 0.06,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "portions",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "chamorro",
+          "name": "chamorro"
+        },
+        {
+          "kind": "ebible",
+          "id": "cha",
+          "name": "Y CUATRO EBANGELIO SIJA YAN Y CHECHO Y APOSTOLES YAN Y SALMO SIJA",
+          "copyright": "public domain",
+          "otBooks": 1,
+          "ntBooks": 5
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 233,
+      "iso": "mah",
+      "name": "Marshallese",
+      "native": "Kajin M̧ajeļ",
+      "speakersM": 0.05,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 234,
+      "iso": "pon",
+      "name": "Pohnpeian",
+      "native": "Lokaiahn Pohnpei",
+      "speakersM": 0.03,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "pohnpeian",
+          "name": "pohnpeian"
+        },
+        {
+          "kind": "ebible",
+          "id": "pon2006",
+          "name": "Pohnpeian Bible",
+          "copyright": "Copyright © 2006 Bible Society of the South Pacific",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 235,
+      "iso": "chk",
+      "name": "Chuukese",
+      "native": "Chuuk",
+      "speakersM": 0.05,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "chk",
+          "name": "Paipel",
+          "copyright": "Copyright © 1984, 1989, 1991, 2001 Liebenzel Mission",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 236,
+      "iso": "grc",
+      "name": "Ancient Greek",
+      "native": "Ἑλληνική",
+      "speakersM": 0.01,
+      "script": "Grek",
+      "rtl": false,
+      "region": "Historical",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "LXX",
+          "name": "Septuagint"
+        },
+        {
+          "kind": "getbible",
+          "id": "lxx",
+          "name": "lxx"
+        },
+        {
+          "kind": "ebible",
+          "id": "grcsr",
+          "name": "Η Καινή Διαθήκη",
+          "copyright": "public domain",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 237,
+      "iso": "hbo",
+      "name": "Ancient Hebrew",
+      "native": "עברית מקראית",
+      "speakersM": 0.01,
+      "script": "Hebr",
+      "rtl": true,
+      "region": "Historical",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "WLC",
+          "name": "Westminster Leningrad Codex"
+        },
+        {
+          "kind": "getbible",
+          "id": "codex",
+          "name": "codex"
+        },
+        {
+          "kind": "ebible",
+          "id": "heb",
+          "name": "תנ ך עברי מודרני",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 238,
+      "iso": "lat",
+      "name": "Latin",
+      "native": "Latina",
+      "speakersM": 0.05,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Historical",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "VULG",
+          "name": "Clementine Vulgate"
+        },
+        {
+          "kind": "getbible",
+          "id": "vulgate",
+          "name": "vulgate"
+        },
+        {
+          "kind": "ebible",
+          "id": "latVUC",
+          "name": "Bibbia Vulgata Clementina na 1598",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 239,
+      "iso": "chu",
+      "name": "Church Slavonic",
+      "native": "Цркъвьнословѣньскъ",
+      "speakersM": 0.05,
+      "script": "Cyrl",
+      "rtl": false,
+      "region": "Historical",
+      "coverage": "available",
+      "sources": [
+        {
+          "kind": "bolls",
+          "id": "CSL",
+          "name": "Church Slavonic 1900"
+        },
+        {
+          "kind": "getbible",
+          "id": "churchslavonic",
+          "name": "churchslavonic"
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 240,
+      "iso": "cop",
+      "name": "Coptic",
+      "native": "Ⲙⲉⲧⲣⲉⲙ̀ⲛⲭⲏⲙⲓ",
+      "speakersM": 0.01,
+      "script": "Copt",
+      "rtl": false,
+      "region": "Historical",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "coptic",
+          "name": "coptic"
+        },
+        {
+          "kind": "ebible",
+          "id": "copcnt",
+          "name": "القبطية العهد الجديد",
+          "copyright": "public domain",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 241,
+      "iso": "syc",
+      "name": "Classical Syriac",
+      "native": "ܣܘܪܝܝܐ",
+      "speakersM": 0.05,
+      "script": "Syrc",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 242,
+      "iso": "aii",
+      "name": "Assyrian Neo-Aramaic",
+      "native": "ܣܘܪܝܬ",
+      "speakersM": 0.2,
+      "script": "Syrc",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "aii",
+          "name": "ܕܝܬܩܐ ܚܕܬܐ ܕܡܪܢ ܝܫܘܥ ܡܫܝܚܐ ܘܡܙܡܘܪ̈ܐ ܒܠܫܢܐ ܐܬܘܪܝܐ",
+          "copyright": "Copyright © 2014 Aramaic Bible Translation, Inc.",
+          "otBooks": 1,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 243,
+      "iso": "amw",
+      "name": "Western Neo-Aramaic",
+      "native": "ܐܪܡܝܬ",
+      "speakersM": 0.02,
+      "script": "Syrc",
+      "rtl": true,
+      "region": "West Asia",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 244,
+      "iso": "fuv",
+      "name": "Nigerian Fulfulde",
+      "native": "Fulfulde",
+      "speakersM": 16.0,
+      "script": "Latn",
+      "rtl": true,
+      "region": "West Africa",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "fuv",
+          "name": "الَکْوَلَ ک ٜسَلْ (Fulfulde)",
+          "copyright": "Copyright © 2011 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 245,
+      "iso": "ffm",
+      "name": "Maasina Fulfulde",
+      "native": "Fulfulde",
+      "speakersM": 1.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "ffm",
+          "name": "Aadi keyri: linjiila iisaa almasiihu",
+          "copyright": "Copyright © 2005 Wycliffe Bible Translators, Inc.",
+          "otBooks": 0,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 246,
+      "iso": "fub",
+      "name": "Adamawa Fulfulde",
+      "native": "Fulfulde",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 247,
+      "iso": "dyu",
+      "name": "Dyula",
+      "native": "Julakan",
+      "speakersM": 12.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "dyu",
+          "name": "Jula",
+          "copyright": "Copyright © 2013 Wycliffe Bible Translators, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 248,
+      "iso": "sus",
+      "name": "Susu",
+      "native": "Sosoxui",
+      "speakersM": 1.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "sus",
+          "name": "Soso Kitaabuie: Tawureta, Yabura, Inyila",
+          "copyright": "Copyright © 2015 Mission Evangélique Reformée Néerlandaise et les Traducteurs Pionniers de la Bible",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 249,
+      "iso": "men",
+      "name": "Mende",
+      "native": "Mɛnde yia",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 250,
+      "iso": "tem",
+      "name": "Timne",
+      "native": "KʌThemnɛ",
+      "speakersM": 1.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 251,
+      "iso": "kpe",
+      "name": "Kpelle",
+      "native": "Kpɛlɛɛ",
+      "speakersM": 1.3,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 252,
+      "iso": "vai",
+      "name": "Vai",
+      "native": "ꕙꔤ",
+      "speakersM": 0.1,
+      "script": "Vaii",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 253,
+      "iso": "dav",
+      "name": "Taita",
+      "native": "Kidawida",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 254,
+      "iso": "kam",
+      "name": "Kamba",
+      "native": "Kikamba",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 255,
+      "iso": "mer",
+      "name": "Meru",
+      "native": "Kĩmĩĩrũ",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 256,
+      "iso": "guz",
+      "name": "Gusii",
+      "native": "Ekegusii",
+      "speakersM": 2.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "guz",
+          "name": "EBIBILIA ENCHENU",
+          "copyright": "Copyright © 2021 Bible Society of Kenya",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 257,
+      "iso": "luy",
+      "name": "Luyia",
+      "native": "Luluhya",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 258,
+      "iso": "swc",
+      "name": "Congo Swahili",
+      "native": "Kiswahili ya Kongo",
+      "speakersM": 9.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Africa",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "swhonen",
+          "name": "Biblica® Toleo Wazi Neno: Bibilia Takatifu™",
+          "copyright": "Copyright © 1984, 1989, 2009, 2015 Biblica, Inc.",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 259,
+      "iso": "kon",
+      "name": "Kongo",
+      "native": "Kikongo",
+      "speakersM": 7.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 260,
+      "iso": "loz",
+      "name": "Lozi",
+      "native": "Silozi",
+      "speakersM": 0.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 261,
+      "iso": "toi",
+      "name": "Tonga Zambia",
+      "native": "Chitonga",
+      "speakersM": 1.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 262,
+      "iso": "tum",
+      "name": "Tumbuka",
+      "native": "chiTumbuka",
+      "speakersM": 2.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 263,
+      "iso": "ven",
+      "name": "Venda",
+      "native": "Tshivenḓa",
+      "speakersM": 1.3,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 264,
+      "iso": "nbl",
+      "name": "Southern Ndebele",
+      "native": "isiNdebele",
+      "speakersM": 1.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 265,
+      "iso": "ndc",
+      "name": "Ndau",
+      "native": "chiNdau",
+      "speakersM": 2.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 266,
+      "iso": "kmb",
+      "name": "Kimbundu",
+      "native": "Kimbundu",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 267,
+      "iso": "kqn",
+      "name": "Kaonde",
+      "native": "Kikaonde",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 268,
+      "iso": "lun",
+      "name": "Lunda",
+      "native": "Chilunda",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 269,
+      "iso": "her",
+      "name": "Herero",
+      "native": "Otjiherero",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 270,
+      "iso": "kua",
+      "name": "Kwanyama",
+      "native": "Oshikwanyama",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 271,
+      "iso": "ndo",
+      "name": "Ndonga",
+      "native": "Oshindonga",
+      "speakersM": 0.8,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 272,
+      "iso": "sag",
+      "name": "Sango",
+      "native": "Sängö",
+      "speakersM": 5.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Central Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 273,
+      "iso": "zar",
+      "name": "Zarma",
+      "native": "Zarmaciine",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "nt",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "zarNT",
+          "name": "Didza' cubi rucá'ana tsahui'",
+          "copyright": "Copyright © 2009 Wycliffe Bible Translators, Inc.",
+          "otBooks": 1,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 274,
+      "iso": "knc",
+      "name": "Central Kanuri",
+      "native": "Kanuri",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "West Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 275,
+      "iso": "shu",
+      "name": "Chadian Arabic",
+      "native": "شوا",
+      "speakersM": 1.6,
+      "script": "Arab",
+      "rtl": true,
+      "region": "Central Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 276,
+      "iso": "sad",
+      "name": "Sandawe",
+      "native": "Sandaweeki",
+      "speakersM": 0.06,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 277,
+      "iso": "had",
+      "name": "Hadza",
+      "native": "Hadzane",
+      "speakersM": 0.001,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 278,
+      "iso": "sid",
+      "name": "Sidamo",
+      "native": "Sidaamu Afoo",
+      "speakersM": 3.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 279,
+      "iso": "wal",
+      "name": "Wolaytta",
+      "native": "Wolayttatto doonaa",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "portions",
+      "sources": [
+        {
+          "kind": "ebible",
+          "id": "wal",
+          "name": "Wolaytta Bible",
+          "copyright": "Copyright © 2004 SIM",
+          "otBooks": 34,
+          "ntBooks": 24
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 280,
+      "iso": "aar",
+      "name": "Afar",
+      "native": "Qafaraf",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 281,
+      "iso": "bej",
+      "name": "Beja",
+      "native": "Bidhaawyeet",
+      "speakersM": 2.0,
+      "script": "Arab",
+      "rtl": true,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 282,
+      "iso": "nus",
+      "name": "Nuer",
+      "native": "Thok Naath",
+      "speakersM": 1.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 283,
+      "iso": "din",
+      "name": "Dinka",
+      "native": "Thuɔŋjäŋ",
+      "speakersM": 4.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 284,
+      "iso": "ach",
+      "name": "Acoli",
+      "native": "Lwo",
+      "speakersM": 1.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 285,
+      "iso": "lgg",
+      "name": "Lugbara",
+      "native": "Lugbarati",
+      "speakersM": 1.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 286,
+      "iso": "teo",
+      "name": "Teso",
+      "native": "Ateso",
+      "speakersM": 1.9,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 287,
+      "iso": "nyn",
+      "name": "Nyankole",
+      "native": "Runyankore",
+      "speakersM": 3.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 288,
+      "iso": "cgg",
+      "name": "Chiga",
+      "native": "Rukiga",
+      "speakersM": 2.3,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 289,
+      "iso": "sog",
+      "name": "Soga",
+      "native": "Lusoga",
+      "speakersM": 3.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 290,
+      "iso": "nyo",
+      "name": "Nyoro",
+      "native": "Runyoro",
+      "speakersM": 1.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 291,
+      "iso": "kdj",
+      "name": "Karamojong",
+      "native": "ŋaKaramojong",
+      "speakersM": 0.7,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 292,
+      "iso": "mas",
+      "name": "Masai",
+      "native": "ɔl Maa",
+      "speakersM": 1.5,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 293,
+      "iso": "saq",
+      "name": "Samburu",
+      "native": "Sampur",
+      "speakersM": 0.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 294,
+      "iso": "tuv",
+      "name": "Turkana",
+      "native": "Ng'aturkana",
+      "speakersM": 1.2,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 295,
+      "iso": "naq",
+      "name": "Nama",
+      "native": "Khoekhoegowab",
+      "speakersM": 0.3,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Southern Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 296,
+      "iso": "hif",
+      "name": "Fiji Hindi",
+      "native": "Fiji Baat",
+      "speakersM": 0.4,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 297,
+      "iso": "pih",
+      "name": "Pitcairn-Norfolk",
+      "native": "Norfuk",
+      "speakersM": 0.001,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Oceania",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 298,
+      "iso": "crs",
+      "name": "Seselwa Creole French",
+      "native": "Seselwa",
+      "speakersM": 0.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 299,
+      "iso": "mfe",
+      "name": "Morisyen",
+      "native": "Morisien",
+      "speakersM": 1.1,
+      "script": "Latn",
+      "rtl": false,
+      "region": "East Africa",
+      "coverage": "none",
+      "sources": [],
+      "siteMark": "ChristSupply.Net"
+    },
+    {
+      "rank": 300,
+      "iso": "epo",
+      "name": "Esperanto",
+      "native": "Esperanto",
+      "speakersM": 2.0,
+      "script": "Latn",
+      "rtl": false,
+      "region": "Worldwide",
+      "coverage": "bible",
+      "sources": [
+        {
+          "kind": "getbible",
+          "id": "esperanto",
+          "name": "esperanto"
+        },
+        {
+          "kind": "ebible",
+          "id": "epo",
+          "name": "Londona Biblio",
+          "copyright": "public domain",
+          "otBooks": 39,
+          "ntBooks": 27
+        }
+      ],
+      "siteMark": "ChristSupply.Net"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Christ Supply Bible">
+  <rect width="64" height="64" rx="10" fill="#041208"/>
+  <rect x="3" y="3" width="58" height="58" rx="8" fill="none" stroke="#7CFF9A" stroke-width="1.4"/>
+  <path d="M32 10v44M18 28h28" fill="none" stroke="#E8FF8A" stroke-width="4" stroke-linecap="square"/>
+  <text x="32" y="58" text-anchor="middle" font-size="6" fill="#7CFF9A" font-family="monospace">CS.N</text>
+</svg>
