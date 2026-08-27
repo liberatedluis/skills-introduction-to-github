@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build print-friendly Christ Supply Bible PDFs with ChristSupply.Net on every page."""
+"""Build print-friendly Christ Supply Holy Bible PDFs with ChristSupply.Net on every page."""
 
 from __future__ import annotations
 
