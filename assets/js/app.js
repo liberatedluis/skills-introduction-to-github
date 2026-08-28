@@ -2,19 +2,33 @@ const SITE = "ChristSupply.Net";
 const SITE_URL = "https://christsupply.net";
 const BRAND = "Christ Supply Holy Bible";
 const CREDIT = "Made by Liberated Luis With Cursor, Claude Opus, and MacBook";
+const GITHUB_PRINT =
+  "https://github.com/liberatedluis/skills-introduction-to-github/tree/main/print-bibles";
 const STORAGE_THEME = "csb-theme";
+const STORAGE_TX = "csb-tx";
 const STORAGE_LANG = "csb-lang";
+const COVERAGE_LABEL = {
+  bible: "Full Bible",
+  nt: "New Testament",
+  portions: "Portions",
+};
 
 const $ = (id) => document.getElementById(id);
 const state = {
   catalog: null,
+  allBooks: [],
   books: [],
-  lang: null,
+  tx: null,
   book: 40,
   chapter: 1,
   mode: "scroll",
   cache: new Map(),
+  tail: null,
+  loadingMore: false,
+  skips: 0,
 };
+let moreObserver = null;
+let plateObserver = null;
 
 function preferredTheme() {
   const saved = localStorage.getItem(STORAGE_THEME);
@@ -26,7 +40,8 @@ function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.content = theme === "light" ? "#f3ead7" : "#041208";
-  $("themeBtn").textContent = theme === "light" ? "Dark" : "Light";
+  const btn = $("themeBtn");
+  if (btn) btn.textContent = theme === "light" ? "Dark" : "Light";
 }
 
 function pageMark(side, extra = "") {
@@ -81,6 +96,19 @@ function parseEbibleHtml(html) {
     .filter((v) => v.text);
 }
 
+function parseEbibleIndex(html) {
+  const usfms = new Set();
+  const re = /href=['"]([A-Z0-9]{3})\d+\.htm['"]/gi;
+  let match;
+  while ((match = re.exec(html))) {
+    const code = match[1].toUpperCase();
+    if (!["FRT", "INT", "GLO", "XXA", "XXB", "XXC", "XXD", "XXE", "XXF", "XXG"].includes(code)) {
+      usfms.add(code);
+    }
+  }
+  return [...usfms];
+}
+
 async function fetchJson(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${res.status} ${url}`);
@@ -91,6 +119,28 @@ async function fetchText(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${res.status} ${url}`);
   return res.text();
+}
+
+function ebibleUrls(id, file) {
+  const remote = `https://ebible.org/${id}/${file}`;
+  return [
+    `/api/ebible/${id}/${file}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(remote)}`,
+    `https://corsproxy.io/?${encodeURIComponent(remote)}`,
+  ];
+}
+
+async function fetchFirstText(urls) {
+  let lastError = null;
+  for (const url of urls) {
+    try {
+      const text = await fetchText(url);
+      if (text && text.length > 40) return text;
+    } catch (err) {
+      lastError = err;
+    }
+  }
+  throw lastError || new Error("text not available");
 }
 
 async function loadFromBolls(source, book, chapter) {
@@ -105,43 +155,76 @@ async function loadFromGetbible(source, book, chapter) {
 
 async function loadFromEbible(source, bookMeta, chapter) {
   const file = ebibleFilename(bookMeta.usfm, chapter);
-  const urls = [
-    `/api/ebible/${source.id}/${file}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://ebible.org/${source.id}/${file}`)}`,
-  ];
-  let lastError = null;
-  for (const url of urls) {
-    try {
-      const html = await fetchText(url);
-      const verses = parseEbibleHtml(html);
-      if (verses.length) return verses;
-    } catch (err) {
-      lastError = err;
-    }
-  }
-  throw lastError || new Error("eBible chapter not available");
+  const html = await fetchFirstText(ebibleUrls(source.id, file));
+  const verses = parseEbibleHtml(html);
+  if (!verses.length) throw new Error("eBible chapter not available");
+  return verses;
 }
 
-async function loadChapter(lang, bookMeta, chapter) {
-  const key = `${lang.iso}:${bookMeta.id}:${chapter}`;
-  if (state.cache.has(key)) return state.cache.get(key);
-  const errors = [];
-  for (const source of lang.sources || []) {
-    try {
-      let verses = [];
-      if (source.kind === "bolls") verses = await loadFromBolls(source, bookMeta.id, chapter);
-      else if (source.kind === "getbible") verses = await loadFromGetbible(source, bookMeta.id, chapter);
-      else if (source.kind === "ebible") verses = await loadFromEbible(source, bookMeta, chapter);
-      if (verses.length) {
-        const payload = { source, verses };
-        state.cache.set(key, payload);
-        return payload;
-      }
-    } catch (err) {
-      errors.push(`${source.kind}:${source.id} ${err.message || err}`);
-    }
+function booksFor(tx) {
+  const all = state.allBooks;
+  const ot = all.filter((b) => b.testament === "OT");
+  const nt = all.filter((b) => b.testament === "NT");
+  const otCount = Number(tx.otBooks) || 0;
+  const ntCount = Number(tx.ntBooks) || 0;
+  if (tx._usfms?.length) {
+    const wanted = new Set(tx._usfms);
+    const matched = all.filter((b) => wanted.has(b.usfm));
+    if (matched.length) return matched;
   }
-  throw new Error(errors.join(" · ") || "No open translation is wired for this language yet.");
+  if (otCount >= 39 && ntCount >= 27) return all;
+  if (ntCount >= 27 && otCount === 0) return nt;
+  if (otCount >= 39 && ntCount === 0) return ot;
+  if (tx.coverage === "nt") return nt;
+  if (tx.coverage === "bible") return all;
+  if (ntCount >= 27) return [...(otCount > 0 ? ot.slice(0, Math.min(otCount, ot.length)) : []), ...nt];
+  if (ntCount > 0 && otCount === 0) return nt;
+  if (otCount > 0 && ntCount === 0) return ot;
+  return nt;
+}
+
+async function discoverBooks(tx) {
+  if (tx.source !== "ebible" || tx._usfms) return;
+  const otCount = Number(tx.otBooks) || 0;
+  const ntCount = Number(tx.ntBooks) || 0;
+  if ((otCount >= 39 && ntCount >= 27) || (ntCount >= 27 && otCount === 0) || (otCount >= 39 && ntCount === 0)) {
+    return;
+  }
+  try {
+    const html = await fetchFirstText(ebibleUrls(tx.id, "index.htm"));
+    const usfms = parseEbibleIndex(html);
+    if (usfms.length) tx._usfms = usfms;
+  } catch {
+    tx._usfms = [];
+  }
+}
+
+function applyBooksFor(tx) {
+  const books = booksFor(tx);
+  state.books = books.length ? books : state.allBooks;
+  if (!state.books.some((b) => b.id === state.book)) {
+    const preferNt = (tx.coverage || "") !== "bible" || state.book >= 40;
+    const pick = preferNt
+      ? state.books.find((b) => b.usfm === "MAT") || state.books.find((b) => b.testament === "NT")
+      : state.books[0];
+    state.book = (pick || state.books[0]).id;
+    state.chapter = 1;
+  }
+  if (state.chapter > currentBook().chapters) state.chapter = 1;
+  fillBooks();
+}
+
+async function loadChapter(tx, bookMeta, chapter) {
+  const key = `${tx.id}:${bookMeta.id}:${chapter}`;
+  if (state.cache.has(key)) return state.cache.get(key);
+  const source = { kind: tx.source, id: tx.id, name: tx.title };
+  let verses = [];
+  if (tx.source === "getbible") verses = await loadFromGetbible(source, bookMeta.id, chapter);
+  else verses = await loadFromEbible(source, bookMeta, chapter);
+  if (!verses.length) throw new Error("empty chapter");
+  const payload = { source, verses };
+  state.cache.set(key, payload);
+  return payload;
 }
 
 function renderVerses(verses) {
@@ -157,9 +240,9 @@ function chunkVerses(verses, size = 12) {
   return pages;
 }
 
-function plate(title, verses, pageNo) {
+function plate(title, verses, pageNo, bookId, chapter) {
   return `
-    <article class="page-plate" data-page="${pageNo}">
+    <article class="page-plate" data-page="${pageNo}" data-book="${bookId || ""}" data-chapter="${chapter || ""}">
       ${pageMark("", `${SITE} · p.${pageNo}`)}
       <div class="page-body">
         <h2>${title}</h2>
@@ -169,9 +252,11 @@ function plate(title, verses, pageNo) {
     </article>`;
 }
 
-function renderPlates(title, verses, pageNo) {
+function renderPlates(title, verses, pageNo, bookId, chapter) {
   return chunkVerses(verses)
-    .map((part, index) => plate(index === 0 ? title : `${title} (cont.)`, part, pageNo + index))
+    .map((part, index) =>
+      plate(index === 0 ? title : `${title} (cont.)`, part, pageNo + index, bookId, chapter)
+    )
     .join("");
 }
 
@@ -186,14 +271,15 @@ function txtBanner(pageNo, title) {
   ].join("\n");
 }
 
-function toTxt(lang, bookMeta, chapter, verses, source, pageNo) {
+function toTxt(tx, bookMeta, chapter, verses, source, pageNo) {
   const pages = chunkVerses(verses, 12);
   const blocks = pages.map((part, index) => {
     const n = pageNo + index;
     return [
       txtBanner(n, `${bookMeta.name} ${chapter}`),
       "",
-      `Language: ${lang.native} / ${lang.name} (${lang.iso})`,
+      `Translation: ${tx.title} (${tx.id})`,
+      `Language: ${tx.native} / ${tx.language} (${tx.iso})`,
       `Source: ${source.name || source.id}`,
       `Site: ${SITE_URL}`,
       "",
@@ -209,7 +295,8 @@ function toTxt(lang, bookMeta, chapter, verses, source, pageNo) {
 }
 
 function setStatus(message) {
-  $("status").textContent = message;
+  const node = $("status");
+  if (node) node.textContent = message;
 }
 
 function currentBook() {
@@ -219,6 +306,7 @@ function currentBook() {
 function fillChapters() {
   const book = currentBook();
   const select = $("chapterSelect");
+  if (!select || !book) return;
   select.innerHTML = "";
   for (let i = 1; i <= book.chapters; i += 1) {
     const opt = document.createElement("option");
@@ -232,55 +320,167 @@ function fillChapters() {
 
 function fillBooks() {
   const select = $("bookSelect");
-  select.innerHTML = state.books
-    .map((b) => `<option value="${b.id}">${b.name}</option>`)
-    .join("");
+  if (!select) return;
+  select.innerHTML = state.books.map((b) => `<option value="${b.id}">${b.name}</option>`).join("");
   select.value = String(state.book);
   fillChapters();
 }
 
-function renderLangList(filter = "") {
-  const q = filter.trim().toLowerCase();
-  const langs = state.catalog.languages.filter((lang) => {
-    if (!q) return lang.rank <= 40;
-    return (
-      lang.name.toLowerCase().includes(q) ||
-      lang.native.toLowerCase().includes(q) ||
-      lang.iso.toLowerCase().includes(q) ||
-      lang.region.toLowerCase().includes(q)
-    );
-  });
-  const panel = $("langPanel");
-  panel.hidden = false;
-  panel.innerHTML = langs
-    .slice(0, 80)
-    .map(
-      (lang) => `
-      <button type="button" class="lang-item" data-iso="${lang.iso}">
-        <span>${lang.rank}</span>
-        <span>${lang.native}<small>${lang.name} · ${lang.iso} · ${lang.speakersM}M</small></span>
-        <span class="cov">${lang.coverage}</span>
-      </button>`
-    )
-    .join("");
+function coverageLabel(tx) {
+  return COVERAGE_LABEL[tx.coverage] || "Portions";
 }
 
-function describeLang(lang) {
-  const source = lang.sources?.[0];
-  const src = source ? `${source.kind} · ${source.name || source.id}` : "catalog only";
-  return `#${lang.rank} ${lang.native} / ${lang.name} · ${lang.coverage} · ${src}`;
+function matchesTranslation(tx, q) {
+  if (!q) return true;
+  const hay = `${tx.title} ${tx.language} ${tx.native} ${tx.iso} ${tx.id} ${tx.coverage} ${coverageLabel(tx)}`.toLowerCase();
+  return q.split(/\s+/).every((part) => hay.includes(part));
+}
+
+function renderLangList(filter = "") {
+  const panel = $("langPanel");
+  if (!panel || !state.catalog) return;
+  const q = filter.trim().toLowerCase();
+  const lookingLikeCurrent =
+    state.tx && filter === `${state.tx.native} · ${state.tx.title}`;
+  const query = lookingLikeCurrent ? "" : q;
+  let list = state.catalog.translations.filter((tx) => matchesTranslation(tx, query));
+  if (!query) list = list.slice(0, 80);
+  panel.hidden = false;
+  const shown = list.slice(0, 100);
+  const total = state.catalog.translations.length;
+  panel.innerHTML =
+    shown
+      .map(
+        (tx) => `
+      <button type="button" class="lang-item" data-id="${tx.id}">
+        <span class="cov">${coverageLabel(tx)}</span>
+        <span>${tx.native || tx.language}<small>${tx.title} · ${tx.language} · ${tx.id}</small></span>
+        <span class="iso">${tx.iso}</span>
+      </button>`
+      )
+      .join("") +
+    `<p class="lang-count">${shown.length} of ${query ? list.length : total} · ${total} Matrix Holy Bibles · ${SITE}</p>`;
+}
+
+function describeTx(tx) {
+  return `${tx.native} / ${tx.language} · ${tx.title} · ${coverageLabel(tx)} · ${tx.id}`;
+}
+
+function writeHash(tx = state.tx, book = currentBook(), chapter = state.chapter, mode = state.mode) {
+  if (!tx || !book) return;
+  const next = `#${tx.id}/${book.usfm.toLowerCase()}/${chapter}/${mode}`;
+  if (location.hash !== next) history.replaceState({}, "", next);
+}
+
+function peekNext(bookId, chapter) {
+  const book = state.books.find((b) => b.id === bookId) || currentBook();
+  if (!book) return null;
+  if (chapter < book.chapters) return { book: book.id, chapter: chapter + 1 };
+  const idx = state.books.findIndex((b) => b.id === book.id);
+  const nxt = state.books[idx + 1];
+  if (!nxt) return null;
+  return { book: nxt.id, chapter: 1 };
+}
+
+function disconnectObservers() {
+  if (moreObserver) {
+    moreObserver.disconnect();
+    moreObserver = null;
+  }
+  if (plateObserver) {
+    plateObserver.disconnect();
+    plateObserver = null;
+  }
+}
+
+function attachPlateObserver() {
+  if (state.mode !== "scroll") return;
+  const stage = $("view-scroll");
+  if (!stage) return;
+  if (plateObserver) plateObserver.disconnect();
+  plateObserver = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const bookId = Number(visible.target.dataset.book);
+      const chapter = Number(visible.target.dataset.chapter);
+      if (!bookId || !chapter) return;
+      const book = state.books.find((row) => row.id === bookId);
+      if (book) writeHash(state.tx, book, chapter, "scroll");
+    },
+    { rootMargin: "-20% 0px -55% 0px", threshold: [0.2, 0.4] }
+  );
+  stage.querySelectorAll(".page-plate[data-book]").forEach((node) => plateObserver.observe(node));
+}
+
+function attachMoreObserver() {
+  if (state.mode !== "scroll") return;
+  const sentinel = $("scroll-more");
+  if (!sentinel) return;
+  if (moreObserver) moreObserver.disconnect();
+  moreObserver = new IntersectionObserver(
+    (entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) appendNextChapter();
+    },
+    { rootMargin: "800px 0px" }
+  );
+  moreObserver.observe(sentinel);
+}
+
+async function appendNextChapter() {
+  if (state.mode !== "scroll" || state.loadingMore || !state.tx) return;
+  const next = peekNext(state.tail?.book || state.book, state.tail?.chapter || state.chapter);
+  if (!next) {
+    const sentinel = $("scroll-more");
+    if (sentinel) sentinel.innerHTML = `<p class="scroll-end">${SITE} · end of this translation</p>`;
+    return;
+  }
+  state.loadingMore = true;
+  const sentinel = $("scroll-more");
+  if (sentinel) sentinel.dataset.loading = "1";
+  try {
+    const bookMeta = state.books.find((b) => b.id === next.book);
+    const { verses } = await loadChapter(state.tx, bookMeta, next.chapter);
+    const heading = `${bookMeta.name} ${next.chapter} — ${state.tx.native}`;
+    const pageNo = bookMeta.id * 200 + next.chapter;
+    const html = renderPlates(heading, verses, pageNo, bookMeta.id, next.chapter);
+    sentinel.insertAdjacentHTML("beforebegin", html);
+    state.tail = next;
+    state.skips = 0;
+    attachPlateObserver();
+  } catch {
+    state.tail = next;
+    state.skips += 1;
+    state.loadingMore = false;
+    if (state.skips < 12) {
+      await appendNextChapter();
+      return;
+    }
+    if (sentinel) sentinel.innerHTML = `<p class="scroll-end">Open text ended for this stretch · ${SITE}</p>`;
+    return;
+  } finally {
+    state.loadingMore = false;
+    if (sentinel) delete sentinel.dataset.loading;
+  }
 }
 
 async function render() {
-  const lang = state.lang;
+  const tx = state.tx;
+  if (!tx) return;
   const book = currentBook();
   const chapter = state.chapter;
   const title = `${book.name} ${chapter}`;
   const pageNo = book.id * 200 + chapter;
-  $("langSearch").value = `${lang.native} · ${lang.name}`;
-  document.documentElement.lang = lang.iso;
-  document.documentElement.dir = lang.rtl ? "rtl" : "ltr";
-  setStatus(`Loading ${title} in ${lang.name}… ${SITE}`);
+  const search = $("langSearch");
+  if (search) search.value = `${tx.native} · ${tx.title}`;
+  document.documentElement.lang = tx.iso || "en";
+  document.documentElement.dir = tx.rtl ? "rtl" : "ltr";
+  setStatus(`Loading ${title} in ${tx.language}… ${SITE}`);
+  disconnectObservers();
+  state.tail = { book: book.id, chapter };
+  state.skips = 0;
 
   const views = {
     scroll: $("view-scroll"),
@@ -288,45 +488,68 @@ async function render() {
     pdf: $("view-pdf"),
   };
   for (const [mode, node] of Object.entries(views)) {
-    node.hidden = mode !== state.mode;
+    if (node) node.hidden = mode !== state.mode;
   }
 
   try {
-    const { source, verses } = await loadChapter(lang, book, chapter);
-    const heading = `${title} — ${lang.native}`;
+    const { source, verses } = await loadChapter(tx, book, chapter);
+    const heading = `${title} — ${tx.native}`;
     const pages = chunkVerses(verses);
-    views.scroll.innerHTML = renderPlates(heading, verses, pageNo);
-    views.pdf.innerHTML = pages
-      .map((part, index) => `<div class="pdf-sheet">${plate(index === 0 ? heading : `${heading} (cont.)`, part, pageNo + index)}</div>`)
-      .join("");
-    views.txt.innerHTML = `<pre>${toTxt(lang, book, chapter, verses, source, pageNo)}</pre>`;
-    setStatus(`${describeLang(lang)} · ${verses.length} verses · marked ${SITE}`);
-    history.replaceState(
-      {},
-      "",
-      `#${lang.iso}/${book.usfm.toLowerCase()}/${chapter}/${state.mode}`
-    );
+    if (views.scroll) {
+      views.scroll.innerHTML =
+        renderPlates(heading, verses, pageNo, book.id, chapter) +
+        `<div id="scroll-more" class="scroll-more" aria-hidden="true"></div>`;
+    }
+    if (views.pdf) {
+      views.pdf.innerHTML = pages
+        .map(
+          (part, index) =>
+            `<div class="pdf-sheet">${plate(
+              index === 0 ? heading : `${heading} (cont.)`,
+              part,
+              pageNo + index,
+              book.id,
+              chapter
+            )}</div>`
+        )
+        .join("");
+    }
+    if (views.txt) views.txt.innerHTML = `<pre>${toTxt(tx, book, chapter, verses, source, pageNo)}</pre>`;
+    setStatus(`${describeTx(tx)} · ${verses.length} verses · marked ${SITE}`);
+    writeHash();
+    attachMoreObserver();
+    attachPlateObserver();
   } catch (err) {
     const message = err.message || String(err);
     const empty = plate(
-      `${title} — ${lang.native}`,
-      [{ verse: 1, text: `Open text is not reachable yet for this language. ${message}` }],
-      pageNo
+      `${title} — ${tx.native}`,
+      [{ verse: 1, text: `Open text is not reachable yet for this translation. ${message}` }],
+      pageNo,
+      book.id,
+      chapter
     );
-    views.scroll.innerHTML = empty;
-    views.pdf.innerHTML = `<div class="pdf-sheet">${empty}</div>`;
-    views.txt.innerHTML = `<pre>${txtBanner(pageNo, title)}\n\n${message}\n\n${SITE}\n${CREDIT}\n</pre>`;
+    if (views.scroll) {
+      views.scroll.innerHTML = empty + `<div id="scroll-more" class="scroll-more" aria-hidden="true"></div>`;
+    }
+    if (views.pdf) views.pdf.innerHTML = `<div class="pdf-sheet">${empty}</div>`;
+    if (views.txt) {
+      views.txt.innerHTML = `<pre>${txtBanner(pageNo, title)}\n\n${message}\n\n${SITE}\n${CREDIT}\n</pre>`;
+    }
     setStatus(message);
+    attachMoreObserver();
   }
 }
 
-function selectLang(iso) {
-  const lang = state.catalog.languages.find((row) => row.iso === iso);
-  if (!lang) return;
-  state.lang = lang;
-  localStorage.setItem(STORAGE_LANG, iso);
-  $("langPanel").hidden = true;
-  render();
+async function selectTranslation(id) {
+  const tx = state.catalog.translations.find((row) => row.id === id);
+  if (!tx) return;
+  state.tx = tx;
+  localStorage.setItem(STORAGE_TX, id);
+  const panel = $("langPanel");
+  if (panel) panel.hidden = true;
+  await discoverBooks(tx);
+  applyBooksFor(tx);
+  await render();
 }
 
 function stepChapter(delta) {
@@ -337,7 +560,7 @@ function stepChapter(delta) {
     const idx = Math.max(0, state.books.findIndex((b) => b.id === bookId) - 1);
     const prev = state.books[idx];
     bookId = prev.id;
-    next = prev.chapters;
+    next = delta < 0 ? prev.chapters : 1;
   } else if (next > book.chapters) {
     const idx = Math.min(state.books.length - 1, state.books.findIndex((b) => b.id === bookId) + 1);
     const nxt = state.books[idx];
@@ -352,10 +575,10 @@ function stepChapter(delta) {
 }
 
 function downloadTxt() {
-  const pre = $("view-txt").querySelector("pre");
-  if (!pre) return;
+  const pre = $("view-txt")?.querySelector("pre");
+  if (!pre || !state.tx) return;
   const book = currentBook();
-  const name = `${SITE.replace(".", "")}-${state.lang.iso}-${book.usfm}-${state.chapter}.txt`;
+  const name = `${SITE.replace(".", "")}-${state.tx.id}-${book.usfm}-${state.chapter}.txt`;
   const blob = new Blob([pre.textContent], { type: "text/plain;charset=utf-8" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
@@ -366,6 +589,7 @@ function downloadTxt() {
 
 function startRain() {
   const canvas = $("rain");
+  if (!canvas) return;
   const ctx = canvas.getContext("2d");
   const glyphs = "CHRISTSUPPLY.NET†✠01アイウエオカキクケコΑΩאבגדה ";
   let columns = [];
@@ -395,25 +619,25 @@ function startRain() {
   tick();
 }
 
-function bind() {
-  $("themeBtn").addEventListener("click", () => {
+function bindReader() {
+  $("themeBtn")?.addEventListener("click", () => {
     const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
     localStorage.setItem(STORAGE_THEME, next);
     applyTheme(next);
   });
-  $("langSearch").addEventListener("focus", () => renderLangList($("langSearch").value));
-  $("langSearch").addEventListener("input", () => renderLangList($("langSearch").value));
-  $("langPanel").addEventListener("click", (event) => {
-    const btn = event.target.closest("[data-iso]");
-    if (btn) selectLang(btn.dataset.iso);
+  $("langSearch")?.addEventListener("focus", () => renderLangList($("langSearch").value));
+  $("langSearch")?.addEventListener("input", () => renderLangList($("langSearch").value));
+  $("langPanel")?.addEventListener("click", (event) => {
+    const btn = event.target.closest("[data-id]");
+    if (btn) selectTranslation(btn.dataset.id);
   });
-  $("bookSelect").addEventListener("change", (event) => {
+  $("bookSelect")?.addEventListener("change", (event) => {
     state.book = Number(event.target.value);
     state.chapter = 1;
     fillChapters();
     render();
   });
-  $("chapterSelect").addEventListener("change", (event) => {
+  $("chapterSelect")?.addEventListener("change", (event) => {
     state.chapter = Number(event.target.value);
     render();
   });
@@ -425,30 +649,42 @@ function bind() {
       }
     });
   });
-  $("prevBtn").addEventListener("click", () => stepChapter(-1));
-  $("nextBtn").addEventListener("click", () => stepChapter(1));
-  $("downloadTxtBtn").addEventListener("click", downloadTxt);
-  $("printBtn").addEventListener("click", () => {
+  $("prevBtn")?.addEventListener("click", () => stepChapter(-1));
+  $("nextBtn")?.addEventListener("click", () => stepChapter(1));
+  $("downloadTxtBtn")?.addEventListener("click", downloadTxt);
+  $("printBtn")?.addEventListener("click", () => {
     state.mode = "pdf";
-    document.querySelector('input[name=mode][value=pdf]').checked = true;
+    const radio = document.querySelector("input[name=mode][value=pdf]");
+    if (radio) radio.checked = true;
     render().then(() => window.print());
   });
   document.addEventListener("click", (event) => {
     if (!event.target.closest("#langPanel") && !event.target.closest("#langSearch")) {
-      $("langPanel").hidden = true;
+      const panel = $("langPanel");
+      if (panel) panel.hidden = true;
     }
   });
+}
+
+function findTranslation(idOrIso) {
+  if (!idOrIso || !state.catalog) return null;
+  const exact = state.catalog.translations.find((row) => row.id === idOrIso);
+  if (exact) return exact;
+  const lower = idOrIso.toLowerCase();
+  return (
+    state.catalog.translations.find((row) => row.id.toLowerCase() === lower) ||
+    state.catalog.translations.find((row) => row.iso === lower) ||
+    null
+  );
 }
 
 function parseHash() {
   const raw = location.hash.replace(/^#/, "");
   if (!raw) return;
-  const [iso, usfm, chapter, mode] = raw.split("/");
-  if (iso) {
-    const lang = state.catalog.languages.find((row) => row.iso === iso);
-    if (lang) state.lang = lang;
-  }
-  if (usfm) {
+  const [id, usfm, chapter, mode] = raw.split("/");
+  const tx = findTranslation(id);
+  if (tx) state.tx = tx;
+  if (usfm && state.books.length) {
     const book = state.books.find((row) => row.usfm.toLowerCase() === usfm.toLowerCase());
     if (book) state.book = book.id;
   }
@@ -460,24 +696,89 @@ function parseHash() {
   }
 }
 
-async function boot() {
+function pickDefaultTx() {
+  const savedTx = localStorage.getItem(STORAGE_TX);
+  const savedIso = localStorage.getItem(STORAGE_LANG);
+  return (
+    findTranslation(savedTx) ||
+    findTranslation("engwebp") ||
+    findTranslation("eng-web") ||
+    findTranslation(savedIso) ||
+    findTranslation("eng") ||
+    state.catalog.translations[0]
+  );
+}
+
+async function bootReader() {
   applyTheme(preferredTheme());
   startRain();
-  bind();
+  bindReader();
   const [catalog, books] = await Promise.all([
-    fetchJson("data/languages.json"),
+    fetchJson("data/translations.json"),
     fetchJson("data/books.json"),
   ]);
   state.catalog = catalog;
+  state.allBooks = books;
   state.books = books;
-  const saved = localStorage.getItem(STORAGE_LANG);
-  state.lang =
-    catalog.languages.find((row) => row.iso === saved) ||
-    catalog.languages.find((row) => row.iso === "eng") ||
-    catalog.languages[0];
+  state.tx = pickDefaultTx();
+  parseHash();
+  await discoverBooks(state.tx);
+  applyBooksFor(state.tx);
   parseHash();
   fillBooks();
+  const count = $("txCount");
+  if (count) count.textContent = `${catalog.count.toLocaleString()} translations`;
   await render();
 }
 
-boot().catch((err) => setStatus(err.message || String(err)));
+function printHref(tx) {
+  return tx.printPath ? `${GITHUB_PRINT}/${tx.printPath.split("/").map(encodeURIComponent).join("/")}` : GITHUB_PRINT;
+}
+
+function renderPrintCatalog(filter = "") {
+  const list = $("printList");
+  if (!list || !state.catalog) return;
+  const q = filter.trim().toLowerCase();
+  const rows = state.catalog.translations.filter((tx) => matchesTranslation(tx, q));
+  const shown = rows.slice(0, q ? 400 : 200);
+  list.innerHTML = shown
+    .map((tx) => {
+      const book = (tx.coverage === "bible" ? "gen" : "mat");
+      return `<article class="print-card">
+        <a class="print-open" href="./#${tx.id}/${book}/1/scroll">${tx.native || tx.language}
+          <small>${tx.title} · ${tx.language} · ${coverageLabel(tx)}</small>
+        </a>
+        <a class="ghost" href="${printHref(tx)}" target="_blank" rel="noopener">PDF</a>
+      </article>`;
+    })
+    .join("");
+  const status = $("status");
+  if (status) {
+    status.textContent = `${shown.length} of ${rows.length} · ${state.catalog.count} Matrix Holy Bibles · ${SITE}`;
+  }
+}
+
+function bindPrintCatalog() {
+  $("themeBtn")?.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    localStorage.setItem(STORAGE_THEME, next);
+    applyTheme(next);
+  });
+  $("printSearch")?.addEventListener("input", (event) => renderPrintCatalog(event.target.value));
+}
+
+async function bootPrintCatalog() {
+  applyTheme(preferredTheme());
+  startRain();
+  bindPrintCatalog();
+  state.catalog = await fetchJson("data/translations.json");
+  const count = $("txCount");
+  if (count) count.textContent = `${state.catalog.count.toLocaleString()} translations`;
+  renderPrintCatalog();
+}
+
+if ($("view-scroll")) {
+  bootReader().catch((err) => setStatus(err.message || String(err)));
+} else if ($("printCatalog")) {
+  bootPrintCatalog().catch((err) => setStatus(err.message || String(err)));
+}

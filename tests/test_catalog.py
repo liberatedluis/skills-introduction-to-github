@@ -60,12 +60,33 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(books[-1]["usfm"], "REV")
 
     def test_1300_print_catalog(self):
-        from make_holy_bible_pdfs import build_catalog
+        from holy_catalog import build_catalog
 
         catalog = build_catalog()
         self.assertEqual(len(catalog), 1300)
         self.assertEqual(len({row["id"] for row in catalog}), 1300)
         self.assertTrue(any(row["id"] == "engwebp" for row in catalog))
+        self.assertTrue(all("otBooks" in row and "ntBooks" in row for row in catalog))
+        self.assertTrue(all(row.get("printPath") for row in catalog))
+        self.assertTrue(all(row.get("siteMark") == "ChristSupply.Net" for row in catalog))
+
+    def test_1300_scroll_catalog(self):
+        payload = json.loads((ROOT / "data" / "translations.json").read_text(encoding="utf-8"))
+        self.assertEqual(payload["brand"], "Christ Supply Holy Bible")
+        self.assertEqual(payload["site"], "ChristSupply.Net")
+        self.assertEqual(payload["count"], 1300)
+        self.assertEqual(len(payload["translations"]), 1300)
+        self.assertEqual(len({row["id"] for row in payload["translations"]}), 1300)
+        self.assertTrue(any(row["id"] in {"engwebp", "eng-web", "engwebu"} for row in payload["translations"]))
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        js = (ROOT / "assets" / "js" / "app.js").read_text(encoding="utf-8")
+        print_html = (ROOT / "print.html").read_text(encoding="utf-8")
+        self.assertIn("1,300", html)
+        self.assertIn("Search 1,300 Matrix Holy Bibles", html)
+        self.assertIn("data/translations.json", js)
+        self.assertIn("scroll-more", js)
+        self.assertIn("printCatalog", print_html)
+        self.assertIn("1,300", print_html)
 
     def test_getbible_list_of_books_parses(self):
         from make_holy_bible_pdfs import _getbible_book_iter, load_getbible_verses

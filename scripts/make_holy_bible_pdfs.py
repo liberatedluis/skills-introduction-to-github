@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import re
 import sys
@@ -20,10 +19,10 @@ from fpdf.enums import XPos, YPos
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from brand import BRAND, CREDIT, SITE, SITE_URL  # noqa: E402
+from holy_catalog import build_catalog, write_reader_catalog  # noqa: E402
 
 NOTO = Path("/usr/share/fonts/truetype/noto")
 CJK = Path("/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf")
-CSV_PATH = ROOT / "data" / "ebible-translations.csv"
 BOOKS = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
 BOOK_NAMES = {row["usfm"]: row["name"] for row in BOOKS}
 CACHE = ROOT / ".cache" / "vpl"
@@ -180,94 +179,11 @@ UNICODE_RANGES = (
     ("CJK", 0xAC00, 0xD7AF),
 )
 
-GETBIBLE_EXTRAS = [
-    {"id": "che1860", "title": "Cherokee New Testament 1860", "language": "Cherokee", "script": "Cherokee", "rtl": False},
-    {"id": "gothic", "title": "Gothic Bible portions", "language": "Gothic", "script": "Gothic", "rtl": False},
-    {"id": "sahidic", "title": "Sahidic Coptic New Testament", "language": "Coptic", "script": "Coptic", "rtl": False},
-    {"id": "manxgaelic", "title": "Manx Gaelic Bible portions", "language": "Manx Gaelic", "script": "Latin", "rtl": False},
-    {"id": "potawatomi", "title": "Potawatomi Matthew and Acts 1844", "language": "Potawatomi", "script": "Latin", "rtl": False},
-    {"id": "calo", "title": "Caló Gospel of Luke", "language": "Caló", "script": "Latin", "rtl": False},
-    {"id": "gaelic", "title": "Scots Gaelic Gospel of Mark", "language": "Scottish Gaelic", "script": "Latin", "rtl": False},
-    {"id": "peshitta", "title": "Syriac Peshitta New Testament", "language": "Syriac", "script": "Syriac", "rtl": True},
-    {"id": "basque", "title": "Basque Navarro-Labourdin New Testament", "language": "Basque", "script": "Latin", "rtl": False},
-]
-
-
-def verses_of(row: dict) -> int:
-    def n(key: str) -> int:
-        try:
-            return int(row.get(key) or 0)
-        except ValueError:
-            return 0
-
-    return n("OTverses") + n("NTverses") + n("DCverses")
-
-
-def coverage_of(row: dict) -> str:
-    try:
-        ot, nt = int(row.get("OTbooks") or 0), int(row.get("NTbooks") or 0)
-    except ValueError:
-        return "portions"
-    if ot >= 39 and nt >= 27:
-        return "bible"
-    if nt >= 27:
-        return "nt"
-    return "portions"
-
 
 def fetch(url: str) -> bytes:
     req = Request(url, headers=UA)
     with urlopen(req, timeout=60) as resp:
         return resp.read()
-
-
-def build_catalog() -> list[dict]:
-    with CSV_PATH.open(newline="", encoding="utf-8-sig") as handle:
-        rows = list(csv.DictReader(handle))
-    catalog = []
-    for row in rows:
-        if row.get("Redistributable") != "True" or row.get("downloadable") != "True":
-            continue
-        if verses_of(row) < 1:
-            continue
-        catalog.append(
-            {
-                "id": row["translationId"],
-                "source": "ebible",
-                "title": row.get("title") or row["translationId"],
-                "language": row.get("languageNameInEnglish") or row.get("languageName") or "",
-                "native": row.get("languageName") or "",
-                "iso": row.get("languageCode") or "",
-                "script": row.get("script") or "Latin",
-                "rtl": (row.get("textDirection") or "").lower() == "rtl",
-                "copyright": row.get("Copyright") or "",
-                "verses": verses_of(row),
-                "coverage": coverage_of(row),
-            }
-        )
-    catalog.sort(key=lambda r: (-r["verses"], r["language"], r["id"]))
-    have = {r["id"].lower() for r in catalog}
-    for extra in GETBIBLE_EXTRAS:
-        if extra["id"].lower() in have:
-            continue
-        catalog.append(
-            {
-                **extra,
-                "source": "getbible",
-                "native": extra["language"],
-                "iso": extra["id"][:3],
-                "copyright": "Public Domain",
-                "verses": 0,
-                "coverage": "portions",
-            }
-        )
-        if len(catalog) >= 1300:
-            break
-    if len(catalog) > 1300:
-        catalog = catalog[:1300]
-    if len(catalog) < 1300:
-        raise SystemExit(f"only {len(catalog)} open translations available")
-    return catalog
 
 
 def parse_vpl(text: str) -> list[tuple[str, int, int, str]]:
@@ -597,15 +513,17 @@ def main() -> None:
     catalog = build_catalog()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "catalog.json").write_text(
-        json.dumps(
-            {"brand": BRAND, "credit": CREDIT, "site": SITE, "count": len(catalog), "translations": catalog},
-            ensure_ascii=False,
-            indent=2,
+    write_reader_catalog(catalog)
+    if out.resolve() != (ROOT / "pdfs" / "holy-bibles").resolve():
+        (out / "catalog.json").write_text(
+            json.dumps(
+                {"brand": BRAND, "credit": CREDIT, "site": SITE, "count": len(catalog), "translations": catalog},
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
         )
-        + "\n",
-        encoding="utf-8",
-    )
     jobs = catalog
     if args.only:
         jobs = [row for row in catalog if row["id"] == args.only]
