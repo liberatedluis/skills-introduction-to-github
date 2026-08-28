@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate 1300 print-ready Christ Supply Holy Bible PDFs (6x9, mark on every page)."""
+"""Generate 1300 print-ready Christ Supply Holy Bible PDFs (US Letter, mark on every page)."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 from fpdf import FPDF
-from fpdf.enums import XPos, YPos
+from fpdf.enums import PageMode, XPos, YPos
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -26,11 +26,49 @@ CJK = Path("/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf")
 CSV_PATH = ROOT / "data" / "ebible-translations.csv"
 BOOKS = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
 BOOK_NAMES = {row["usfm"]: row["name"] for row in BOOKS}
+BOOK_ALIASES = {
+    "SOL": "SNG",
+    "SON": "SNG",
+    "EZE": "EZK",
+    "JOE": "JOL",
+    "NAH": "NAM",
+    "MAR": "MRK",
+    "JOH": "JHN",
+    "PHI": "PHP",
+    "JAM": "JAS",
+    "1JO": "1JN",
+    "2JO": "2JN",
+    "3JO": "3JN",
+    "PSM": "PSA",
+}
+DC_NAMES = {
+    "TOB": "Tobit",
+    "JDT": "Judith",
+    "ESG": "Esther (Greek)",
+    "WIS": "Wisdom",
+    "SIR": "Sirach",
+    "BAR": "Baruch",
+    "LJE": "Letter of Jeremiah",
+    "S3Y": "Song of the Three",
+    "SUS": "Susanna",
+    "BEL": "Bel and the Dragon",
+    "1MA": "1 Maccabees",
+    "2MA": "2 Maccabees",
+    "3MA": "3 Maccabees",
+    "4MA": "4 Maccabees",
+    "1ES": "1 Esdras",
+    "2ES": "2 Esdras",
+    "MAN": "Prayer of Manasseh",
+    "PS2": "Psalm 151",
+    "DAG": "Daniel (Greek)",
+}
 CACHE = ROOT / ".cache" / "vpl"
 OUT_DIR = ROOT / "pdfs" / "holy-bibles"
 UA = {"User-Agent": "ChristSupplyHolyBible/1.0"}
 
 VPL_LINE = re.compile(r"^(\S+)\s+(\d+):(\d+)\s+(.*)$")
+PAGE_SIZE = "Letter"
+PRINT_NOTE = "US Letter · print at 100% / Actual size · do not scale"
 
 SCRIPT_ALIASES = {
     "latin": "Latin",
@@ -281,6 +319,7 @@ def parse_vpl(text: str) -> list[tuple[str, int, int, str]]:
             continue
         book, chapter, verse, body = match.groups()
         book = book.upper()
+        book = BOOK_ALIASES.get(book, book)
         if book in {"FRT", "INT", "GLO", "XXA", "XXB", "XXC", "XXD", "XXE", "XXF", "XXG"}:
             continue
         verses.append((book, int(chapter), int(verse), body.strip()))
@@ -398,6 +437,42 @@ def font_for(script: str) -> Path:
     return latin if latin.exists() else path
 
 
+def book_display_name(code: str) -> str:
+    usfm = BOOK_ALIASES.get((code or "").upper(), (code or "").upper())
+    return BOOK_NAMES.get(usfm) or DC_NAMES.get(usfm) or code
+
+
+def group_chapters(verses: list[tuple[str, int, int, str]]) -> list[tuple[str, int, list[tuple[int, str]]]]:
+    """Collapse verses into reading-order (book, chapter, [(verse, text), ...])."""
+    grouped: list[tuple[str, int, list[tuple[int, str]]]] = []
+    current: tuple[str, int] | None = None
+    buf: list[tuple[int, str]] = []
+    for book, chapter, verse, text in verses:
+        if not text:
+            continue
+        key = (book, chapter)
+        if current != key:
+            if current is not None:
+                grouped.append((current[0], current[1], buf))
+            current = key
+            buf = []
+        buf.append((verse, text))
+    if current is not None:
+        grouped.append((current[0], current[1], buf))
+    return grouped
+
+
+def books_and_chapters(grouped: list[tuple[str, int, list[tuple[int, str]]]]) -> list[tuple[str, list[int]]]:
+    """[(book, [chapter, ...]), ...] for the glossary grid."""
+    out: list[tuple[str, list[int]]] = []
+    for book, chapter, _verses in grouped:
+        if not out or out[-1][0] != book:
+            out.append((book, [chapter]))
+        else:
+            out[-1][1].append(chapter)
+    return out
+
+
 def pdf_complete(path: Path) -> bool:
     if not path.exists() or path.stat().st_size < 1000:
         return False
@@ -409,12 +484,12 @@ def pdf_complete(path: Path) -> bool:
 
 class HolyBiblePDF(FPDF):
     def __init__(self, running: str, body_font: Path, rtl: bool = False):
-        super().__init__(unit="mm", format=(152.4, 228.6))  # 6x9 in
+        super().__init__(unit="mm", format=PAGE_SIZE)
         self.running = running[:48]
         self.rtl = rtl
         self.show_marks = False
         self.set_auto_page_break(auto=True, margin=18)
-        self.set_margins(14, 16, 14)
+        self.set_margins(16, 16, 16)
         self.add_font("Brand", "", str(NOTO / "NotoSerif-Regular.ttf"))
         self.add_font("Body", "", str(body_font))
         fallback_names = ["Body"]
@@ -433,31 +508,114 @@ class HolyBiblePDF(FPDF):
             pass
 
     def header(self):
-        if not self.show_marks:
+        if not self.show_marks or self.page_no() == 1:
             return
+        left = self.l_margin
+        right = self.w - self.r_margin
+        width = right - left
         self.set_font("Brand", size=7)
         self.set_text_color(106, 84, 32)
         self.set_y(8)
-        width = 152.4 - 28
-        self.cell(width / 2, 4, SITE, align="L")
+        self.set_x(left)
+        self.cell(width / 2, 4, SITE, align="L", link=SITE_URL)
         self.cell(width / 2, 4, f"{self.running}  ·  p.{self.page_no()}", align="R", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self.set_draw_color(215, 203, 179)
-        self.line(14, 13, 152.4 - 14, 13)
+        self.line(left, 13, right, 13)
         self.set_y(16)
         self.set_text_color(26, 21, 16)
 
     def footer(self):
-        if not self.show_marks:
+        if not self.show_marks or self.page_no() == 1:
             return
+        left = self.l_margin
+        right = self.w - self.r_margin
+        width = right - left
         self.set_font("Brand", size=6.5)
         self.set_text_color(106, 84, 32)
         self.set_draw_color(215, 203, 179)
-        self.line(14, 228.6 - 14, 152.4 - 14, 228.6 - 14)
-        self.set_y(228.6 - 13)
-        width = 152.4 - 28
-        self.cell(width, 3.2, f"{BRAND}  ·  {SITE}", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
-        self.set_x(self.l_margin)
+        self.line(left, self.h - 16, right, self.h - 16)
+        self.set_y(self.h - 14)
+        self.set_x(left)
+        self.cell(width, 3.2, f"{BRAND}  ·  {SITE}", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT, link=SITE_URL)
+        self.set_x(left)
         self.cell(width, 3.2, CREDIT, align="C")
+
+
+def write_chapter_glossary(
+    pdf: HolyBiblePDF,
+    book_chapters: list[tuple[str, list[int]]],
+    dest_for,
+) -> None:
+    """Pack every chapter onto one Letter page (overflows only if a translation is huge)."""
+    pdf.set_link(name="glossary", y=8)
+    pdf.set_font("Brand", size=13)
+    pdf.set_text_color(26, 21, 16)
+    pdf.set_x(pdf.l_margin)
+    pdf.cell(pdf.epw, 6.5, "Chapter glossary", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.set_font("Brand", size=7.5)
+    pdf.set_text_color(106, 84, 32)
+    pdf.set_x(pdf.l_margin)
+    pdf.multi_cell(
+        pdf.epw,
+        4,
+        "Click a chapter number to jump. On a computer, also open the bookmark / outline panel.",
+        align="C",
+    )
+    pdf.ln(1)
+
+    col_count = 4
+    gutter = 3.2
+    col_w = (pdf.epw - gutter * (col_count - 1)) / col_count
+    cell_w = 5.2
+    n_per = max(1, int(col_w / cell_w))
+    line_h = 3.15
+    label_h = 3.6
+    top = pdf.get_y()
+    bottom = pdf.h - 20
+
+    def new_glossary_page() -> float:
+        pdf.add_page()
+        pdf.set_font("Brand", size=10)
+        pdf.set_text_color(26, 21, 16)
+        pdf.set_x(pdf.l_margin)
+        pdf.cell(pdf.epw, 5, "Chapter glossary (continued)", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        return pdf.get_y() + 1
+
+    col = 0
+    y = top
+    for book, chapters in book_chapters:
+        name = book_display_name(book)
+        rows = max(1, (len(chapters) + n_per - 1) // n_per)
+        needed = label_h + rows * line_h + 1.2
+        if y + min(needed, label_h + line_h * 2) > bottom and y > top + 2:
+            col += 1
+            y = top
+            if col >= col_count:
+                top = new_glossary_page()
+                col = 0
+                y = top
+        x = pdf.l_margin + col * (col_w + gutter)
+        pdf.set_xy(x, y)
+        pdf.set_font("Brand", size=7)
+        pdf.set_text_color(26, 21, 16)
+        pdf.cell(col_w, label_h, name[:32], align="L")
+        y += label_h
+        pdf.set_font("Brand", size=6.5)
+        pdf.set_text_color(90, 58, 16)
+        for index, chapter in enumerate(chapters):
+            if index and index % n_per == 0:
+                y += line_h
+                if y + line_h > bottom:
+                    col += 1
+                    y = top
+                    if col >= col_count:
+                        top = new_glossary_page()
+                        col = 0
+                        y = top
+                    x = pdf.l_margin + col * (col_w + gutter)
+            pdf.set_xy(x + (index % n_per) * cell_w, y)
+            pdf.cell(cell_w, line_h, str(chapter), align="L", link=dest_for(book, chapter))
+        y += line_h + 1.2
 
 
 def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -> None:
@@ -468,79 +626,91 @@ def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -
     pdf.set_title(f"{BRAND} — {meta['title']}")
     pdf.set_author(CREDIT)
     pdf.set_creator(f"{BRAND} · {SITE}")
+    pdf.page_mode = PageMode.USE_OUTLINES
 
-    def _center(doc: HolyBiblePDF, text: str, height: float) -> None:
+    grouped = group_chapters(verses)
+
+    def dest_for(book: str, chapter: int) -> str:
+        return pdf.get_named_destination(f"ch-{book}-{chapter}")
+
+    def _center(doc: HolyBiblePDF, text: str, height: float, link: str | int = "") -> None:
         doc.set_x(doc.l_margin)
-        doc.multi_cell(doc.epw, height, text, align="C")
+        if link:
+            doc.cell(doc.epw, height, text, align="C", link=link, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        else:
+            doc.multi_cell(doc.epw, height, text, align="C")
 
     pdf.add_page()
     pdf.set_font("Brand", size=11)
     pdf.set_text_color(106, 84, 32)
-    pdf.ln(28)
-    _center(pdf, SITE.upper(), 8)
-    pdf.set_font("Brand", size=18)
+    pdf.ln(36)
+    _center(pdf, SITE.upper(), 8, SITE_URL)
+    pdf.set_font("Brand", size=20)
     pdf.set_text_color(26, 21, 16)
-    _center(pdf, BRAND, 9)
+    _center(pdf, BRAND, 10)
     pdf.ln(4)
-    pdf.set_font("Body", size=13)
+    pdf.set_font("Body", size=14)
     _center(pdf, meta["title"], 7)
-    pdf.set_font("Body", size=10)
+    pdf.set_font("Body", size=11)
     pdf.set_text_color(106, 84, 32)
     _center(pdf, f"{meta.get('native') or ''} / {meta['language']}".strip(" /"), 6)
-    pdf.ln(6)
-    pdf.set_font("Brand", size=8)
-    _center(pdf, f"{meta['coverage'].upper()} · {len(verses)} verses", 5)
+    pdf.ln(8)
+    pdf.set_font("Brand", size=9)
+    _center(pdf, f"{meta['coverage'].upper()} · {len(verses)} verses · {PAGE_SIZE}", 5)
     if meta.get("copyright"):
         pdf.ln(3)
-        _center(pdf, meta["copyright"][:400], 4.5)
-    pdf.ln(14)
+        _center(pdf, meta["copyright"][:400], 4.8)
+    pdf.ln(10)
+    pdf.set_text_color(26, 21, 16)
+    pdf.set_font("Brand", size=11)
+    _center(pdf, "Chapter glossary — click any chapter", 6, pdf.get_named_destination("glossary"))
+    pdf.set_font("Brand", size=8)
+    pdf.set_text_color(106, 84, 32)
+    _center(pdf, PRINT_NOTE, 5)
+    pdf.ln(10)
     pdf.set_text_color(26, 21, 16)
     pdf.set_font("Brand", size=9)
     _center(pdf, CREDIT, 5)
     pdf.ln(2)
-    pdf.set_font("Brand", size=8)
+    pdf.set_font("Brand", size=9)
     pdf.set_text_color(106, 84, 32)
-    _center(pdf, SITE_URL, 5)
+    _center(pdf, SITE_URL, 5, SITE_URL)
 
     pdf.show_marks = True
-    current_book = None
-    chapter_buf: list[str] = []
-    current_chapter = None
-    body_align = "R" if rtl else "L"
-
-    def flush_chapter():
-        nonlocal chapter_buf
-        if not chapter_buf:
-            return
-        pdf.set_font("Body", size=10)
-        pdf.set_text_color(26, 21, 16)
-        pdf.set_x(pdf.l_margin)
-        pdf.multi_cell(pdf.epw, 5, "\n".join(chapter_buf), align=body_align)
-        chapter_buf = []
-
     pdf.add_page()
-    for book, chapter, verse, text in verses:
-        if not text:
-            continue
-        if book != current_book or chapter != current_chapter:
-            flush_chapter()
+    write_chapter_glossary(pdf, books_and_chapters(grouped), dest_for)
+
+    body_align = "R" if rtl else "L"
+    current_book = None
+    pdf.add_page()
+    for book, chapter, items in grouped:
+        name = book_display_name(book)
         if book != current_book:
             current_book = book
-            current_chapter = None
-            pdf.set_font("Brand", size=13)
+            try:
+                pdf.start_section(name, level=0, strict=False)
+            except Exception:
+                pass
+            pdf.set_font("Brand", size=15)
             pdf.set_text_color(26, 21, 16)
             pdf.ln(2)
             pdf.set_x(pdf.l_margin)
-            pdf.multi_cell(pdf.epw, 7, BOOK_NAMES.get(book, book), align="C")
+            pdf.multi_cell(pdf.epw, 8, name, align="C")
             pdf.ln(1)
-        if chapter != current_chapter:
-            current_chapter = chapter
-            pdf.set_font("Brand", size=10)
-            pdf.set_text_color(106, 84, 32)
-            pdf.set_x(pdf.l_margin)
-            pdf.cell(pdf.epw, 6, f"{BOOK_NAMES.get(book, book)} {chapter}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
-        chapter_buf.append(f"{verse}  {text}")
-    flush_chapter()
+        pdf.set_link(name=f"ch-{book}-{chapter}", y=pdf.get_y())
+        try:
+            pdf.start_section(f"{name} {chapter}", level=1, strict=False)
+        except Exception:
+            pass
+        pdf.set_font("Brand", size=11)
+        pdf.set_text_color(106, 84, 32)
+        pdf.set_x(pdf.l_margin)
+        pdf.cell(pdf.epw, 6.5, f"{name} {chapter}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        pdf.set_font("Body", size=11)
+        pdf.set_text_color(26, 21, 16)
+        pdf.set_x(pdf.l_margin)
+        pdf.multi_cell(pdf.epw, 5.2, "\n".join(f"{verse}  {text}" for verse, text in items), align=body_align)
+
     tmp = dest.with_suffix(".pdf.tmp")
     pdf.output(str(tmp))
     tmp.replace(dest)
@@ -579,7 +749,7 @@ def write_index(out: Path, catalog: list[dict], results: list[dict]) -> None:
             "<!doctype html><meta charset='utf-8'>"
             f"<title>{BRAND}</title>"
             f"<h1>{BRAND}</h1><p>{CREDIT}</p>"
-            f"<p>{SITE} · {ok}/{len(results)} print PDFs · 6×9 in</p>"
+            f"<p>{SITE} · {ok}/{len(results)} print PDFs · US Letter · clickable chapter glossary</p>"
             f"<ul>{''.join(items)}</ul>"
         ),
         encoding="utf-8",
@@ -590,7 +760,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--workers", type=int, default=4)
-    parser.add_argument("--only")
+    parser.add_argument("--only", help="Comma-separated translation ids")
+    parser.add_argument("--language", default="", help="Only this English language name, e.g. English")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--out", default=str(OUT_DIR))
     args = parser.parse_args()
@@ -608,22 +779,29 @@ def main() -> None:
     )
     jobs = catalog
     if args.only:
-        jobs = [row for row in catalog if row["id"] == args.only]
-        if not jobs:
-            jobs = [
+        wanted = {part.strip() for part in args.only.split(",") if part.strip()}
+        jobs = [row for row in catalog if row["id"] in wanted]
+        missing = wanted - {row["id"] for row in jobs}
+        for ident in sorted(missing):
+            jobs.append(
                 {
-                    "id": args.only,
+                    "id": ident,
                     "source": "ebible",
-                    "title": args.only,
-                    "language": args.only,
-                    "native": args.only,
+                    "title": ident,
+                    "language": ident,
+                    "native": ident,
                     "script": "Latin",
                     "rtl": False,
                     "copyright": "",
                     "coverage": "unknown",
                     "verses": 0,
                 }
-            ]
+            )
+    if args.language:
+        lang = args.language.casefold()
+        jobs = [row for row in jobs if (row.get("language") or "").casefold() == lang]
+        if not jobs:
+            raise SystemExit(f"no translations match language {args.language!r}")
     if args.limit:
         jobs = jobs[: args.limit]
     results = []

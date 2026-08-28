@@ -2,7 +2,7 @@
 
 Made by Liberated Luis With Cursor, Claude Opus, and MacBook · [ChristSupply.Net](https://christsupply.net)
 
-These are 6×9 inch print PDFs. Every page is marked **ChristSupply.Net**.
+These are US Letter print PDFs. Print at **100% / Actual size**. Page 2 is a clickable chapter glossary; desktop PDF apps also show bookmarks for every chapter. Every page is marked **ChristSupply.Net**.
 
 Browse by letter, then language. Example: [E/English](E/English).
 

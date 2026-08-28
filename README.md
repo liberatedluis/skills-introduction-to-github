@@ -10,7 +10,7 @@ Every Bible page — on screen, in TXT, and in print — is marked **ChristSuppl
 
 - **Scroll** — dark or light (follows the device theme, with a toggle).
 - **TXT** — monospace dump for old-school offline sharing.
-- **PDF** — 6×9 print Bibles. Header and footer on every page: ChristSupply.Net, Christ Supply Holy Bible, and *Made by Liberated Luis With Cursor, Claude Opus, and MacBook*.
+- **PDF** — US Letter print Bibles with a clickable chapter glossary. Header and footer on every page: ChristSupply.Net, Christ Supply Holy Bible, and *Made by Liberated Luis With Cursor, Claude Opus, and MacBook*. Print at 100% / Actual size.
 
 ## 1,300 translation PDFs
 
@@ -75,5 +75,7 @@ python3 tests/test_catalog.py
 Scripture remains with its translators and publishers. This project prefers public-domain and redistributable editions and prints the source copyright on each cover.
 
 Live reader: [liberatedluis.github.io/skills-introduction-to-github](https://liberatedluis.github.io/skills-introduction-to-github/)
+
+GitHub Pages deploys from `main`. Enable it once in the repo: **Settings → Pages → Source → GitHub Actions**. The Actions token cannot turn Pages on by itself.
 
 Christ Supply Holy Bible · Made by Liberated Luis With Cursor, Claude Opus, and MacBook · ChristSupply.Net

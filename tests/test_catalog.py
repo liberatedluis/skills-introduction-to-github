@@ -40,6 +40,13 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("Christ Supply Holy Bible", html)
         self.assertIn("Made by Liberated Luis With Cursor, Claude Opus, and MacBook", html)
         self.assertIn('const BRAND = "Christ Supply Holy Bible"', js)
+        self.assertIn('id="glossary"', html)
+        self.assertIn('id="glossaryBtn"', html)
+        self.assertIn("Chapter glossary", html)
+        self.assertIn("size: letter", css)
+        self.assertIn("chapterHref", js)
+        self.assertIn("renderGlossaryPanel", js)
+        self.assertIn("glossarySheetHtml", js)
 
     def test_sample_pdfs_exist(self):
         pdf_dir = ROOT / "pdfs"
@@ -123,6 +130,111 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue(first.endswith(".pdf"))
         self.assertIn("Full Bible", first)
         self.assertIn("eng-web", second)
+
+    def test_chapter_glossary_structure(self):
+        from make_holy_bible_pdfs import PAGE_SIZE, books_and_chapters, group_chapters
+
+        self.assertEqual(PAGE_SIZE, "Letter")
+        verses = [
+            ("GEN", 1, 1, "In the beginning"),
+            ("GEN", 1, 2, "And the earth"),
+            ("GEN", 2, 1, "Thus the heavens"),
+            ("EXO", 1, 1, "Now these are"),
+            ("EXO", 1, 2, "Reuben"),
+        ]
+        grouped = group_chapters(verses)
+        self.assertEqual([(book, ch, len(items)) for book, ch, items in grouped], [("GEN", 1, 2), ("GEN", 2, 1), ("EXO", 1, 2)])
+        self.assertEqual(books_and_chapters(grouped), [("GEN", [1, 2]), ("EXO", [1])])
+
+    def test_vpl_book_aliases_have_full_names(self):
+        from make_holy_bible_pdfs import book_display_name, parse_vpl
+
+        self.assertEqual(book_display_name("JOH"), "John")
+        self.assertEqual(book_display_name("EZE"), "Ezekiel")
+        self.assertEqual(book_display_name("SOL"), "Song of Songs")
+        self.assertEqual(book_display_name("1JO"), "1 John")
+        self.assertEqual(book_display_name("TOB"), "Tobit")
+        verses = parse_vpl("JOH 3:16 For God so loved the world\nEZE 1:1 Now it came to pass")
+        self.assertEqual(verses[0][0], "JHN")
+        self.assertEqual(verses[1][0], "EZK")
+
+    def test_letter_pdf_has_glossary_links(self):
+        import tempfile
+
+        import pypdfium2 as pdfium
+
+        from make_holy_bible_pdfs import write_pdf
+
+        verses = []
+        for chapter in range(1, 4):
+            for verse in range(1, 6):
+                verses.append(("GEN", chapter, verse, f"Verse {chapter}:{verse} of the test Bible."))
+        for verse in range(1, 4):
+            verses.append(("JHN", 3, verse, f"For God so loved the world {verse}."))
+        meta = {
+            "id": "test-letter",
+            "title": "Test Letter Bible",
+            "language": "English",
+            "native": "English",
+            "script": "Latin",
+            "rtl": False,
+            "copyright": "Public Domain",
+            "coverage": "portions",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            dest = Path(tmp) / "test.pdf"
+            write_pdf(meta, verses, dest)
+            data = dest.read_bytes()
+            doc = pdfium.PdfDocument(str(dest))
+            try:
+                pages = [page.get_textpage().get_text_bounded() for page in doc]
+            finally:
+                doc.close()
+        self.assertTrue(data.startswith(b"%PDF-"))
+        self.assertIn(b"/Annot", data)
+        self.assertIn(b"/Outlines", data)
+        self.assertIn(b"/MediaBox [0 0 612.00 792.00]", data)
+        self.assertGreaterEqual(len(pages), 3)
+        self.assertIn("US Letter", pages[0])
+        self.assertIn("Chapter glossary", pages[0])
+        self.assertNotIn("p.1", pages[0])
+        self.assertIn("Chapter glossary", pages[1])
+        self.assertIn("Genesis", pages[1])
+        self.assertIn("John", pages[1])
+        self.assertIn("Genesis 1", pages[2])
+        self.assertIn("John 3", pages[2])
+
+    def test_full_bible_glossary_fits_one_page(self):
+        from make_holy_bible_pdfs import HolyBiblePDF, font_for, write_chapter_glossary
+
+        books = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
+        book_chapters = [(row["usfm"], list(range(1, row["chapters"] + 1))) for row in books]
+        self.assertEqual(sum(len(chaps) for _, chaps in book_chapters), 1189)
+        pdf = HolyBiblePDF("English", font_for("Latin"), False)
+        pdf.show_marks = True
+        pdf.add_page()
+        write_chapter_glossary(pdf, book_chapters, lambda book, ch: pdf.get_named_destination(f"ch-{book}-{ch}"))
+        self.assertEqual(pdf.page_no(), 1)
+
+    def test_copy_force_overwrites(self):
+        import tempfile
+
+        from copy_holy_bibles_to_desktop import place
+
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / "src.pdf"
+            src2 = Path(tmp) / "src2.pdf"
+            dest = Path(tmp) / "out" / "dest.pdf"
+            src.write_bytes(b"%PDF-1.3 old")
+            first = place(src, dest)
+            self.assertIn(first, {"link", "copy"})
+            self.assertEqual(place(src, dest), "exists")
+            src2.write_bytes(b"%PDF-1.3 new-bytes")
+            self.assertIn(place(src2, dest, force=True), {"link", "copy"})
+            self.assertEqual(dest.read_bytes(), b"%PDF-1.3 new-bytes")
+
+
+
 
 
 
