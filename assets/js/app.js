@@ -33,7 +33,7 @@ let plateObserver = null;
 function preferredTheme() {
   const saved = localStorage.getItem(STORAGE_THEME);
   if (saved === "light" || saved === "dark") return saved;
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  return "dark";
 }
 
 function applyTheme(theme) {
@@ -603,7 +603,7 @@ function startRain() {
   window.addEventListener("resize", resize);
   const tick = () => {
     const light = document.documentElement.dataset.theme === "light";
-    ctx.fillStyle = light ? "rgba(243, 234, 215, 0.18)" : "rgba(2, 4, 2, 0.18)";
+    ctx.fillStyle = light ? "rgba(243, 234, 215, 0.12)" : "rgba(2, 4, 2, 0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = light ? "rgba(11, 93, 44, 0.45)" : "rgba(124, 255, 154, 0.72)";
     ctx.font = "13px IBM Plex Mono, monospace";
@@ -663,6 +663,18 @@ function bindReader() {
       const panel = $("langPanel");
       if (panel) panel.hidden = true;
     }
+  });
+  window.addEventListener("hashchange", () => {
+    if (!$("view-scroll") || !state.catalog) return;
+    const boot = async () => {
+      parseHash();
+      await discoverBooks(state.tx);
+      applyBooksFor(state.tx);
+      parseHash();
+      fillBooks();
+      await render();
+    };
+    boot().catch((err) => setStatus(err.message || String(err)));
   });
 }
 

@@ -83,6 +83,7 @@ class CatalogTests(unittest.TestCase):
         print_html = (ROOT / "print.html").read_text(encoding="utf-8")
         self.assertIn("1,300", html)
         self.assertIn("Search 1,300 Matrix Holy Bibles", html)
+        self.assertIn("hashchange", js)
         self.assertIn("data/translations.json", js)
         self.assertIn("scroll-more", js)
         self.assertIn("printCatalog", print_html)

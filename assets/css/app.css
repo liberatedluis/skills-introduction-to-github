@@ -44,9 +44,9 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.28;
+  opacity: 0.5;
 }
-html[data-theme="light"] #rain { opacity: 0.08; }
+html[data-theme="light"] #rain { opacity: 0.18; }
 .scanlines {
   position: fixed;
   inset: 0;
