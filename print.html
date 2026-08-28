@@ -2,28 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>1,300 print PDFs · Christ Supply Holy Bible</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#041208" />
+    <title>1,300 Matrix Holy Bibles · Christ Supply Holy Bible</title>
+    <link rel="icon" href="assets/img/mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/app.css" />
   </head>
-  <body>
+  <body id="printCatalog">
+    <canvas id="rain" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+
     <header class="topbar">
       <a class="brand" href="./">
+        <img src="assets/img/mark.svg" width="40" height="40" alt="" />
         <span>
           <strong>Christ Supply Holy Bible</strong>
-          <em>Made by Liberated Luis With Cursor, Claude Opus, and MacBook</em>
+          <em>1,300 scrollable Matrix translations · Made by Liberated Luis With Cursor, Claude Opus, and MacBook</em>
           <b>ChristSupply.Net</b>
         </span>
       </a>
+      <div class="top-actions">
+        <span id="txCount" class="tx-count">1,300 translations</span>
+        <button type="button" id="themeBtn" class="ghost" aria-label="Toggle color theme">Theme</button>
+        <a class="ghost" href="./">Open the scroller</a>
+        <a class="ghost site-link" href="https://christsupply.net" target="_blank" rel="noopener">ChristSupply.Net</a>
+      </div>
     </header>
-    <main class="pdf-view" style="padding: 24px; max-width: 720px; margin: 0 auto">
-      <h1>1,300 print PDFs</h1>
-      <p>6×9 inch Bibles on GitHub (Git LFS). Every page is marked ChristSupply.Net.</p>
-      <p>
-        <a href="https://github.com/liberatedluis/skills-introduction-to-github/tree/cursor/holy-bible-1300-print-pdfs-9e43/print-bibles">Open the print-bibles folder on GitHub</a>
+
+    <form class="controls" autocomplete="off">
+      <label class="grow">
+        Search 1,300 translations
+        <input id="printSearch" type="search" placeholder="English, Spanish, Cherokee, WEB, Matthew…" />
+      </label>
+    </form>
+    <p id="status" class="status" role="status">Loading 1,300 Matrix Holy Bibles…</p>
+    <main class="print-catalog">
+      <p class="lede">
+        Open any translation in the Matrix scroller. Print PDFs are 6×9 inches on GitHub (Git LFS), and every page is marked ChristSupply.Net.
       </p>
-      <p>English: <a href="https://github.com/liberatedluis/skills-introduction-to-github/tree/cursor/holy-bible-1300-print-pdfs-9e43/print-bibles/E/English">print-bibles/E/English</a></p>
-      <p><a href="./">Back to the reader</a></p>
+      <div id="printList" class="print-list"></div>
     </main>
+    <footer class="foot">
+      <p><a href="./">Back to the reader</a> · <a href="https://christsupply.net">ChristSupply.Net</a></p>
+      <p>Christ Supply Holy Bible · Made by Liberated Luis With Cursor, Claude Opus, and MacBook</p>
+    </footer>
+    <script src="assets/js/app.js" type="module"></script>
   </body>
 </html>

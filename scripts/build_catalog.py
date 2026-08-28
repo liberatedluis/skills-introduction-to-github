@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from holy_catalog import write_reader_catalog  # noqa: E402
 from languages_seed import ALIASES, parse_seed  # noqa: E402
 
 EBIBLE_CSV = ROOT / "data" / "ebible-translations.csv"
@@ -332,7 +333,9 @@ def main() -> None:
         "languages": languages,
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    tx_path = write_reader_catalog()
     print(f"wrote {OUT} ({len(languages)} languages, {with_text} with a live source)")
+    print(f"wrote {tx_path} (1,300 Matrix-scrollable translations)")
 
 
 if __name__ == "__main__":

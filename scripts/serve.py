@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serve Christ Supply Holy Bible and proxy redistributable eBible chapter HTML."""
+"""Serve the 1,300-translation Matrix Holy Bible reader and proxy eBible chapter HTML."""
 
 from __future__ import annotations
 
