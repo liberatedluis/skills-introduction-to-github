@@ -24,6 +24,20 @@ python3 scripts/make_holy_bible_pdfs.py --only engwebp
 
 Each file is named `ChristSupplyHolyBible-{translationId}.pdf`.
 
+On GitHub they live under [`print-bibles/`](print-bibles/) as language folders (Git LFS):
+
+`print-bibles/E/English/Full Bible — World English Bible.pdf`
+
+Clone with Git LFS, then the PDFs come down with the repo:
+
+```bash
+git lfs install
+git clone https://github.com/liberatedluis/skills-introduction-to-github.git
+cd skills-introduction-to-github
+git checkout cursor/holy-bible-1300-print-pdfs-9e43
+git lfs pull
+```
+
 ## Folders on your Desktop
 
 After the PDFs exist, put them in language folders on your Mac Desktop:
