@@ -76,4 +76,6 @@ Scripture remains with its translators and publishers. This project prefers publ
 
 Live reader: [liberatedluis.github.io/skills-introduction-to-github](https://liberatedluis.github.io/skills-introduction-to-github/)
 
+GitHub Pages deploys from `main`. Enable it once in the repo: **Settings → Pages → Source → GitHub Actions**. The Actions token cannot turn Pages on by itself.
+
 Christ Supply Holy Bible · Made by Liberated Luis With Cursor, Claude Opus, and MacBook · ChristSupply.Net
