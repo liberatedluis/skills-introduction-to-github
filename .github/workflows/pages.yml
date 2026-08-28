@@ -32,11 +32,19 @@ jobs:
           cp index.html manifest.webmanifest print.html _site/
           cp -r assets data scroll-bibles _site/
           touch _site/.nojekyll
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+      - id: configure-pages
+        continue-on-error: true
+        uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
+        if: steps.configure-pages.outcome == 'success'
         with:
           path: _site
       - id: deployment
+        if: steps.configure-pages.outcome == 'success'
         uses: actions/deploy-pages@v4
+      - name: Pages not enabled yet
+        if: steps.configure-pages.outcome != 'success'
+        run: |
+          echo "GitHub Pages is not enabled on this repository, so the site was not published."
+          echo "The 1,300 Matrix HTML Bibles are still on the branch under scroll-bibles/."
+          echo "Enable Pages in Settings → Pages → Source: GitHub Actions, then re-run this workflow."

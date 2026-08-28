@@ -17,7 +17,7 @@ Every Bible page — on screen, in TXT, and in print — is marked **ChristSuppl
 The 1,300 Matrix scrollables are in [`scroll-bibles/`](scroll-bibles/) — letter folders, then language, same layout as the print PDFs.
 
 - GitHub: [`scroll-bibles/E/English`](scroll-bibles/E/English)
-- GitHub Pages (once enabled): https://liberatedluis.github.io/skills-introduction-to-github/scroll-bibles/
+- GitHub Pages: https://liberatedluis.github.io/skills-introduction-to-github/scroll-bibles/ (turn on **Settings → Pages → GitHub Actions** once, then re-run **Publish GitHub Pages**)
 
 ```bash
 python3 scripts/make_scroll_bibles.py
