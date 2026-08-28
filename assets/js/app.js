@@ -208,6 +208,46 @@ function toTxt(lang, bookMeta, chapter, verses, source, pageNo) {
   return blocks.join("\n\n");
 }
 
+function chapterHref(usfm, chapter, mode = state.mode) {
+  return `#${state.lang.iso}/${String(usfm).toLowerCase()}/${chapter}/${mode}`;
+}
+
+function renderGlossaryPanel() {
+  const list = $("glossaryList");
+  if (!list || !state.books.length || !state.lang) return;
+  list.innerHTML = state.books
+    .map((book) => {
+      const chaps = Array.from({ length: book.chapters }, (_, i) => {
+        const n = i + 1;
+        const current = book.id === state.book && n === state.chapter ? ' aria-current="page"' : "";
+        return `<a href="${chapterHref(book.usfm, n)}" data-book="${book.id}" data-chapter="${n}"${current}>${n}</a>`;
+      }).join("");
+      return `<section class="gl-book"><h3>${book.name}</h3><div class="gl-chaps">${chaps}</div></section>`;
+    })
+    .join("");
+}
+
+function glossarySheetHtml() {
+  const body = state.books
+    .map((book) => {
+      const links = Array.from(
+        { length: book.chapters },
+        (_, i) => `<a href="${chapterHref(book.usfm, i + 1, "pdf")}">${i + 1}</a>`
+      ).join(" ");
+      return `<div class="gl-print-book"><strong>${book.name}</strong> ${links}</div>`;
+    })
+    .join("");
+  return `<div class="pdf-sheet glossary-sheet">
+      ${pageMark("", "Chapter glossary")}
+      <div class="page-body">
+        <h2>Chapter glossary</h2>
+        <p class="gl-note">Click a chapter. Print at 100% on US Letter. ${SITE}</p>
+        <div class="gl-print-grid">${body}</div>
+      </div>
+      ${pageMark("foot", CREDIT)}
+    </div>`;
+}
+
 function setStatus(message) {
   $("status").textContent = message;
 }
@@ -296,10 +336,11 @@ async function render() {
     const heading = `${title} — ${lang.native}`;
     const pages = chunkVerses(verses);
     views.scroll.innerHTML = renderPlates(heading, verses, pageNo);
-    views.pdf.innerHTML = pages
+    views.pdf.innerHTML = glossarySheetHtml() + pages
       .map((part, index) => `<div class="pdf-sheet">${plate(index === 0 ? heading : `${heading} (cont.)`, part, pageNo + index)}</div>`)
       .join("");
     views.txt.innerHTML = `<pre>${toTxt(lang, book, chapter, verses, source, pageNo)}</pre>`;
+    renderGlossaryPanel();
     setStatus(`${describeLang(lang)} · ${verses.length} verses · marked ${SITE}`);
     history.replaceState(
       {},
@@ -314,8 +355,9 @@ async function render() {
       pageNo
     );
     views.scroll.innerHTML = empty;
-    views.pdf.innerHTML = `<div class="pdf-sheet">${empty}</div>`;
+    views.pdf.innerHTML = `${glossarySheetHtml()}<div class="pdf-sheet">${empty}</div>`;
     views.txt.innerHTML = `<pre>${txtBanner(pageNo, title)}\n\n${message}\n\n${SITE}\n${CREDIT}\n</pre>`;
+    renderGlossaryPanel();
     setStatus(message);
   }
 }
@@ -427,6 +469,25 @@ function bind() {
   });
   $("prevBtn").addEventListener("click", () => stepChapter(-1));
   $("nextBtn").addEventListener("click", () => stepChapter(1));
+  $("glossaryBtn").addEventListener("click", () => {
+    const panel = $("glossary");
+    panel.hidden = !panel.hidden;
+    if (!panel.hidden) renderGlossaryPanel();
+  });
+  $("glossaryClose").addEventListener("click", () => {
+    $("glossary").hidden = true;
+  });
+  $("glossaryList").addEventListener("click", (event) => {
+    const link = event.target.closest("a[data-book]");
+    if (!link) return;
+    event.preventDefault();
+    state.book = Number(link.dataset.book);
+    state.chapter = Number(link.dataset.chapter);
+    $("bookSelect").value = String(state.book);
+    fillChapters();
+    $("glossary").hidden = true;
+    render();
+  });
   $("downloadTxtBtn").addEventListener("click", downloadTxt);
   $("printBtn").addEventListener("click", () => {
     state.mode = "pdf";
@@ -437,6 +498,29 @@ function bind() {
     if (!event.target.closest("#langPanel") && !event.target.closest("#langSearch")) {
       $("langPanel").hidden = true;
     }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.target.matches("input, select, textarea")) return;
+    if (event.key === "g" || event.key === "G") {
+      event.preventDefault();
+      $("glossary").hidden = !$("glossary").hidden;
+      if (!$("glossary").hidden) renderGlossaryPanel();
+    } else if (event.key === "Escape") {
+      $("glossary").hidden = true;
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      stepChapter(-1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      stepChapter(1);
+    }
+  });
+  window.addEventListener("hashchange", () => {
+    const before = `${state.lang.iso}/${currentBook().usfm}/${state.chapter}/${state.mode}`;
+    parseHash();
+    fillBooks();
+    const after = `${state.lang.iso}/${currentBook().usfm}/${state.chapter}/${state.mode}`;
+    if (before !== after) render();
   });
 }
 

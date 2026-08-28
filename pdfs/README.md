@@ -1,6 +1,6 @@
 # Print-friendly PDFs
 
-6×9 inch chapter PDFs. Every page is marked **ChristSupply.Net**.
+US Letter chapter PDFs. Every page is marked **ChristSupply.Net**. Print at 100% / Actual size.
 
 ```bash
 python3 scripts/make_pdf.py --samples

@@ -82,7 +82,7 @@ def print_html(lang: dict, book: dict, chapter: int, verses: list[dict], source_
 <meta charset="utf-8" />
 <title>{html.escape(title)} · {SITE}</title>
 <style>
-  @page {{ size: 6in 9in; margin: 0; }}
+  @page {{ size: letter; margin: 0; }}
   * {{ box-sizing: border-box; }}
   html, body {{
     margin: 0;
@@ -92,9 +92,9 @@ def print_html(lang: dict, book: dict, chapter: int, verses: list[dict], source_
     font-family: "Times New Roman", Georgia, serif;
   }}
   .sheet {{
-    width: 6in;
-    height: 9in;
-    padding: 12mm 14mm 10mm;
+    width: 8.5in;
+    height: 11in;
+    padding: 14mm 16mm 12mm;
     display: flex;
     flex-direction: column;
     page-break-after: always;
