@@ -10,7 +10,7 @@ Every Bible page — on screen, in TXT, and in print — is marked **ChristSuppl
 
 - **Scroll** — dark or light (follows the device theme, with a toggle).
 - **TXT** — monospace dump for old-school offline sharing.
-- **PDF** — 6×9 print Bibles. Header and footer on every page: ChristSupply.Net, Christ Supply Holy Bible, and *Made by Liberated Luis With Cursor, Claude Opus, and MacBook*.
+- **PDF** — US Letter print Bibles with a clickable chapter glossary. Header and footer on every page: ChristSupply.Net, Christ Supply Holy Bible, and *Made by Liberated Luis With Cursor, Claude Opus, and MacBook*. Print at 100% / Actual size.
 
 ## 1,300 translation PDFs
 

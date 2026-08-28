@@ -14,4 +14,4 @@ That last command puts the 1,300 PDFs in language folders on your Desktop:
 `Desktop/Christ Supply Holy Bible/E/English/`
 
 
-Every page header/footer carries **ChristSupply.Net**, **Christ Supply Holy Bible**, and the maker line.
+Every page header/footer carries **ChristSupply.Net**, **Christ Supply Holy Bible**, and the maker line. Files are US Letter. Page 2 is a clickable chapter glossary.

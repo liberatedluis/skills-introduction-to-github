@@ -76,9 +76,21 @@
     <div class="dock">
       <button type="button" id="prevBtn">Prev</button>
       <button type="button" id="nextBtn">Next</button>
+      <button type="button" id="glossaryBtn">Chapters</button>
       <button type="button" id="downloadTxtBtn">Download TXT</button>
       <button type="button" id="printBtn">Print / Save PDF</button>
     </div>
+
+    <aside id="glossary" class="glossary" hidden>
+      <div class="glossary-head">
+        <div>
+          <h2>Chapter glossary</h2>
+          <p>Every chapter is a link. On a computer: press G, or use the left and right arrow keys. Share the page URL.</p>
+        </div>
+        <button type="button" id="glossaryClose" class="ghost">Close</button>
+      </div>
+      <div id="glossaryList" class="glossary-list"></div>
+    </aside>
 
     <footer class="foot">
       <p>Every page is marked <a href="https://christsupply.net">ChristSupply.Net</a> · <a href="print.html">1,300 print PDFs</a></p>
