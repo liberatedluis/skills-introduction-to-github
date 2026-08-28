@@ -110,6 +110,21 @@ class CatalogTests(unittest.TestCase):
             path = font_for(script)
             self.assertTrue(path.exists(), f"{script} -> {path}")
 
+    def test_desktop_folder_names(self):
+        from copy_holy_bibles_to_desktop import letter_bucket, pdf_filename, safe_name
+
+        self.assertEqual(safe_name('English / WEB'), "English WEB")
+        self.assertEqual(letter_bucket("English"), "E")
+        self.assertEqual(letter_bucket("Spanish"), "S")
+        self.assertEqual(letter_bucket("Hebrew"), "H")
+        used = set()
+        first = pdf_filename({"id": "engwebp", "title": "World English Bible", "coverage": "bible"}, used)
+        second = pdf_filename({"id": "eng-web", "title": "World English Bible", "coverage": "bible"}, used)
+        self.assertTrue(first.endswith(".pdf"))
+        self.assertIn("Full Bible", first)
+        self.assertIn("eng-web", second)
+
+
 
 
 if __name__ == "__main__":

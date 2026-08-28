@@ -24,6 +24,21 @@ python3 scripts/make_holy_bible_pdfs.py --only engwebp
 
 Each file is named `ChristSupplyHolyBible-{translationId}.pdf`.
 
+## Folders on your Desktop
+
+After the PDFs exist, put them in language folders on your Mac Desktop:
+
+```bash
+python3 scripts/copy_holy_bibles_to_desktop.py
+```
+
+Or double-click `scripts/copy-to-desktop.command`. That creates:
+
+`Desktop/Christ Supply Holy Bible/E/English/Full Bible — World English Bible.pdf`
+
+Letter folders A–Z, then one folder per language. English, Spanish, Hebrew, and other languages with several editions share a folder.
+
+
 ## Languages
 
 The web catalog lists the 300 most common living languages. Live text loads from Bolls, getBible, and eBible where an open edition exists.
