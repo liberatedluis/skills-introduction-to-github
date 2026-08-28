@@ -323,8 +323,8 @@ def main() -> None:
             }
         )
     payload = {
-        "brand": "Christ Supply Bible",
-        "credit": "built by Cursor with Liberated",
+        "brand": "Christ Supply Holy Bible",
+        "credit": "Made by Liberated Luis With Cursor, Claude Opus, and MacBook",
         "site": "ChristSupply.Net",
         "siteUrl": "https://christsupply.net",
         "count": len(languages),

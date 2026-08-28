@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serve Christ Supply Bible and proxy redistributable eBible chapter HTML."""
+"""Serve Christ Supply Holy Bible and proxy redistributable eBible chapter HTML."""
 
 from __future__ import annotations
 
@@ -83,8 +83,8 @@ def main():
     parser.add_argument("--port", type=int, default=8080)
     args = parser.parse_args()
     server = ThreadingHTTPServer((args.host, args.port), Handler)
-    print(f"Christ Supply Bible at http://{args.host}:{args.port}")
-    print("built by Cursor with Liberated · ChristSupply.Net")
+    print(f"Christ Supply Holy Bible at http://{args.host}:{args.port}")
+    print("Made by Liberated Luis With Cursor, Claude Opus, and MacBook · ChristSupply.Net")
     server.serve_forever()
 
 
