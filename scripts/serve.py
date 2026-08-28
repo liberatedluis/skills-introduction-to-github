@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-This project is a 1,300-translation Matrix Holy Bible reader. Live chapter text loads from eBible (and getBible for a few public-domain extras). The local server proxies those chapter files so the scroller works without CORS issues.
+"""Serve the 1,300-translation Matrix Holy Bible reader and proxy eBible chapter HTML."""
 
 from __future__ import annotations
 
