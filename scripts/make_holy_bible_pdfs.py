@@ -26,6 +26,42 @@ CJK = Path("/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf")
 CSV_PATH = ROOT / "data" / "ebible-translations.csv"
 BOOKS = json.loads((ROOT / "data" / "books.json").read_text(encoding="utf-8"))
 BOOK_NAMES = {row["usfm"]: row["name"] for row in BOOKS}
+BOOK_ALIASES = {
+    "SOL": "SNG",
+    "SON": "SNG",
+    "EZE": "EZK",
+    "JOE": "JOL",
+    "NAH": "NAM",
+    "MAR": "MRK",
+    "JOH": "JHN",
+    "PHI": "PHP",
+    "JAM": "JAS",
+    "1JO": "1JN",
+    "2JO": "2JN",
+    "3JO": "3JN",
+    "PSM": "PSA",
+}
+DC_NAMES = {
+    "TOB": "Tobit",
+    "JDT": "Judith",
+    "ESG": "Esther (Greek)",
+    "WIS": "Wisdom",
+    "SIR": "Sirach",
+    "BAR": "Baruch",
+    "LJE": "Letter of Jeremiah",
+    "S3Y": "Song of the Three",
+    "SUS": "Susanna",
+    "BEL": "Bel and the Dragon",
+    "1MA": "1 Maccabees",
+    "2MA": "2 Maccabees",
+    "3MA": "3 Maccabees",
+    "4MA": "4 Maccabees",
+    "1ES": "1 Esdras",
+    "2ES": "2 Esdras",
+    "MAN": "Prayer of Manasseh",
+    "PS2": "Psalm 151",
+    "DAG": "Daniel (Greek)",
+}
 CACHE = ROOT / ".cache" / "vpl"
 OUT_DIR = ROOT / "pdfs" / "holy-bibles"
 UA = {"User-Agent": "ChristSupplyHolyBible/1.0"}
@@ -283,6 +319,7 @@ def parse_vpl(text: str) -> list[tuple[str, int, int, str]]:
             continue
         book, chapter, verse, body = match.groups()
         book = book.upper()
+        book = BOOK_ALIASES.get(book, book)
         if book in {"FRT", "INT", "GLO", "XXA", "XXB", "XXC", "XXD", "XXE", "XXF", "XXG"}:
             continue
         verses.append((book, int(chapter), int(verse), body.strip()))
@@ -398,6 +435,11 @@ def font_for(script: str) -> Path:
         return path
     latin = SCRIPT_FONTS["Latin"]
     return latin if latin.exists() else path
+
+
+def book_display_name(code: str) -> str:
+    usfm = BOOK_ALIASES.get((code or "").upper(), (code or "").upper())
+    return BOOK_NAMES.get(usfm) or DC_NAMES.get(usfm) or code
 
 
 def group_chapters(verses: list[tuple[str, int, int, str]]) -> list[tuple[str, int, list[tuple[int, str]]]]:
@@ -542,7 +584,7 @@ def write_chapter_glossary(
     col = 0
     y = top
     for book, chapters in book_chapters:
-        name = BOOK_NAMES.get(book, book)
+        name = book_display_name(book)
         rows = max(1, (len(chapters) + n_per - 1) // n_per)
         needed = label_h + rows * line_h + 1.2
         if y + min(needed, label_h + line_h * 2) > bottom and y > top + 2:
@@ -642,7 +684,7 @@ def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -
     current_book = None
     pdf.add_page()
     for book, chapter, items in grouped:
-        name = BOOK_NAMES.get(book, book)
+        name = book_display_name(book)
         if book != current_book:
             current_book = book
             try:

@@ -146,6 +146,18 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual([(book, ch, len(items)) for book, ch, items in grouped], [("GEN", 1, 2), ("GEN", 2, 1), ("EXO", 1, 2)])
         self.assertEqual(books_and_chapters(grouped), [("GEN", [1, 2]), ("EXO", [1])])
 
+    def test_vpl_book_aliases_have_full_names(self):
+        from make_holy_bible_pdfs import book_display_name, parse_vpl
+
+        self.assertEqual(book_display_name("JOH"), "John")
+        self.assertEqual(book_display_name("EZE"), "Ezekiel")
+        self.assertEqual(book_display_name("SOL"), "Song of Songs")
+        self.assertEqual(book_display_name("1JO"), "1 John")
+        self.assertEqual(book_display_name("TOB"), "Tobit")
+        verses = parse_vpl("JOH 3:16 For God so loved the world\nEZE 1:1 Now it came to pass")
+        self.assertEqual(verses[0][0], "JHN")
+        self.assertEqual(verses[1][0], "EZK")
+
     def test_letter_pdf_has_glossary_links(self):
         import tempfile
 
