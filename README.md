@@ -74,4 +74,6 @@ python3 tests/test_catalog.py
 
 Scripture remains with its translators and publishers. This project prefers public-domain and redistributable editions and prints the source copyright on each cover.
 
+Live reader: [liberatedluis.github.io/skills-introduction-to-github](https://liberatedluis.github.io/skills-introduction-to-github/)
+
 Christ Supply Holy Bible · Made by Liberated Luis With Cursor, Claude Opus, and MacBook · ChristSupply.Net
