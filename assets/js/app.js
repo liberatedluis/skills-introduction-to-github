@@ -1,3 +1,5 @@
+import { loadIndexes, renderIndexHTML } from "./indexes.js";
+
 const SITE = "ChristSupply.Net";
 const SITE_URL = "https://christsupply.net";
 const BRAND = "Christ Supply Holy Bible";
@@ -26,6 +28,9 @@ const state = {
   tail: null,
   loadingMore: false,
   skips: 0,
+  indexes: null,
+  indexPath: [],
+  verse: 0,
 };
 let moreObserver = null;
 let plateObserver = null;
@@ -229,7 +234,10 @@ async function loadChapter(tx, bookMeta, chapter) {
 
 function renderVerses(verses) {
   return verses
-    .map((v) => `<div class="verse"><span class="n">${v.verse}</span><span>${v.text}</span></div>`)
+    .map((v) => {
+      const hit = state.verse && Number(v.verse) === Number(state.verse) ? " is-hit" : "";
+      return `<div class="verse${hit}" id="v-${v.verse}" data-verse="${v.verse}"><span class="n">${v.verse}</span><span>${v.text}</span></div>`;
+    })
     .join("");
 }
 
@@ -367,8 +375,17 @@ function describeTx(tx) {
 }
 
 function writeHash(tx = state.tx, book = currentBook(), chapter = state.chapter, mode = state.mode) {
-  if (!tx || !book) return;
-  const next = `#${tx.id}/${book.usfm.toLowerCase()}/${chapter}/${mode}`;
+  if (!tx) return;
+  let next = "";
+  if (mode === "index") {
+    const extra = (state.indexPath || []).filter(Boolean).join("/");
+    next = `#${tx.id}/index${extra ? `/${extra}` : ""}`;
+  } else if (!book) {
+    return;
+  } else {
+    const verse = state.verse ? `/${state.verse}` : "";
+    next = `#${tx.id}/${book.usfm.toLowerCase()}/${chapter}/${mode}${verse}`;
+  }
   if (location.hash !== next) history.replaceState({}, "", next);
 }
 
@@ -466,7 +483,95 @@ async function appendNextChapter() {
   }
 }
 
+async function renderIndex() {
+  const views = {
+    scroll: $("view-scroll"),
+    index: $("view-index"),
+    txt: $("view-txt"),
+    pdf: $("view-pdf"),
+  };
+  for (const [mode, node] of Object.entries(views)) {
+    if (node) node.hidden = mode !== "index";
+  }
+  disconnectObservers();
+  if (!state.indexes) {
+    try {
+      state.indexes = await loadIndexes();
+    } catch (err) {
+      if (views.index) views.index.innerHTML = `<article class="idx-sheet"><p class="idx-empty">${err.message || err}</p></article>`;
+      setStatus(err.message || String(err));
+      return;
+    }
+  }
+  if (views.index) {
+    views.index.innerHTML = renderIndexHTML(state.indexes, state.books.length ? state.books : state.allBooks, state.indexPath || []);
+  }
+  const tx = state.tx;
+  setStatus(`${tx ? describeTx(tx) + " · " : ""}Root Index · clickable WEB study indexes · ${SITE}`);
+  writeHash();
+}
+
+function openIndex(path = []) {
+  state.mode = "index";
+  state.indexPath = Array.isArray(path) ? path.filter(Boolean) : String(path).split("/").filter(Boolean);
+  const radio = document.querySelector("input[name=mode][value=index]");
+  if (radio) radio.checked = true;
+  render();
+}
+
+function openVerse(bookId, chapter, verse) {
+  const available = state.books.length ? state.books : state.allBooks;
+  const book = available.find((row) => row.id === Number(bookId));
+  if (!book) {
+    setStatus("That book is not in this translation.");
+    return;
+  }
+  if (state.books.length && !state.books.some((row) => row.id === book.id)) {
+    setStatus(`${book.name} is not in this translation’s open text.`);
+    return;
+  }
+  state.book = book.id;
+  state.chapter = Number(chapter) || 1;
+  state.verse = Number(verse) || 1;
+  state.mode = "scroll";
+  const radio = document.querySelector("input[name=mode][value=scroll]");
+  if (radio) radio.checked = true;
+  fillBooks();
+  render();
+}
+
+function shareIndex() {
+  const url = location.href;
+  if (navigator.share) {
+    navigator.share({ title: BRAND, text: `${BRAND} · ${SITE}`, url }).catch(() => copyText(url));
+    return;
+  }
+  copyText(url);
+}
+
+function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(value).then(
+      () => setStatus(`Copied share link · ${SITE}`),
+      () => setStatus(value)
+    );
+    return;
+  }
+  setStatus(value);
+}
+
+function scrollToVerse() {
+  if (!state.verse) return;
+  const hit = document.getElementById(`v-${state.verse}`);
+  if (!hit) return;
+  hit.scrollIntoView({ block: "center", behavior: "smooth" });
+}
+
 async function render() {
+  if (state.mode === "index") {
+    await renderIndex();
+    return;
+  }
   const tx = state.tx;
   if (!tx) return;
   const book = currentBook();
@@ -484,6 +589,7 @@ async function render() {
 
   const views = {
     scroll: $("view-scroll"),
+    index: $("view-index"),
     txt: $("view-txt"),
     pdf: $("view-pdf"),
   };
@@ -519,6 +625,7 @@ async function render() {
     writeHash();
     attachMoreObserver();
     attachPlateObserver();
+    scrollToVerse();
   } catch (err) {
     const message = err.message || String(err);
     const empty = plate(
@@ -569,6 +676,7 @@ function stepChapter(delta) {
   }
   state.book = bookId;
   state.chapter = next;
+  state.verse = 0;
   $("bookSelect").value = String(bookId);
   fillChapters();
   render();
@@ -625,6 +733,7 @@ function bindReader() {
     localStorage.setItem(STORAGE_THEME, next);
     applyTheme(next);
   });
+  $("indexBtn")?.addEventListener("click", () => openIndex([]));
   $("langSearch")?.addEventListener("focus", () => renderLangList($("langSearch").value));
   $("langSearch")?.addEventListener("input", () => renderLangList($("langSearch").value));
   $("langPanel")?.addEventListener("click", (event) => {
@@ -634,19 +743,24 @@ function bindReader() {
   $("bookSelect")?.addEventListener("change", (event) => {
     state.book = Number(event.target.value);
     state.chapter = 1;
+    state.verse = 0;
     fillChapters();
     render();
   });
   $("chapterSelect")?.addEventListener("change", (event) => {
     state.chapter = Number(event.target.value);
+    state.verse = 0;
     render();
   });
   document.querySelectorAll("input[name=mode]").forEach((input) => {
     input.addEventListener("change", () => {
-      if (input.checked) {
-        state.mode = input.value;
-        render();
+      if (!input.checked) return;
+      if (input.value === "index") {
+        openIndex(state.indexPath || []);
+        return;
       }
+      state.mode = input.value;
+      render();
     });
   });
   $("prevBtn")?.addEventListener("click", () => stepChapter(-1));
@@ -657,6 +771,20 @@ function bindReader() {
     const radio = document.querySelector("input[name=mode][value=pdf]");
     if (radio) radio.checked = true;
     render().then(() => window.print());
+  });
+  $("view-index")?.addEventListener("click", (event) => {
+    const share = event.target.closest("[data-share]");
+    if (share) {
+      shareIndex();
+      return;
+    }
+    const go = event.target.closest("[data-go-book]");
+    if (go) {
+      openVerse(go.dataset.goBook, go.dataset.goChapter, go.dataset.goVerse);
+      return;
+    }
+    const idx = event.target.closest("[data-index]");
+    if (idx) openIndex(idx.dataset.index || "");
   });
   document.addEventListener("click", (event) => {
     if (!event.target.closest("#langPanel") && !event.target.closest("#langSearch")) {
@@ -693,19 +821,28 @@ function findTranslation(idOrIso) {
 function parseHash() {
   const raw = location.hash.replace(/^#/, "");
   if (!raw) return;
-  const [id, usfm, chapter, mode] = raw.split("/");
-  const tx = findTranslation(id);
+  const parts = raw.split("/").filter(Boolean);
+  const tx = findTranslation(parts[0]);
   if (tx) state.tx = tx;
+  if (parts[1] === "index") {
+    state.mode = "index";
+    state.indexPath = parts.slice(2);
+    const radio = document.querySelector("input[name=mode][value=index]");
+    if (radio) radio.checked = true;
+    return;
+  }
+  const [, usfm, chapter, mode, verse] = parts;
   if (usfm && state.books.length) {
     const book = state.books.find((row) => row.usfm.toLowerCase() === usfm.toLowerCase());
     if (book) state.book = book.id;
   }
   if (chapter) state.chapter = Number(chapter) || 1;
-  if (["scroll", "txt", "pdf"].includes(mode)) {
+  if (["scroll", "txt", "pdf", "index"].includes(mode)) {
     state.mode = mode;
     const radio = document.querySelector(`input[name=mode][value=${mode}]`);
     if (radio) radio.checked = true;
   }
+  state.verse = verse ? Number(verse) || 0 : 0;
 }
 
 function pickDefaultTx() {
@@ -725,13 +862,15 @@ async function bootReader() {
   applyTheme(preferredTheme());
   startRain();
   bindReader();
-  const [catalog, books] = await Promise.all([
+  const [catalog, books, indexes] = await Promise.all([
     fetchJson("data/translations.json"),
     fetchJson("data/books.json"),
+    loadIndexes().catch(() => null),
   ]);
   state.catalog = catalog;
   state.allBooks = books;
   state.books = books;
+  state.indexes = indexes;
   state.tx = pickDefaultTx();
   parseHash();
   await discoverBooks(state.tx);

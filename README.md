@@ -9,6 +9,7 @@ Every Bible page — on screen, in TXT, and in print — is marked **ChristSuppl
 ## Formats
 
 - **Scroll** — Matrix rain, dark or light, with continuous chapter scrolling through all 1,300 open translations.
+- **Index** — clickable Root Index from the English WEB offline packet: rainbow letters, I AM THE LORD, Arcs of God, Word Index, and people indexes. Tap a verse to open it in the Matrix scroller.
 - **TXT** — monospace dump for old-school offline sharing.
 - **PDF** — 6×9 print Bibles. Header and footer on every page: ChristSupply.Net, Christ Supply Holy Bible, and *Made by Liberated Luis With Cursor, Claude Opus, and MacBook*.
 
@@ -21,7 +22,7 @@ python3 scripts/build_catalog.py
 python3 scripts/serve.py --port 8080
 ```
 
-Open `http://localhost:8080` for the scroller and `print.html` for the 1,300-translation catalog.
+Open `http://localhost:8080` for the scroller (Format → Index for the clickable WEB indexes) and `print.html` for the 1,300-translation catalog.
 
 ## 1,300 translation PDFs
 
