@@ -38,6 +38,7 @@
       </a>
       <div class="top-actions">
         <span id="txCount" class="tx-count">1,300 translations</span>
+        <button type="button" id="indexBtn" class="ghost">Index</button>
         <button type="button" id="themeBtn" class="ghost" aria-label="Toggle color theme">Theme</button>
         <a class="ghost" href="print.html">1,300 print PDFs</a>
         <a class="ghost site-link" href="https://christsupply.net" target="_blank" rel="noopener">ChristSupply.Net</a>
@@ -60,6 +61,7 @@
       <fieldset class="modes">
         <legend>Format</legend>
         <label><input type="radio" name="mode" value="scroll" checked /> Scroll</label>
+        <label><input type="radio" name="mode" value="index" /> Index</label>
         <label><input type="radio" name="mode" value="txt" /> TXT</label>
         <label><input type="radio" name="mode" value="pdf" /> PDF</label>
       </fieldset>
@@ -70,6 +72,7 @@
 
     <main id="stage">
       <section id="view-scroll" class="view scroll-view" data-mode="scroll"></section>
+      <section id="view-index" class="view index-view" data-mode="index" hidden></section>
       <section id="view-txt" class="view txt-view" data-mode="txt" hidden></section>
       <section id="view-pdf" class="view pdf-view" data-mode="pdf" hidden></section>
     </main>

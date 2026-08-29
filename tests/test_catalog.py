@@ -89,6 +89,42 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("printCatalog", print_html)
         self.assertIn("1,300", print_html)
 
+    def test_clickable_web_indexes(self):
+        payload = json.loads((ROOT / "data" / "indexes.json").read_text(encoding="utf-8"))
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        js = (ROOT / "assets" / "js" / "app.js").read_text(encoding="utf-8")
+        idx = (ROOT / "assets" / "js" / "indexes.js").read_text(encoding="utf-8")
+        self.assertEqual(payload["site"], "ChristSupply.Net")
+        self.assertEqual(payload["brand"], "Christ Supply Holy Bible")
+        for color in ("red", "orange", "gold", "yellow", "green", "cyan", "blue", "purple", "pink"):
+            self.assertIn(color, payload["rainbow"])
+            self.assertGreater(payload["rainbow"][color]["count"], 0)
+            self.assertTrue(payload["rainbow"][color]["versesByBook"])
+        self.assertGreaterEqual(payload["rainbow"]["red"]["count"], 2000)
+        self.assertTrue(payload["rainbow"]["red"]["versesByBook"]["40"])
+        self.assertEqual(payload["rainbow"]["red"]["versesByBook"]["40"][0][0], 3)
+        for theme in ("lord-said", "afraid", "mercy", "believe", "love", "peace", "sin", "wrath"):
+            self.assertIn(theme, payload["themes"])
+            self.assertGreater(payload["themes"][theme]["count"], 0)
+        self.assertEqual(len(payload["iam"]), 116)
+        self.assertTrue(any(row["id"] == "iam-the-way-the-truth-and-the-life" for row in payload["iam"]))
+        self.assertEqual(len(payload["arcs"]), 500)
+        self.assertEqual(payload["arcs"][0]["verses"][0], [43, 3, 16])
+        self.assertEqual(len(payload["women"]), 18)
+        self.assertEqual(payload["women"][0]["title"], "Sarah")
+        self.assertEqual(len(payload["men"]), 20)
+        self.assertGreaterEqual(len(payload["dictionary"]), 900)
+        self.assertEqual(payload["dictionary"][0]["word"], "Aaron")
+        self.assertEqual(len(payload["roots"]), 66)
+        self.assertEqual(len(payload["help"]), 8)
+        self.assertIn('value="index"', html)
+        self.assertIn('id="indexBtn"', html)
+        self.assertIn("view-index", html)
+        self.assertIn("loadIndexes", js)
+        self.assertIn("openIndex", js)
+        self.assertIn("Root Index", idx)
+        self.assertIn("I AM THE LORD", idx)
+
     def test_getbible_list_of_books_parses(self):
         from make_holy_bible_pdfs import _getbible_book_iter, load_getbible_verses
 
