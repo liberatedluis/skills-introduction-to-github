@@ -406,10 +406,11 @@ class MatrixHolyBiblePDF(HolyBiblePDF):
             except Exception:
                 continue
         self.set_fallback_fonts(fallback_names)
-        try:
-            self.set_text_shaping(True, direction="rtl" if rtl else "ltr")
-        except Exception:
-            pass
+        if rtl:
+            try:
+                self.set_text_shaping(True, direction="rtl")
+            except Exception:
+                pass
 
     def _paint(self):
         self.set_fill_color(*self.BG)
