@@ -88,6 +88,8 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("scroll-more", js)
         self.assertIn("printCatalog", print_html)
         self.assertIn("1,300", print_html)
+        self.assertIn("offline-app.html", html)
+        self.assertIn("offline-app.html", print_html)
 
     def test_clickable_web_indexes(self):
         payload = json.loads((ROOT / "data" / "indexes.json").read_text(encoding="utf-8"))
@@ -181,6 +183,56 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue(first.endswith(".pdf"))
         self.assertIn("Full Bible", first)
         self.assertIn("eng-web", second)
+
+    def test_constitutional_offline_app_pdf(self):
+        from make_constitutional_pdf import PAGE_H, PAGE_W, build_constitutional_pdf
+
+        dest = Path("/tmp/constitutional-sample-clickable-pages.pdf")
+        verses = [
+            ("GEN", 1, 1, "In the beginning, God created the heavens and the earth."),
+            ("GEN", 1, 2, "The earth was formless and empty. God's Spirit was hovering over the waters."),
+            ("GEN", 1, 3, "God said, Let there be light, and there was light."),
+            ("JHN", 1, 1, "In the beginning was the Word, and the Word was with God, and the Word was God."),
+            ("JHN", 1, 14, "The Word became flesh and lived among us. Jesus Christ."),
+        ]
+        path = build_constitutional_pdf(verses, dest)
+        self.assertTrue(path.exists())
+        self.assertGreater(path.stat().st_size, 5000)
+
+        html = (ROOT / "offline-app.html").read_text(encoding="utf-8")
+        css = (ROOT / "assets" / "css" / "constitutional.css").read_text(encoding="utf-8")
+        js = (ROOT / "assets" / "js" / "constitutional.js").read_text(encoding="utf-8")
+        self.assertIn("All Users Are Created Equally By", html)
+        self.assertIn("LIBERA OMNES UTENTES", html)
+        self.assertIn("ChristSupply.Net", html)
+        self.assertIn("offline-app.html", (ROOT / "index.html").read_text(encoding="utf-8"))
+        self.assertIn("constitutional dark", (ROOT / "README.md").read_text(encoding="utf-8"))
+        self.assertIn("--god", css)
+        self.assertIn("engwebp", js)
+
+        import pymupdf
+
+        doc = pymupdf.open(str(path))
+        self.assertGreaterEqual(doc.page_count, 8)
+        page0 = doc[0]
+        self.assertAlmostEqual(page0.rect.width, PAGE_W, delta=1)
+        self.assertAlmostEqual(page0.rect.height, PAGE_H, delta=1)
+        text = "\n".join(page.get_text("text") for page in doc)
+        self.assertIn("All Users Are Created Equally By", text)
+        self.assertIn("LIBERA OMNES UTENTES", text)
+        self.assertIn("Holy Bible", text)
+        self.assertIn("Genesis", text)
+        self.assertIn("John", text)
+        pix = page0.get_pixmap(matrix=pymupdf.Matrix(0.4, 0.4), alpha=False)
+        avg = sum(pix.samples) / max(1, len(pix.samples))
+        self.assertLess(avg, 80, "cover should be a dark page")
+        names = doc.resolve_names() or {}
+        self.assertIn("root-index", names)
+        self.assertIn("b01c001", names)
+        self.assertIn("b43c001", names)
+        self.assertGreaterEqual(len(doc[0].get_links()), 3)
+        chapter = next(page for page in doc if "Genesis - Chapter 1" in (page.get_text("text") or ""))
+        self.assertGreaterEqual(len(chapter.get_links()), 4)
 
 
 

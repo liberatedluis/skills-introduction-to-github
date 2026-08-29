@@ -8,3 +8,9 @@ python3 scripts/make_pdf.py --iso eng --book 43 --chapter 3
 ```
 
 Files in this folder are generated samples: Genesis 1 (English + Spanish), John 3, and Matthew 5.
+
+The constitutional dark offline-app WEB packet is built with:
+
+```bash
+python3 scripts/make_constitutional_pdf.py
+```
