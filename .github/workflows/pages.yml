@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - cursor/holy-bible-1300-print-pdfs-9e43
   workflow_dispatch:
 
 permissions:
