@@ -125,6 +125,30 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("Root Index", idx)
         self.assertIn("I AM THE LORD", idx)
 
+    def test_glossary_and_roots_are_clean(self):
+        payload = json.loads((ROOT / "data" / "indexes.json").read_text(encoding="utf-8"))
+
+        # Every glossary word must offer verses to jump into; the PDF omits the
+        # link annotations on many pages, so they come from the printed refs.
+        without_verses = [row["word"] for row in payload["dictionary"] if not row["verses"]]
+        self.assertEqual(without_verses, [])
+
+        titles = [row["title"] for row in payload["roots"]]
+        self.assertEqual(len(titles), len(set(titles)))
+        for title in titles:
+            # A verse reference leaking into a title means the block was read
+            # from the wrong place on a shared page.
+            self.assertNotRegex(title, r"\d+:\d+")
+            self.assertLessEqual(len(title), 40)
+        for word in ("love", "grace", "gospel", "church", "Messiah", "Christ"):
+            self.assertIn(word, titles)
+
+        for row in payload["dictionary"] + payload["roots"]:
+            for book, chapter, verse in row["verses"]:
+                self.assertTrue(1 <= book <= 66, row)
+                self.assertGreater(chapter, 0)
+                self.assertGreater(verse, 0)
+
     def test_getbible_list_of_books_parses(self):
         from make_holy_bible_pdfs import _getbible_book_iter, load_getbible_verses
 
