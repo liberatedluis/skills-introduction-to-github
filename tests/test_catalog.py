@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -124,6 +125,23 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("openIndex", js)
         self.assertIn("Root Index", idx)
         self.assertIn("I AM THE LORD", idx)
+
+    def test_chapter_sources_have_a_cors_safe_fallback(self):
+        js = (ROOT / "assets" / "js" / "app.js").read_text(encoding="utf-8")
+        catalog = json.loads((ROOT / "data" / "translations.json").read_text(encoding="utf-8"))
+        ids = {row["id"] for row in catalog["translations"]}
+
+        # corsproxy.io now requires an API key and answers 401/403.
+        self.assertNotIn("corsproxy.io", js)
+
+        block = js.split("GETBIBLE_EQUIVALENT = {", 1)[1].split("};", 1)[0]
+        pairs = re.findall(r'"?([\w-]+)"?:\s*"([\w-]+)"', block)
+        self.assertGreaterEqual(len(pairs), 12)
+        mapping = dict(pairs)
+        self.assertEqual(mapping["engwebp"], "web")
+        for ebible_id, getbible_id in pairs:
+            self.assertIn(ebible_id, ids)
+            self.assertRegex(getbible_id, r"^[a-z]+$")
 
     def test_glossary_and_roots_are_clean(self):
         payload = json.loads((ROOT / "data" / "indexes.json").read_text(encoding="utf-8"))
