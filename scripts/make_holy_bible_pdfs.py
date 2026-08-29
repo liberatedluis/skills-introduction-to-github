@@ -384,7 +384,7 @@ class MatrixHolyBiblePDF(HolyBiblePDF):
     GOLD = (232, 255, 138)
     LINE = (40, 90, 52)
 
-    def __init__(self, running: str, body_font: Path, rtl: bool = False):
+    def __init__(self, running: str, body_font: Path, rtl: bool = False, script: str = "Latin"):
         FPDF.__init__(self, unit="mm", format=(152.4, 228.6))
         self.running = running[:48]
         self.rtl = rtl
@@ -397,14 +397,16 @@ class MatrixHolyBiblePDF(HolyBiblePDF):
         self.add_font("Brand", "", str(brand))
         self.add_font("Body", "", str(body_font))
         fallback_names = ["Body"]
-        for family, path in FALLBACK_FILES:
-            if not path.exists():
-                continue
-            try:
-                self.add_font(family, "", str(path))
-                fallback_names.append(family)
-            except Exception:
-                continue
+        latin_like = normalize_script(script) in {"Latin", "Cyrillic", "Greek"}
+        if not latin_like or rtl:
+            for family, path in FALLBACK_FILES:
+                if not path.exists():
+                    continue
+                try:
+                    self.add_font(family, "", str(path))
+                    fallback_names.append(family)
+                except Exception:
+                    continue
         self.set_fallback_fonts(fallback_names)
         if rtl:
             try:
@@ -458,7 +460,7 @@ def write_matrix_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: 
     dest.parent.mkdir(parents=True, exist_ok=True)
     script = choose_script(meta, verses)
     rtl = bool(meta.get("rtl")) or script in {"Arabic", "Hebrew", "Syriac", "Thaana"}
-    pdf = MatrixHolyBiblePDF(meta["language"] or meta["id"], matrix_font_for(script), rtl)
+    pdf = MatrixHolyBiblePDF(meta["language"] or meta["id"], matrix_font_for(script), rtl, script)
     pdf.set_title(f"{BRAND} — {meta['title']}")
     pdf.set_author(CREDIT)
     pdf.set_creator(f"{BRAND} · {SITE} · Matrix")
