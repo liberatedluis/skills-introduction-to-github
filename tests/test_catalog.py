@@ -111,6 +111,22 @@ class CatalogTests(unittest.TestCase):
         js = (ROOT / "assets" / "js" / "app.js").read_text(encoding="utf-8")
         self.assertIn("dataset?.tx", js)
         self.assertIn("scrollHref", js)
+        self.assertIn("matrixPdfHref", js)
+
+    def test_matrix_pdf_theme(self):
+        from make_holy_bible_pdfs import MatrixHolyBiblePDF, matrix_font_for, write_matrix_pdf
+
+        self.assertEqual(MatrixHolyBiblePDF.BG, (2, 4, 2))
+        self.assertEqual(MatrixHolyBiblePDF.FG, (200, 255, 212))
+        self.assertEqual(MatrixHolyBiblePDF.GOLD, (232, 255, 138))
+        self.assertTrue(matrix_font_for("Latin").exists())
+        dest = ROOT / "scroll-bibles" / "E" / "English" / "Full Bible — World English Bible.pdf"
+        if dest.exists() and dest.stat().st_size > 1000:
+            self.assertGreater(dest.stat().st_size, 1000)
+            with dest.open("rb") as handle:
+                handle.seek(max(0, dest.stat().st_size - 2048))
+                self.assertIn(b"%%EOF", handle.read())
+        self.assertTrue(callable(write_matrix_pdf))
 
     def test_getbible_list_of_books_parses(self):
         from make_holy_bible_pdfs import _getbible_book_iter, load_getbible_verses

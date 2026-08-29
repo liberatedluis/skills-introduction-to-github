@@ -750,8 +750,10 @@ function scrollHref(tx) {
   return rel ? `scroll-bibles/${rel.split("/").map(encodeURIComponent).join("/")}` : "scroll-bibles/index.html";
 }
 
-function printHref(tx) {
-  return tx.printPath ? `${GITHUB_PRINT}/${tx.printPath.split("/").map(encodeURIComponent).join("/")}` : GITHUB_PRINT;
+function matrixPdfHref(tx) {
+  return tx.printPath
+    ? `scroll-bibles/${tx.printPath.split("/").map(encodeURIComponent).join("/")}`
+    : "scroll-bibles/index.html";
 }
 
 function renderPrintCatalog(filter = "") {
@@ -766,7 +768,7 @@ function renderPrintCatalog(filter = "") {
         <a class="print-open" href="${scrollHref(tx)}">${tx.native || tx.language}
           <small>${tx.title} · ${tx.language} · ${coverageLabel(tx)}</small>
         </a>
-        <a class="ghost" href="${printHref(tx)}" target="_blank" rel="noopener">PDF</a>
+        <a class="ghost" href="${matrixPdfHref(tx)}">PDF</a>
       </article>`;
     })
     .join("");

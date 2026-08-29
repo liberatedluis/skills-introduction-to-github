@@ -164,9 +164,10 @@ def list_page(title: str, base: str, lede: str, cards: str, crumb: str) -> str:
     )
 
 
-def card(href_path: str, title: str, sub: str) -> str:
+def card(href_path: str, title: str, sub: str, pdf_path: str | None = None) -> str:
+    extra = f'\n          <a class="ghost" href="{esc(pdf_path)}">PDF</a>' if pdf_path else ""
     return f"""        <article class="print-card">
-          <a class="print-open" href="{esc(href_path)}">{esc(title)}<small>{esc(sub)}</small></a>
+          <a class="print-open" href="{esc(href_path)}">{esc(title)}<small>{esc(sub)}</small></a>{extra}
         </article>"""
 
 
@@ -179,7 +180,7 @@ def main() -> None:
     catalog = build_catalog()
     if OUT.exists():
         for old in OUT.rglob("*"):
-            if old.is_file():
+            if old.is_file() and old.suffix.lower() != ".pdf":
                 old.unlink()
         for old in sorted((p for p in OUT.rglob("*") if p.is_dir()), reverse=True):
             old.rmdir()
@@ -229,6 +230,7 @@ def main() -> None:
                             f"scroll-bibles/{href(letter)}/{href(language)}/{href(item['file'])}",
                             item.get("title") or item["id"],
                             f"{coverage_label(item)} · {item['id']}",
+                            f"scroll-bibles/{href(letter)}/{href(language)}/{href(Path(item['file']).with_suffix('.pdf').name)}",
                         )
                         for item in sorted(rows, key=lambda item: (item.get("title") or item["id"]).casefold())
                     ),
@@ -268,6 +270,8 @@ Live on GitHub Pages:
 Example: [E/English](E/English).
 
 Each HTML file opens that translation in the Matrix scroller. Keep scrolling to load the next chapter.
+
+Each folder also has a matching **Matrix PDF** (`Full Bible — ….pdf`) with dark green pages marked {SITE}.
 """,
     )
     (OUT / "Index of 1300 scrollables.csv").write_text(

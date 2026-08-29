@@ -18,6 +18,12 @@ The 1,300 Matrix scrollables are in [`scroll-bibles/`](scroll-bibles/) — lette
 
 - GitHub: [`scroll-bibles/E/English`](scroll-bibles/E/English)
 - GitHub Pages: https://liberatedluis.github.io/skills-introduction-to-github/scroll-bibles/ (turn on **Settings → Pages → GitHub Actions** once, then re-run **Publish GitHub Pages**)
+- Matrix PDFs sit beside each HTML file. Build them with:
+
+```bash
+python3 scripts/make_matrix_pdfs.py --workers 6
+python3 scripts/make_matrix_pdfs.py --only engwebp
+```
 
 ```bash
 python3 scripts/make_scroll_bibles.py
