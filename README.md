@@ -14,14 +14,25 @@ Every Bible page — on screen, in TXT, and in print — is marked **ChristSuppl
 
 ## 1,300 Matrix Holy Bibles
 
-The reader searches the same 1,300 redistributable editions used for print: [eBible.org](https://ebible.org) texts plus public-domain getBible extras. Type a language, ISO code, or translation name, then keep scrolling — the next chapter loads as you go.
+The 1,300 Matrix scrollables are in [`scroll-bibles/`](scroll-bibles/) — letter folders, then language, same layout as the print PDFs.
+
+- GitHub: [`scroll-bibles/E/English`](scroll-bibles/E/English)
+- GitHub Pages: https://liberatedluis.github.io/skills-introduction-to-github/scroll-bibles/ (turn on **Settings → Pages → GitHub Actions** once, then re-run **Publish GitHub Pages**)
+- Matrix PDFs sit beside each HTML file. Build them with:
 
 ```bash
-python3 scripts/build_catalog.py
+python3 scripts/make_matrix_pdfs.py --workers 6
+python3 scripts/make_matrix_pdfs.py --only engwebp
+```
+
+```bash
+python3 scripts/make_scroll_bibles.py
 python3 scripts/serve.py --port 8080
 ```
 
-Open `http://localhost:8080` for the scroller and `print.html` for the 1,300-translation catalog.
+Open `http://localhost:8080/scroll-bibles/` or a language folder such as `http://localhost:8080/scroll-bibles/E/English/`.
+
+The live reader at `http://localhost:8080` also searches all 1,300. `print.html` is the searchable catalog.
 
 ## 1,300 translation PDFs
 

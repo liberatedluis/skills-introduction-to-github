@@ -376,6 +376,172 @@ class HolyBiblePDF(FPDF):
         self.cell(width, 3.2, CREDIT, align="C")
 
 
+class MatrixHolyBiblePDF(HolyBiblePDF):
+    """Dark green Matrix scroller laid out as a 6×9 PDF."""
+
+    BG = (2, 4, 2)
+    FG = (200, 255, 212)
+    GOLD = (232, 255, 138)
+    LINE = (40, 90, 52)
+
+    def __init__(self, running: str, body_font: Path, rtl: bool = False, script: str = "Latin"):
+        FPDF.__init__(self, unit="mm", format=(152.4, 228.6))
+        self.running = running[:48]
+        self.rtl = rtl
+        self.show_marks = False
+        self.set_auto_page_break(auto=True, margin=18)
+        self.set_margins(14, 16, 14)
+        brand = NOTO / "NotoSansMono-Regular.ttf"
+        if not brand.exists():
+            brand = NOTO / "NotoSerif-Regular.ttf"
+        self.add_font("Brand", "", str(brand))
+        self.add_font("Body", "", str(body_font))
+        fallback_names = ["Body"]
+        latin_like = normalize_script(script) in {"Latin", "Cyrillic", "Greek"}
+        if not latin_like or rtl:
+            for family, path in FALLBACK_FILES:
+                if not path.exists():
+                    continue
+                try:
+                    self.add_font(family, "", str(path))
+                    fallback_names.append(family)
+                except Exception:
+                    continue
+        self.set_fallback_fonts(fallback_names)
+        if rtl:
+            try:
+                self.set_text_shaping(True, direction="rtl")
+            except Exception:
+                pass
+
+    def _paint(self):
+        self.set_fill_color(*self.BG)
+        self.rect(0, 0, self.w, self.h, "F")
+
+    def header(self):
+        self._paint()
+        if not self.show_marks:
+            return
+        self.set_font("Brand", size=7)
+        self.set_text_color(*self.GOLD)
+        self.set_y(8)
+        width = 152.4 - 28
+        self.cell(width / 2, 4, SITE, align="L")
+        self.cell(width / 2, 4, f"{self.running}  ·  p.{self.page_no()}", align="R", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        self.set_draw_color(*self.LINE)
+        self.line(14, 13, 152.4 - 14, 13)
+        self.set_y(16)
+        self.set_text_color(*self.FG)
+
+    def footer(self):
+        if not self.show_marks:
+            return
+        self.set_font("Brand", size=6.5)
+        self.set_text_color(*self.GOLD)
+        self.set_draw_color(*self.LINE)
+        self.line(14, 228.6 - 14, 152.4 - 14, 228.6 - 14)
+        self.set_y(228.6 - 13)
+        width = 152.4 - 28
+        self.cell(width, 3.2, f"{BRAND}  ·  {SITE}", align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        self.set_x(self.l_margin)
+        self.cell(width, 3.2, CREDIT, align="C")
+
+
+def matrix_font_for(script: str) -> Path:
+    mapped = normalize_script(script)
+    if mapped in {"Latin", "Cyrillic", "Greek"}:
+        mono = NOTO / "NotoSansMono-Regular.ttf"
+        if mono.exists():
+            return mono
+    return font_for(script)
+
+
+def write_matrix_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    script = choose_script(meta, verses)
+    rtl = bool(meta.get("rtl")) or script in {"Arabic", "Hebrew", "Syriac", "Thaana"}
+    pdf = MatrixHolyBiblePDF(meta["language"] or meta["id"], matrix_font_for(script), rtl, script)
+    pdf.set_title(f"{BRAND} — {meta['title']}")
+    pdf.set_author(CREDIT)
+    pdf.set_creator(f"{BRAND} · {SITE} · Matrix")
+
+    def _center(doc: MatrixHolyBiblePDF, text: str, height: float) -> None:
+        doc.set_x(doc.l_margin)
+        doc.multi_cell(doc.epw, height, text, align="C")
+
+    pdf.add_page()
+    pdf.set_font("Brand", size=11)
+    pdf.set_text_color(*MatrixHolyBiblePDF.GOLD)
+    pdf.ln(28)
+    _center(pdf, SITE.upper(), 8)
+    pdf.set_font("Brand", size=18)
+    pdf.set_text_color(*MatrixHolyBiblePDF.FG)
+    _center(pdf, BRAND, 9)
+    pdf.ln(4)
+    pdf.set_font("Body", size=13)
+    _center(pdf, meta["title"], 7)
+    pdf.set_font("Body", size=10)
+    pdf.set_text_color(*MatrixHolyBiblePDF.GOLD)
+    _center(pdf, f"{meta.get('native') or ''} / {meta['language']}".strip(" /"), 6)
+    pdf.ln(6)
+    pdf.set_font("Brand", size=8)
+    _center(pdf, f"MATRIX SCROLL  ·  {meta['coverage'].upper()}  ·  {len(verses)} verses", 5)
+    if meta.get("copyright"):
+        pdf.ln(3)
+        _center(pdf, meta["copyright"][:400], 4.5)
+    pdf.ln(14)
+    pdf.set_text_color(*MatrixHolyBiblePDF.FG)
+    pdf.set_font("Brand", size=9)
+    _center(pdf, CREDIT, 5)
+    pdf.ln(2)
+    pdf.set_font("Brand", size=8)
+    pdf.set_text_color(*MatrixHolyBiblePDF.GOLD)
+    _center(pdf, SITE_URL, 5)
+
+    pdf.show_marks = True
+    current_book = None
+    chapter_buf: list[str] = []
+    current_chapter = None
+    body_align = "R" if rtl else "L"
+
+    def flush_chapter():
+        nonlocal chapter_buf
+        if not chapter_buf:
+            return
+        pdf.set_font("Body", size=10)
+        pdf.set_text_color(*MatrixHolyBiblePDF.FG)
+        pdf.set_x(pdf.l_margin)
+        pdf.multi_cell(pdf.epw, 5, "\n".join(chapter_buf), align=body_align)
+        chapter_buf = []
+
+    pdf.add_page()
+    for book, chapter, verse, text in verses:
+        if not text:
+            continue
+        if book != current_book or chapter != current_chapter:
+            flush_chapter()
+        if book != current_book:
+            current_book = book
+            current_chapter = None
+            pdf.set_font("Brand", size=13)
+            pdf.set_text_color(*MatrixHolyBiblePDF.FG)
+            pdf.ln(2)
+            pdf.set_x(pdf.l_margin)
+            pdf.multi_cell(pdf.epw, 7, BOOK_NAMES.get(book, book), align="C")
+            pdf.ln(1)
+        if chapter != current_chapter:
+            current_chapter = chapter
+            pdf.set_font("Brand", size=10)
+            pdf.set_text_color(*MatrixHolyBiblePDF.GOLD)
+            pdf.set_x(pdf.l_margin)
+            pdf.cell(pdf.epw, 6, f"{BOOK_NAMES.get(book, book)} {chapter}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        chapter_buf.append(f"{verse}  {text}")
+    flush_chapter()
+    tmp = dest.with_suffix(".pdf.tmp")
+    pdf.output(str(tmp))
+    tmp.replace(dest)
+
+
 def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     script = choose_script(meta, verses)
@@ -462,7 +628,7 @@ def write_pdf(meta: dict, verses: list[tuple[str, int, int, str]], dest: Path) -
     tmp.replace(dest)
 
 
-def generate_one(meta: dict, dest: Path, force: bool = False) -> dict:
+def generate_one(meta: dict, dest: Path, force: bool = False, matrix: bool = False) -> dict:
     if not force and pdf_complete(dest):
         return {"id": meta["id"], "status": "exists", "path": str(dest), "bytes": dest.stat().st_size}
     try:
@@ -470,13 +636,18 @@ def generate_one(meta: dict, dest: Path, force: bool = False) -> dict:
             verses = load_ebible_verses(meta["id"])
         else:
             verses = load_getbible_verses(meta["id"])
-        write_pdf(meta, verses, dest)
+        writer = write_matrix_pdf if matrix else write_pdf
+        writer(meta, verses, dest)
         return {"id": meta["id"], "status": "ok", "path": str(dest), "bytes": dest.stat().st_size, "verses": len(verses)}
     except Exception as err:  # noqa: BLE001
         tmp = dest.with_suffix(".pdf.tmp")
         if tmp.exists():
             tmp.unlink()
         return {"id": meta["id"], "status": "error", "error": str(err)[:300]}
+
+
+def generate_matrix_one(meta: dict, dest: str, force: bool = False) -> dict:
+    return generate_one(meta, Path(dest), force=force, matrix=True)
 
 
 def write_index(out: Path, catalog: list[dict], results: list[dict]) -> None:
