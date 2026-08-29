@@ -387,6 +387,7 @@ html[data-theme="light"] .scanlines { opacity: 0.08; }
 }
 .idx-chip em { color: var(--gold); font-style: normal; font-family: var(--mono); font-size: 0.75rem; }
 .idx-empty { text-align: center; color: var(--muted); }
+body:has(.index-view:not([hidden])) .dock { display: none; }
 [dir="rtl"] .verse { grid-template-columns: 1fr 2.4rem; }
 [dir="rtl"] .verse .n { text-align: left; }
 
