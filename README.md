@@ -37,4 +37,6 @@ python3 scripts/make_holy_bible_pdfs.py --workers 4
 
 Scripture remains with its translators and publishers. This project prefers public-domain and redistributable editions.
 
+Also: [Charter](charter/) — the Declaration, Constitution, and Bill of Rights.
+
 Christ Supply Holy Bible · Made by Liberated Luis With Cursor, Claude Opus, and MacBook · ChristSupply.Net

@@ -45,3 +45,7 @@ Thumbs.db
 pdfs/holy-bibles/build-log.json
 pdfs/holy-bibles/index.html
 pdfs/desktop-bibles/
+charter/pdfs/.chrome-*/
+charter/pdfs/*.html
+charter/ios/**/xcuserdata/
+charter/ios/**/DerivedData/

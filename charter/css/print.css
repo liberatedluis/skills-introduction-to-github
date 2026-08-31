@@ -1,0 +1,169 @@
+:root {
+  --bg: #f3ead8;
+  --bg-raised: #faf6eb;
+  --ink: #2a2218;
+  --ink-soft: #5e5348;
+  --ink-faint: #8a7d6e;
+  --rule: #d2c4aa;
+  --accent: #6d3b22;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #161310;
+  --bg-raised: #1f1b16;
+  --ink: #eee4d2;
+  --ink-soft: #b7aa96;
+  --ink-faint: #8d806e;
+  --rule: #3c342b;
+  --accent: #e0b57a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", Times, serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@page {
+  size: 6in 9in;
+  margin: 0;
+}
+
+.sheet {
+  width: 6in;
+  height: 9in;
+  padding: 0.7in 0.65in 0.55in;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  page-break-after: always;
+  break-after: page;
+}
+
+.sheet:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+.mark {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.mark a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+header.mark {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8pt;
+}
+
+footer.mark {
+  border-top: 1px solid var(--rule);
+  padding-top: 8pt;
+  margin-top: auto;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18pt 0;
+}
+
+.title-page .body,
+.section-page .body {
+  text-align: center;
+  align-items: center;
+}
+
+.kicker {
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-size: 9pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 10pt;
+}
+
+h1 {
+  font-size: 26pt;
+  font-weight: 550;
+  line-height: 1.15;
+  margin: 0 0 12pt;
+}
+
+.lede {
+  font-size: 13pt;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0 0 18pt;
+  max-width: 22rem;
+}
+
+.cite {
+  font-size: 18pt;
+  font-weight: 550;
+  line-height: 1.2;
+  margin: 0 0 6pt;
+}
+
+.label {
+  font-size: 12pt;
+  color: var(--ink-soft);
+  margin: 0 0 14pt;
+}
+
+.bite {
+  font-size: 12.5pt;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.note,
+.source {
+  font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  font-size: 8.5pt;
+  color: var(--ink-faint);
+  margin: 14pt 0 0;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-soft);
+  font-size: 13pt;
+  line-height: 1.7;
+}
+
+@media screen {
+  body {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .sheet {
+    margin: 0 auto 1.25rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  }
+}

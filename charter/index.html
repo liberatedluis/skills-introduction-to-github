@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="page-home">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f3ead8" />
+    <meta
+      name="description"
+      content="Charter is a free, offline-capable reader of the Declaration of Independence, the Constitution, and the Bill of Rights. One thought per screen."
+    />
+    <title>Charter</title>
+    <link rel="icon" href="mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="css/charter.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <a class="brand" href="#/">
+          <strong>Charter</strong>
+          <em>One thought at a time</em>
+        </a>
+        <div class="tools">
+          <a class="ghost" href="#/" id="homeBtn">Home</a>
+          <a class="ghost" href="pdfs.html">PDFs</a>
+          <button type="button" id="contentsBtn" class="ghost" hidden aria-expanded="false" aria-controls="drawer">Contents</button>
+          <button type="button" id="themeBtn" class="ghost" aria-pressed="false">Dark</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="home" class="home">
+          <h1 class="lede">Three founding texts. One thought at a time.</h1>
+          <div id="table" class="table"></div>
+          <a class="later-link" href="#/later/11">Later amendments XI–XXVII, so the Constitution is whole.</a>
+        </section>
+
+        <section id="reader" class="reader hidden">
+          <aside id="rail" class="rail" aria-label="Contents"></aside>
+          <article class="stage">
+            <p id="crumb" class="crumb"></p>
+            <h1 id="cite" class="cite"></h1>
+            <p id="label" class="label"></p>
+            <p id="bite" class="bite"></p>
+            <p id="note" class="note" hidden></p>
+            <p id="source" class="source"></p>
+            <div class="progress">
+              <div class="progress-meta">
+                <span id="progressMeta"></span>
+                <span>Where you are</span>
+              </div>
+              <div class="bar" aria-hidden="true"><span id="progressBar"></span></div>
+            </div>
+            <div class="actions">
+              <button type="button" id="prevBtn">Prev</button>
+              <button type="button" id="copyBtn">Copy</button>
+              <button type="button" id="shareBtn">Share</button>
+              <button type="button" id="nextBtn" class="primary grow">Next</button>
+            </div>
+            <a id="continueLink" class="continue" hidden></a>
+          </article>
+        </section>
+      </main>
+
+      <footer class="foot">
+        Created by Christ Supply,
+        <a href="https://christ.supply/support-us" target="_blank" rel="noopener">Support Here</a>
+      </footer>
+    </div>
+
+    <div id="drawer" class="drawer">
+      <div class="drawer-panel">
+        <button type="button" class="ghost" data-close>Close</button>
+        <div id="drawerContents"></div>
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
+
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>

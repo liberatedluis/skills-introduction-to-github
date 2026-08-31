@@ -1,0 +1,1937 @@
+{
+  "documents": [
+    {
+      "id": "declaration",
+      "title": "The Declaration of Independence",
+      "short": "Declaration",
+      "year": "1776",
+      "blurb": "One self-evident truth, one grievance, one pledge — never the whole parchment at once.",
+      "source": "https://www.archives.gov/founding-docs/declaration-transcript",
+      "sourceLabel": "National Archives transcription",
+      "nextDoc": null,
+      "nextLabel": null,
+      "prevDoc": null,
+      "bites": [
+        {
+          "id": "heading",
+          "kind": "heading",
+          "group": "Opening",
+          "cite": "Heading",
+          "label": "In Congress",
+          "text": "In Congress, July 4, 1776.\n\nThe unanimous Declaration of the thirteen united States of America,",
+          "note": ""
+        },
+        {
+          "id": "opening",
+          "kind": "clause",
+          "group": "Opening",
+          "cite": "Opening",
+          "label": "When in the Course of human events",
+          "text": "When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.",
+          "note": ""
+        },
+        {
+          "id": "truth-equal",
+          "kind": "truth",
+          "group": "Self-evident truths",
+          "cite": "Self-evident truth 1",
+          "label": "Created equal",
+          "text": "We hold these truths to be self-evident, that all men are created equal,",
+          "note": ""
+        },
+        {
+          "id": "truth-rights",
+          "kind": "truth",
+          "group": "Self-evident truths",
+          "cite": "Self-evident truth 2",
+          "label": "Unalienable Rights",
+          "text": "that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.",
+          "note": ""
+        },
+        {
+          "id": "truth-government",
+          "kind": "truth",
+          "group": "Self-evident truths",
+          "cite": "Self-evident truth 3",
+          "label": "Consent of the governed",
+          "text": "--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed,",
+          "note": ""
+        },
+        {
+          "id": "truth-alter",
+          "kind": "truth",
+          "group": "Self-evident truths",
+          "cite": "Self-evident truth 4",
+          "label": "Right to alter or abolish",
+          "text": "--That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness.",
+          "note": ""
+        },
+        {
+          "id": "prudence",
+          "kind": "clause",
+          "group": "Self-evident truths",
+          "cite": "Prudence",
+          "label": "Not for light and transient causes",
+          "text": "Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed.",
+          "note": ""
+        },
+        {
+          "id": "duty",
+          "kind": "clause",
+          "group": "Self-evident truths",
+          "cite": "Duty",
+          "label": "A long train of abuses",
+          "text": "But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.",
+          "note": ""
+        },
+        {
+          "id": "necessity",
+          "kind": "clause",
+          "group": "Self-evident truths",
+          "cite": "Necessity",
+          "label": "Facts submitted to a candid world",
+          "text": "Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.",
+          "note": ""
+        },
+        {
+          "id": "grievance-01",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 1",
+          "label": "Assent to Laws",
+          "text": "He has refused his Assent to Laws, the most wholesome and necessary for the public good.",
+          "note": ""
+        },
+        {
+          "id": "grievance-02",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 2",
+          "label": "Governors forbidden to pass Laws",
+          "text": "He has forbidden his Governors to pass Laws of immediate and pressing importance, unless suspended in their operation till his Assent should be obtained; and when so suspended, he has utterly neglected to attend to them.",
+          "note": ""
+        },
+        {
+          "id": "grievance-03",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 3",
+          "label": "Representation in the Legislature",
+          "text": "He has refused to pass other Laws for the accommodation of large districts of people, unless those people would relinquish the right of Representation in the Legislature, a right inestimable to them and formidable to tyrants only.",
+          "note": ""
+        },
+        {
+          "id": "grievance-04",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 4",
+          "label": "Unusual places of assembly",
+          "text": "He has called together legislative bodies at places unusual, uncomfortable, and distant from the depository of their public Records, for the sole purpose of fatiguing them into compliance with his measures.",
+          "note": ""
+        },
+        {
+          "id": "grievance-05",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 5",
+          "label": "Dissolved Representative Houses",
+          "text": "He has dissolved Representative Houses repeatedly, for opposing with manly firmness his invasions on the rights of the people.",
+          "note": ""
+        },
+        {
+          "id": "grievance-06",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 6",
+          "label": "Refused new elections",
+          "text": "He has refused for a long time, after such dissolutions, to cause others to be elected; whereby the Legislative powers, incapable of Annihilation, have returned to the People at large for their exercise; the State remaining in the mean time exposed to all the dangers of invasion from without, and convulsions within.",
+          "note": ""
+        },
+        {
+          "id": "grievance-07",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 7",
+          "label": "Obstructed population",
+          "text": "He has endeavoured to prevent the population of these States; for that purpose obstructing the Laws for Naturalization of Foreigners; refusing to pass others to encourage their migrations hither, and raising the conditions of new Appropriations of Lands.",
+          "note": ""
+        },
+        {
+          "id": "grievance-08",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 8",
+          "label": "Administration of Justice",
+          "text": "He has obstructed the Administration of Justice, by refusing his Assent to Laws for establishing Judiciary powers.",
+          "note": ""
+        },
+        {
+          "id": "grievance-09",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 9",
+          "label": "Judges dependent on his Will",
+          "text": "He has made Judges dependent on his Will alone, for the tenure of their offices, and the amount and payment of their salaries.",
+          "note": ""
+        },
+        {
+          "id": "grievance-10",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 10",
+          "label": "New Offices and swarms of Officers",
+          "text": "He has erected a multitude of New Offices, and sent hither swarms of Officers to harrass our people, and eat out their substance.",
+          "note": ""
+        },
+        {
+          "id": "grievance-11",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 11",
+          "label": "Standing Armies",
+          "text": "He has kept among us, in times of peace, Standing Armies without the Consent of our legislatures.",
+          "note": ""
+        },
+        {
+          "id": "grievance-12",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 12",
+          "label": "Military above Civil power",
+          "text": "He has affected to render the Military independent of and superior to the Civil power.",
+          "note": ""
+        },
+        {
+          "id": "grievance-13",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 13",
+          "label": "Foreign jurisdiction",
+          "text": "He has combined with others to subject us to a jurisdiction foreign to our constitution, and unacknowledged by our laws; giving his Assent to their Acts of pretended Legislation:",
+          "note": ""
+        },
+        {
+          "id": "grievance-14",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 14",
+          "label": "Quartering troops",
+          "text": "For Quartering large bodies of armed troops among us:",
+          "note": ""
+        },
+        {
+          "id": "grievance-15",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 15",
+          "label": "Mock Trial",
+          "text": "For protecting them, by a mock Trial, from punishment for any Murders which they should commit on the Inhabitants of these States:",
+          "note": ""
+        },
+        {
+          "id": "grievance-16",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 16",
+          "label": "Cutting off Trade",
+          "text": "For cutting off our Trade with all parts of the world:",
+          "note": ""
+        },
+        {
+          "id": "grievance-17",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 17",
+          "label": "Taxes without Consent",
+          "text": "For imposing Taxes on us without our Consent:",
+          "note": ""
+        },
+        {
+          "id": "grievance-18",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 18",
+          "label": "Trial by Jury",
+          "text": "For depriving us in many cases, of the benefits of Trial by Jury:",
+          "note": ""
+        },
+        {
+          "id": "grievance-19",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 19",
+          "label": "Tried beyond Seas",
+          "text": "For transporting us beyond Seas to be tried for pretended offences:",
+          "note": ""
+        },
+        {
+          "id": "grievance-20",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 20",
+          "label": "A neighbouring Province",
+          "text": "For abolishing the free System of English Laws in a neighbouring Province, establishing therein an Arbitrary government, and enlarging its Boundaries so as to render it at once an example and fit instrument for introducing the same absolute rule into these Colonies:",
+          "note": ""
+        },
+        {
+          "id": "grievance-21",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 21",
+          "label": "Taking away Charters",
+          "text": "For taking away our Charters, abolishing our most valuable Laws, and altering fundamentally the Forms of our Governments:",
+          "note": ""
+        },
+        {
+          "id": "grievance-22",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 22",
+          "label": "Suspending Legislatures",
+          "text": "For suspending our own Legislatures, and declaring themselves invested with power to legislate for us in all cases whatsoever.",
+          "note": ""
+        },
+        {
+          "id": "grievance-23",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 23",
+          "label": "Abdicated Government",
+          "text": "He has abdicated Government here, by declaring us out of his Protection and waging War against us.",
+          "note": ""
+        },
+        {
+          "id": "grievance-24",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 24",
+          "label": "Plundered our seas",
+          "text": "He has plundered our seas, ravaged our Coasts, burnt our towns, and destroyed the lives of our people.",
+          "note": ""
+        },
+        {
+          "id": "grievance-25",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 25",
+          "label": "Foreign Mercenaries",
+          "text": "He is at this time transporting large Armies of foreign Mercenaries to compleat the works of death, desolation and tyranny, already begun with circumstances of Cruelty & perfidy scarcely paralleled in the most barbarous ages, and totally unworthy the Head of a civilized nation.",
+          "note": ""
+        },
+        {
+          "id": "grievance-26",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 26",
+          "label": "Captives on the high Seas",
+          "text": "He has constrained our fellow Citizens taken Captive on the high Seas to bear Arms against their Country, to become the executioners of their friends and Brethren, or to fall themselves by their Hands.",
+          "note": ""
+        },
+        {
+          "id": "grievance-27",
+          "kind": "grievance",
+          "group": "Grievances",
+          "cite": "Grievance 27",
+          "label": "Domestic insurrections",
+          "text": "He has excited domestic insurrections amongst us, and has endeavoured to bring on the inhabitants of our frontiers, the merciless Indian Savages, whose known rule of warfare, is an undistinguished destruction of all ages, sexes and conditions.",
+          "note": ""
+        },
+        {
+          "id": "petition",
+          "kind": "clause",
+          "group": "Closing",
+          "cite": "Petition",
+          "label": "Petitioned for Redress",
+          "text": "In every stage of these Oppressions We have Petitioned for Redress in the most humble terms: Our repeated Petitions have been answered only by repeated injury. A Prince, whose character is thus marked by every act which may define a Tyrant, is unfit to be the ruler of a free people.",
+          "note": ""
+        },
+        {
+          "id": "brethren",
+          "kind": "clause",
+          "group": "Closing",
+          "cite": "British brethren",
+          "label": "Enemies in War, in Peace Friends",
+          "text": "Nor have We been wanting in attentions to our Brittish brethren. We have warned them from time to time of attempts by their legislature to extend an unwarrantable jurisdiction over us. We have reminded them of the circumstances of our emigration and settlement here. We have appealed to their native justice and magnanimity, and we have conjured them by the ties of our common kindred to disavow these usurpations, which, would inevitably interrupt our connections and correspondence. They too have been deaf to the voice of justice and of consanguinity. We must, therefore, acquiesce in the necessity, which denounces our Separation, and hold them, as we hold the rest of mankind, Enemies in War, in Peace Friends.",
+          "note": ""
+        },
+        {
+          "id": "therefore",
+          "kind": "clause",
+          "group": "Closing",
+          "cite": "Therefore",
+          "label": "Free and Independent States",
+          "text": "We, therefore, the Representatives of the united States of America, in General Congress, Assembled, appealing to the Supreme Judge of the world for the rectitude of our intentions, do, in the Name, and by Authority of the good People of these Colonies, solemnly publish and declare, That these United Colonies are, and of Right ought to be Free and Independent States; that they are Absolved from all Allegiance to the British Crown, and that all political connection between them and the State of Great Britain, is and ought to be totally dissolved; and that as Free and Independent States, they have full Power to levy War, conclude Peace, contract Alliances, establish Commerce, and to do all other Acts and Things which Independent States may of right do.",
+          "note": ""
+        },
+        {
+          "id": "pledge",
+          "kind": "clause",
+          "group": "Closing",
+          "cite": "Pledge",
+          "label": "Lives, Fortunes, and sacred Honor",
+          "text": "And for the support of this Declaration, with a firm reliance on the protection of divine Providence, we mutually pledge to each other our Lives, our Fortunes and our sacred Honor.",
+          "note": ""
+        },
+        {
+          "id": "signers-nh",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New Hampshire",
+          "label": "Signers",
+          "text": "Josiah Bartlett\nWilliam Whipple\nMatthew Thornton",
+          "note": ""
+        },
+        {
+          "id": "signers-ma",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Massachusetts",
+          "label": "Signers",
+          "text": "John Hancock\nSamuel Adams\nJohn Adams\nRobert Treat Paine\nElbridge Gerry",
+          "note": ""
+        },
+        {
+          "id": "signers-ri",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Rhode Island",
+          "label": "Signers",
+          "text": "Stephen Hopkins\nWilliam Ellery",
+          "note": ""
+        },
+        {
+          "id": "signers-ct",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Connecticut",
+          "label": "Signers",
+          "text": "Roger Sherman\nSamuel Huntington\nWilliam Williams\nOliver Wolcott",
+          "note": ""
+        },
+        {
+          "id": "signers-ny",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New York",
+          "label": "Signers",
+          "text": "William Floyd\nPhilip Livingston\nFrancis Lewis\nLewis Morris",
+          "note": ""
+        },
+        {
+          "id": "signers-nj",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New Jersey",
+          "label": "Signers",
+          "text": "Richard Stockton\nJohn Witherspoon\nFrancis Hopkinson\nJohn Hart\nAbraham Clark",
+          "note": ""
+        },
+        {
+          "id": "signers-pa",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Pennsylvania",
+          "label": "Signers",
+          "text": "Robert Morris\nBenjamin Rush\nBenjamin Franklin\nJohn Morton\nGeorge Clymer\nJames Smith\nGeorge Taylor\nJames Wilson\nGeorge Ross",
+          "note": ""
+        },
+        {
+          "id": "signers-de",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Delaware",
+          "label": "Signers",
+          "text": "Caesar Rodney\nGeorge Read\nThomas McKean",
+          "note": ""
+        },
+        {
+          "id": "signers-md",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Maryland",
+          "label": "Signers",
+          "text": "Samuel Chase\nWilliam Paca\nThomas Stone\nCharles Carroll of Carrollton",
+          "note": ""
+        },
+        {
+          "id": "signers-va",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Virginia",
+          "label": "Signers",
+          "text": "George Wythe\nRichard Henry Lee\nThomas Jefferson\nBenjamin Harrison\nThomas Nelson, Jr.\nFrancis Lightfoot Lee\nCarter Braxton",
+          "note": ""
+        },
+        {
+          "id": "signers-nc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "North Carolina",
+          "label": "Signers",
+          "text": "William Hooper\nJoseph Hewes\nJohn Penn",
+          "note": ""
+        },
+        {
+          "id": "signers-sc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "South Carolina",
+          "label": "Signers",
+          "text": "Edward Rutledge\nThomas Heyward, Jr.\nThomas Lynch, Jr.\nArthur Middleton",
+          "note": ""
+        },
+        {
+          "id": "signers-ga",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Georgia",
+          "label": "Signers",
+          "text": "Button Gwinnett\nLyman Hall\nGeorge Walton",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "constitution",
+      "title": "The Constitution of the United States",
+      "short": "Constitution",
+      "year": "1787",
+      "blurb": "Preamble, then each article, section, and clause — one at a time.",
+      "source": "https://www.archives.gov/founding-docs/constitution-transcript",
+      "sourceLabel": "National Archives transcription",
+      "nextDoc": "rights",
+      "nextLabel": "Continue to the Bill of Rights",
+      "prevDoc": null,
+      "bites": [
+        {
+          "id": "preamble",
+          "kind": "clause",
+          "group": "Preamble",
+          "cite": "Preamble",
+          "label": "We the People",
+          "text": "We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.",
+          "note": ""
+        },
+        {
+          "id": "1.1",
+          "kind": "clause",
+          "group": "Article I · Section 1",
+          "cite": "Article I, Section 1",
+          "label": "Legislative Powers",
+          "text": "All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.",
+          "note": ""
+        },
+        {
+          "id": "1.2.1",
+          "kind": "clause",
+          "group": "Article I · Section 2",
+          "cite": "Article I, Section 2, Clause 1",
+          "label": "House, chosen every second Year",
+          "text": "The House of Representatives shall be composed of Members chosen every second Year by the People of the several States, and the Electors in each State shall have the Qualifications requisite for Electors of the most numerous Branch of the State Legislature.",
+          "note": ""
+        },
+        {
+          "id": "1.2.2",
+          "kind": "clause",
+          "group": "Article I · Section 2",
+          "cite": "Article I, Section 2, Clause 2",
+          "label": "Qualifications of Representatives",
+          "text": "No Person shall be a Representative who shall not have attained to the Age of twenty five Years, and been seven Years a Citizen of the United States, and who shall not, when elected, be an Inhabitant of that State in which he shall be chosen.",
+          "note": ""
+        },
+        {
+          "id": "1.2.3",
+          "kind": "clause",
+          "group": "Article I · Section 2",
+          "cite": "Article I, Section 2, Clause 3",
+          "label": "Apportionment and Enumeration",
+          "text": "Representatives and direct Taxes shall be apportioned among the several States which may be included within this Union, according to their respective Numbers, which shall be determined by adding to the whole Number of free Persons, including those bound to Service for a Term of Years, and excluding Indians not taxed, three fifths of all other Persons. The actual Enumeration shall be made within three Years after the first Meeting of the Congress of the United States, and within every subsequent Term of ten Years, in such Manner as they shall by Law direct. The Number of Representatives shall not exceed one for every thirty Thousand, but each State shall have at Least one Representative; and until such enumeration shall be made, the State of New Hampshire shall be entitled to chuse three, Massachusetts eight, Rhode-Island and Providence Plantations one, Connecticut five, New-York six, New Jersey four, Pennsylvania eight, Delaware one, Maryland six, Virginia ten, North Carolina five, South Carolina five, and Georgia three.",
+          "note": ""
+        },
+        {
+          "id": "1.2.4",
+          "kind": "clause",
+          "group": "Article I · Section 2",
+          "cite": "Article I, Section 2, Clause 4",
+          "label": "Vacancies",
+          "text": "When vacancies happen in the Representation from any State, the Executive Authority thereof shall issue Writs of Election to fill such Vacancies.",
+          "note": ""
+        },
+        {
+          "id": "1.2.5",
+          "kind": "clause",
+          "group": "Article I · Section 2",
+          "cite": "Article I, Section 2, Clause 5",
+          "label": "Speaker and Impeachment",
+          "text": "The House of Representatives shall chuse their Speaker and other Officers; and shall have the sole Power of Impeachment.",
+          "note": ""
+        },
+        {
+          "id": "1.3.1",
+          "kind": "clause",
+          "group": "Article I · Section 3",
+          "cite": "Article I, Section 3, Clause 1",
+          "label": "Senate, two from each State",
+          "text": "The Senate of the United States shall be composed of two Senators from each State, chosen by the Legislature thereof, for six Years; and each Senator shall have one Vote.",
+          "note": ""
+        },
+        {
+          "id": "1.3.2",
+          "kind": "clause",
+          "group": "Article I · Section 3",
+          "cite": "Article I, Section 3, Clause 2",
+          "label": "Classes and Vacancies",
+          "text": "Immediately after they shall be assembled in Consequence of the first Election, they shall be divided as equally as may be into three Classes. The Seats of the Senators of the first Class shall be vacated at the Expiration of the second Year, of the second Class at the Expiration of the fourth Year, and of the third Class at the Expiration of the sixth Year, so that one third may be chosen every second Year; and if Vacancies happen by Resignation, or otherwise, during the Recess of the Legislature of any State, the Executive thereof may make temporary Appointments until the next Meeting of the Legislature, which shall then fill such Vacancies.",
+          "note": ""
+        },
+        {
+          "id": "1.3.3",
+          "kind": "clause",
+          "group": "Article I · Section 3",
+          "cite": "Article I, Section 3, Clause 3",
+          "label": "Qualifications of Senators",
+          "text": "No Person shall be a Senator who shall not have attained to the Age of thirty Years, and been nine Years a Citizen of the United States, and who shall not, when elected, be an Inhabitant of that State for which he shall be chosen.",
+          "note": ""
+        },
+        {
+          "id": "1.3.4",
+          "kind": "clause",
+          "group": "Article I · Section 3",
+          "cite": "Article I, Section 3, Clause 4",
+          "label": "Vice President of the Senate",
+          "text": "The Vice President of the United States shall be President of the Senate, but shall have no Vote, unless they be equally divided.",
+          "note": ""
+        },
+        {
+          "id": "1.3.5",
+          "kind": "clause",
+          "group": "Article I · Section 3",
+          "cite": "Article I, Section 3, Clause 5",
+          "label": "Officers and President pro tempore",
+          "text": "The Senate shall chuse their other Officers, and also a President pro tempore, in the Absence of the Vice President, or when he shall exercise the Office of President of the United States.",
+          "note": ""
+        },
+        {
+          "id": "1.3.6",
+          "kind": "clause",
+          "group": "Article I · Section 3",
+          "cite": "Article I, Section 3, Clause 6",
+          "label": "Try all Impeachments",
+          "text": "The Senate shall have the sole Power to try all Impeachments. When sitting for that Purpose, they shall be on Oath or Affirmation. When the President of the United States is tried, the Chief Justice shall preside: And no Person shall be convicted without the Concurrence of two thirds of the Members present.",
+          "note": ""
+        },
+        {
+          "id": "1.3.7",
+          "kind": "clause",
+          "group": "Article I · Section 3",
+          "cite": "Article I, Section 3, Clause 7",
+          "label": "Judgment in Impeachment",
+          "text": "Judgment in Cases of Impeachment shall not extend further than to removal from Office, and disqualification to hold and enjoy any Office of honor, Trust or Profit under the United States: but the Party convicted shall nevertheless be liable and subject to Indictment, Trial, Judgment and Punishment, according to Law.",
+          "note": ""
+        },
+        {
+          "id": "1.4.1",
+          "kind": "clause",
+          "group": "Article I · Section 4",
+          "cite": "Article I, Section 4, Clause 1",
+          "label": "Times, Places and Manner",
+          "text": "The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.",
+          "note": ""
+        },
+        {
+          "id": "1.4.2",
+          "kind": "clause",
+          "group": "Article I · Section 4",
+          "cite": "Article I, Section 4, Clause 2",
+          "label": "Congress shall assemble",
+          "text": "The Congress shall assemble at least once in every Year, and such Meeting shall be on the first Monday in December, unless they shall by Law appoint a different Day.",
+          "note": ""
+        },
+        {
+          "id": "1.5.1",
+          "kind": "clause",
+          "group": "Article I · Section 5",
+          "cite": "Article I, Section 5, Clause 1",
+          "label": "Elections, Quorum, Attendance",
+          "text": "Each House shall be the Judge of the Elections, Returns and Qualifications of its own Members, and a Majority of each shall constitute a Quorum to do Business; but a smaller Number may adjourn from day to day, and may be authorized to compel the Attendance of absent Members, in such Manner, and under such Penalties as each House may provide.",
+          "note": ""
+        },
+        {
+          "id": "1.5.2",
+          "kind": "clause",
+          "group": "Article I · Section 5",
+          "cite": "Article I, Section 5, Clause 2",
+          "label": "Rules, punish, expel",
+          "text": "Each House may determine the Rules of its Proceedings, punish its Members for disorderly Behaviour, and, with the Concurrence of two thirds, expel a Member.",
+          "note": ""
+        },
+        {
+          "id": "1.5.3",
+          "kind": "clause",
+          "group": "Article I · Section 5",
+          "cite": "Article I, Section 5, Clause 3",
+          "label": "Journal, Yeas and Nays",
+          "text": "Each House shall keep a Journal of its Proceedings, and from time to time publish the same, excepting such Parts as may in their Judgment require Secrecy; and the Yeas and Nays of the Members of either House on any question shall, at the Desire of one fifth of those Present, be entered on the Journal.",
+          "note": ""
+        },
+        {
+          "id": "1.5.4",
+          "kind": "clause",
+          "group": "Article I · Section 5",
+          "cite": "Article I, Section 5, Clause 4",
+          "label": "Adjournment",
+          "text": "Neither House, during the Session of Congress, shall, without the Consent of the other, adjourn for more than three days, nor to any other Place than that in which the two Houses shall be sitting.",
+          "note": ""
+        },
+        {
+          "id": "1.6.1",
+          "kind": "clause",
+          "group": "Article I · Section 6",
+          "cite": "Article I, Section 6, Clause 1",
+          "label": "Compensation and Privilege",
+          "text": "The Senators and Representatives shall receive a Compensation for their Services, to be ascertained by Law, and paid out of the Treasury of the United States. They shall in all Cases, except Treason, Felony and Breach of the Peace, be privileged from Arrest during their Attendance at the Session of their respective Houses, and in going to and returning from the same; and for any Speech or Debate in either House, they shall not be questioned in any other Place.",
+          "note": ""
+        },
+        {
+          "id": "1.6.2",
+          "kind": "clause",
+          "group": "Article I · Section 6",
+          "cite": "Article I, Section 6, Clause 2",
+          "label": "Incompatibility",
+          "text": "No Senator or Representative shall, during the Time for which he was elected, be appointed to any civil Office under the Authority of the United States, which shall have been created, or the Emoluments whereof shall have been encreased during such time; and no Person holding any Office under the United States, shall be a Member of either House during his Continuance in Office.",
+          "note": ""
+        },
+        {
+          "id": "1.7.1",
+          "kind": "clause",
+          "group": "Article I · Section 7",
+          "cite": "Article I, Section 7, Clause 1",
+          "label": "Revenue Bills",
+          "text": "All Bills for raising Revenue shall originate in the House of Representatives; but the Senate may propose or concur with Amendments as on other Bills.",
+          "note": ""
+        },
+        {
+          "id": "1.7.2",
+          "kind": "clause",
+          "group": "Article I · Section 7",
+          "cite": "Article I, Section 7, Clause 2",
+          "label": "Presentment and Veto",
+          "text": "Every Bill which shall have passed the House of Representatives and the Senate, shall, before it become a Law, be presented to the President of the United States; If he approve he shall sign it, but if not he shall return it, with his Objections to that House in which it shall have originated, who shall enter the Objections at large on their Journal, and proceed to reconsider it. If after such Reconsideration two thirds of that House shall agree to pass the Bill, it shall be sent, together with the Objections, to the other House, by which it shall likewise be reconsidered, and if approved by two thirds of that House, it shall become a Law. But in all such Cases the Votes of both Houses shall be determined by yeas and Nays, and the Names of the Persons voting for and against the Bill shall be entered on the Journal of each House respectively. If any Bill shall not be returned by the President within ten Days (Sundays excepted) after it shall have been presented to him, the Same shall be a Law, in like Manner as if he had signed it, unless the Congress by their Adjournment prevent its Return, in which Case it shall not be a Law.",
+          "note": ""
+        },
+        {
+          "id": "1.7.3",
+          "kind": "clause",
+          "group": "Article I · Section 7",
+          "cite": "Article I, Section 7, Clause 3",
+          "label": "Orders, Resolutions, Votes",
+          "text": "Every Order, Resolution, or Vote to which the Concurrence of the Senate and House of Representatives may be necessary (except on a question of Adjournment) shall be presented to the President of the United States; and before the Same shall take Effect, shall be approved by him, or being disapproved by him, shall be repassed by two thirds of the Senate and House of Representatives, according to the Rules and Limitations prescribed in the Case of a Bill.",
+          "note": ""
+        },
+        {
+          "id": "1.8.1",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 1",
+          "label": "Taxes, Defence, Welfare",
+          "text": "The Congress shall have Power To lay and collect Taxes, Duties, Imposts and Excises, to pay the Debts and provide for the common Defence and general Welfare of the United States; but all Duties, Imposts and Excises shall be uniform throughout the United States;",
+          "note": ""
+        },
+        {
+          "id": "1.8.2",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 2",
+          "label": "Borrow Money",
+          "text": "To borrow Money on the credit of the United States;",
+          "note": ""
+        },
+        {
+          "id": "1.8.3",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 3",
+          "label": "Commerce",
+          "text": "To regulate Commerce with foreign Nations, and among the several States, and with the Indian Tribes;",
+          "note": ""
+        },
+        {
+          "id": "1.8.4",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 4",
+          "label": "Naturalization and Bankruptcies",
+          "text": "To establish an uniform Rule of Naturalization, and uniform Laws on the subject of Bankruptcies throughout the United States;",
+          "note": ""
+        },
+        {
+          "id": "1.8.5",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 5",
+          "label": "Coin and Measures",
+          "text": "To coin Money, regulate the Value thereof, and of foreign Coin, and fix the Standard of Weights and Measures;",
+          "note": ""
+        },
+        {
+          "id": "1.8.6",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 6",
+          "label": "Counterfeiting",
+          "text": "To provide for the Punishment of counterfeiting the Securities and current Coin of the United States;",
+          "note": ""
+        },
+        {
+          "id": "1.8.7",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 7",
+          "label": "Post Offices",
+          "text": "To establish Post Offices and post Roads;",
+          "note": ""
+        },
+        {
+          "id": "1.8.8",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 8",
+          "label": "Science and useful Arts",
+          "text": "To promote the Progress of Science and useful Arts, by securing for limited Times to Authors and Inventors the exclusive Right to their respective Writings and Discoveries;",
+          "note": ""
+        },
+        {
+          "id": "1.8.9",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 9",
+          "label": "Inferior Tribunals",
+          "text": "To constitute Tribunals inferior to the supreme Court;",
+          "note": ""
+        },
+        {
+          "id": "1.8.10",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 10",
+          "label": "Piracies and Law of Nations",
+          "text": "To define and punish Piracies and Felonies committed on the high Seas, and Offences against the Law of Nations;",
+          "note": ""
+        },
+        {
+          "id": "1.8.11",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 11",
+          "label": "Declare War",
+          "text": "To declare War, grant Letters of Marque and Reprisal, and make Rules concerning Captures on Land and Water;",
+          "note": ""
+        },
+        {
+          "id": "1.8.12",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 12",
+          "label": "Raise and support Armies",
+          "text": "To raise and support Armies, but no Appropriation of Money to that Use shall be for a longer Term than two Years;",
+          "note": ""
+        },
+        {
+          "id": "1.8.13",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 13",
+          "label": "Navy",
+          "text": "To provide and maintain a Navy;",
+          "note": ""
+        },
+        {
+          "id": "1.8.14",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 14",
+          "label": "Land and naval Forces",
+          "text": "To make Rules for the Government and Regulation of the land and naval Forces;",
+          "note": ""
+        },
+        {
+          "id": "1.8.15",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 15",
+          "label": "Calling forth the Militia",
+          "text": "To provide for calling forth the Militia to execute the Laws of the Union, suppress Insurrections and repel Invasions;",
+          "note": ""
+        },
+        {
+          "id": "1.8.16",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 16",
+          "label": "Organizing the Militia",
+          "text": "To provide for organizing, arming, and disciplining, the Militia, and for governing such Part of them as may be employed in the Service of the United States, reserving to the States respectively, the Appointment of the Officers, and the Authority of training the Militia according to the discipline prescribed by Congress;",
+          "note": ""
+        },
+        {
+          "id": "1.8.17",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 17",
+          "label": "Seat of Government",
+          "text": "To exercise exclusive Legislation in all Cases whatsoever, over such District (not exceeding ten Miles square) as may, by Cession of particular States, and the Acceptance of Congress, become the Seat of the Government of the United States, and to exercise like Authority over all Places purchased by the Consent of the Legislature of the State in which the Same shall be, for the Erection of Forts, Magazines, Arsenals, dock-Yards, and other needful Buildings;—And",
+          "note": ""
+        },
+        {
+          "id": "1.8.18",
+          "kind": "clause",
+          "group": "Article I · Section 8",
+          "cite": "Article I, Section 8, Clause 18",
+          "label": "Necessary and proper",
+          "text": "To make all Laws which shall be necessary and proper for carrying into Execution the foregoing Powers, and all other Powers vested by this Constitution in the Government of the United States, or in any Department or Officer thereof.",
+          "note": ""
+        },
+        {
+          "id": "1.9.1",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 1",
+          "label": "Migration or Importation",
+          "text": "The Migration or Importation of such Persons as any of the States now existing shall think proper to admit, shall not be prohibited by the Congress prior to the Year one thousand eight hundred and eight, but a Tax or duty may be imposed on such Importation, not exceeding ten dollars for each Person.",
+          "note": ""
+        },
+        {
+          "id": "1.9.2",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 2",
+          "label": "Habeas Corpus",
+          "text": "The Privilege of the Writ of Habeas Corpus shall not be suspended, unless when in Cases of Rebellion or Invasion the public Safety may require it.",
+          "note": ""
+        },
+        {
+          "id": "1.9.3",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 3",
+          "label": "Attainder and ex post facto",
+          "text": "No Bill of Attainder or ex post facto Law shall be passed.",
+          "note": ""
+        },
+        {
+          "id": "1.9.4",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 4",
+          "label": "Capitation",
+          "text": "No Capitation, or other direct, Tax shall be laid, unless in Proportion to the Census or enumeration herein before directed to be taken.",
+          "note": ""
+        },
+        {
+          "id": "1.9.5",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 5",
+          "label": "Export Taxes",
+          "text": "No Tax or Duty shall be laid on Articles exported from any State.",
+          "note": ""
+        },
+        {
+          "id": "1.9.6",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 6",
+          "label": "No Preference of Ports",
+          "text": "No Preference shall be given by any Regulation of Commerce or Revenue to the Ports of one State over those of another: nor shall Vessels bound to, or from, one State, be obliged to enter, clear, or pay Duties in another.",
+          "note": ""
+        },
+        {
+          "id": "1.9.7",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 7",
+          "label": "Appropriations",
+          "text": "No Money shall be drawn from the Treasury, but in Consequence of Appropriations made by Law; and a regular Statement and Account of the Receipts and Expenditures of all public Money shall be published from time to time.",
+          "note": ""
+        },
+        {
+          "id": "1.9.8",
+          "kind": "clause",
+          "group": "Article I · Section 9",
+          "cite": "Article I, Section 9, Clause 8",
+          "label": "Title of Nobility",
+          "text": "No Title of Nobility shall be granted by the United States: And no Person holding any Office of Profit or Trust under them, shall, without the Consent of the Congress, accept of any present, Emolument, Office, or Title, of any kind whatever, from any King, Prince, or foreign State.",
+          "note": ""
+        },
+        {
+          "id": "1.10.1",
+          "kind": "clause",
+          "group": "Article I · Section 10",
+          "cite": "Article I, Section 10, Clause 1",
+          "label": "Treaties, Coin, Contracts",
+          "text": "No State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; emit Bills of Credit; make any Thing but gold and silver Coin a Tender in Payment of Debts; pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts, or grant any Title of Nobility.",
+          "note": ""
+        },
+        {
+          "id": "1.10.2",
+          "kind": "clause",
+          "group": "Article I · Section 10",
+          "cite": "Article I, Section 10, Clause 2",
+          "label": "Imposts and Exports",
+          "text": "No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws: and the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States; and all such Laws shall be subject to the Revision and Controul of the Congress.",
+          "note": ""
+        },
+        {
+          "id": "1.10.3",
+          "kind": "clause",
+          "group": "Article I · Section 10",
+          "cite": "Article I, Section 10, Clause 3",
+          "label": "Tonnage, Troops, Compacts",
+          "text": "No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.",
+          "note": ""
+        },
+        {
+          "id": "2.1.1",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 1",
+          "label": "Executive Power",
+          "text": "The executive Power shall be vested in a President of the United States of America. He shall hold his Office during the Term of four Years, and, together with the Vice President, chosen for the same Term, be elected, as follows",
+          "note": ""
+        },
+        {
+          "id": "2.1.2",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 2",
+          "label": "Electors",
+          "text": "Each State shall appoint, in such Manner as the Legislature thereof may direct, a Number of Electors, equal to the whole Number of Senators and Representatives to which the State may be entitled in the Congress: but no Senator or Representative, or Person holding an Office of Trust or Profit under the United States, shall be appointed an Elector.",
+          "note": ""
+        },
+        {
+          "id": "2.1.3",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 3",
+          "label": "Original election of President",
+          "text": "The Electors shall meet in their respective States, and vote by Ballot for two Persons, of whom one at least shall not be an Inhabitant of the same State with themselves. And they shall make a List of all the Persons voted for, and of the Number of Votes for each; which List they shall sign and certify, and transmit sealed to the Seat of the Government of the United States, directed to the President of the Senate. The President of the Senate shall, in the Presence of the Senate and House of Representatives, open all the Certificates, and the Votes shall then be counted. The Person having the greatest Number of Votes shall be the President, if such Number be a Majority of the whole Number of Electors appointed; and if there be more than one who have such Majority, and have an equal Number of Votes, then the House of Representatives shall immediately chuse by Ballot one of them for President; and if no Person have a Majority, then from the five highest on the List the said House shall in like Manner chuse the President. But in chusing the President, the Votes shall be taken by States, the Representation from each State having one Vote; A quorum for this Purpose shall consist of a Member or Members from two thirds of the States, and a Majority of all the States shall be necessary to a Choice. In every Case, after the Choice of the President, the Person having the greatest Number of Votes of the Electors shall be the Vice President. But if there should remain two or more who have equal Votes, the Senate shall chuse from them by Ballot the Vice President.",
+          "note": ""
+        },
+        {
+          "id": "2.1.4",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 4",
+          "label": "Time of chusing Electors",
+          "text": "The Congress may determine the Time of chusing the Electors, and the Day on which they shall give their Votes; which Day shall be the same throughout the United States.",
+          "note": ""
+        },
+        {
+          "id": "2.1.5",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 5",
+          "label": "Eligibility",
+          "text": "No Person except a natural born Citizen, or a Citizen of the United States, at the time of the Adoption of this Constitution, shall be eligible to the Office of President; neither shall any Person be eligible to that Office who shall not have attained to the Age of thirty five Years, and been fourteen Years a Resident within the United States.",
+          "note": ""
+        },
+        {
+          "id": "2.1.6",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 6",
+          "label": "Removal, Death, Resignation",
+          "text": "In Case of the Removal of the President from Office, or of his Death, Resignation, or Inability to discharge the Powers and Duties of the said Office, the Same shall devolve on the Vice President, and the Congress may by Law provide for the Case of Removal, Death, Resignation or Inability, both of the President and Vice President, declaring what Officer shall then act as President, and such Officer shall act accordingly, until the Disability be removed, or a President shall be elected.",
+          "note": ""
+        },
+        {
+          "id": "2.1.7",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 7",
+          "label": "Compensation",
+          "text": "The President shall, at stated Times, receive for his Services, a Compensation, which shall neither be encreased nor diminished during the Period for which he shall have been elected, and he shall not receive within that Period any other Emolument from the United States, or any of them.",
+          "note": ""
+        },
+        {
+          "id": "2.1.8",
+          "kind": "clause",
+          "group": "Article II · Section 1",
+          "cite": "Article II, Section 1, Clause 8",
+          "label": "Oath or Affirmation",
+          "text": "Before he enter on the Execution of his Office, he shall take the following Oath or Affirmation:—\"I do solemnly swear (or affirm) that I will faithfully execute the Office of President of the United States, and will to the best of my Ability, preserve, protect and defend the Constitution of the United States.\"",
+          "note": ""
+        },
+        {
+          "id": "2.2.1",
+          "kind": "clause",
+          "group": "Article II · Section 2",
+          "cite": "Article II, Section 2, Clause 1",
+          "label": "Commander in Chief",
+          "text": "The President shall be Commander in Chief of the Army and Navy of the United States, and of the Militia of the several States, when called into the actual Service of the United States; he may require the Opinion, in writing, of the principal Officer in each of the executive Departments, upon any Subject relating to the Duties of their respective Offices, and he shall have Power to grant Reprieves and Pardons for Offences against the United States, except in Cases of Impeachment.",
+          "note": ""
+        },
+        {
+          "id": "2.2.2",
+          "kind": "clause",
+          "group": "Article II · Section 2",
+          "cite": "Article II, Section 2, Clause 2",
+          "label": "Treaties and Appointments",
+          "text": "He shall have Power, by and with the Advice and Consent of the Senate, to make Treaties, provided two thirds of the Senators present concur; and he shall nominate, and by and with the Advice and Consent of the Senate, shall appoint Ambassadors, other public Ministers and Consuls, Judges of the supreme Court, and all other Officers of the United States, whose Appointments are not herein otherwise provided for, and which shall be established by Law: but the Congress may by Law vest the Appointment of such inferior Officers, as they think proper, in the President alone, in the Courts of Law, or in the Heads of Departments.",
+          "note": ""
+        },
+        {
+          "id": "2.2.3",
+          "kind": "clause",
+          "group": "Article II · Section 2",
+          "cite": "Article II, Section 2, Clause 3",
+          "label": "Recess Appointments",
+          "text": "The President shall have Power to fill up all Vacancies that may happen during the Recess of the Senate, by granting Commissions which shall expire at the End of their next Session.",
+          "note": ""
+        },
+        {
+          "id": "2.3",
+          "kind": "clause",
+          "group": "Article II · Section 3",
+          "cite": "Article II, Section 3",
+          "label": "State of the Union",
+          "text": "He shall from time to time give to the Congress Information of the State of the Union, and recommend to their Consideration such Measures as he shall judge necessary and expedient; he may, on extraordinary Occasions, convene both Houses, or either of them, and in Case of Disagreement between them, with Respect to the Time of Adjournment, he may adjourn them to such Time as he shall think proper; he shall receive Ambassadors and other public Ministers; he shall take Care that the Laws be faithfully executed, and shall Commission all the Officers of the United States.",
+          "note": ""
+        },
+        {
+          "id": "2.4",
+          "kind": "clause",
+          "group": "Article II · Section 4",
+          "cite": "Article II, Section 4",
+          "label": "Impeachment",
+          "text": "The President, Vice President and all civil Officers of the United States, shall be removed from Office on Impeachment for, and Conviction of, Treason, Bribery, or other high Crimes and Misdemeanors.",
+          "note": ""
+        },
+        {
+          "id": "3.1",
+          "kind": "clause",
+          "group": "Article III · Section 1",
+          "cite": "Article III, Section 1",
+          "label": "Judicial Power",
+          "text": "The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish. The Judges, both of the supreme and inferior Courts, shall hold their Offices during good Behaviour, and shall, at stated Times, receive for their Services, a Compensation, which shall not be diminished during their Continuance in Office.",
+          "note": ""
+        },
+        {
+          "id": "3.2.1",
+          "kind": "clause",
+          "group": "Article III · Section 2",
+          "cite": "Article III, Section 2, Clause 1",
+          "label": "Cases and Controversies",
+          "text": "The judicial Power shall extend to all Cases, in Law and Equity, arising under this Constitution, the Laws of the United States, and Treaties made, or which shall be made, under their Authority;—to all Cases affecting Ambassadors, other public Ministers and Consuls;—to all Cases of admiralty and maritime Jurisdiction;—to Controversies to which the United States shall be a Party;—to Controversies between two or more States;— between a State and Citizens of another State,—between Citizens of different States,—between Citizens of the same State claiming Lands under Grants of different States, and between a State, or the Citizens thereof, and foreign States, Citizens or Subjects.",
+          "note": ""
+        },
+        {
+          "id": "3.2.2",
+          "kind": "clause",
+          "group": "Article III · Section 2",
+          "cite": "Article III, Section 2, Clause 2",
+          "label": "Original and appellate Jurisdiction",
+          "text": "In all Cases affecting Ambassadors, other public Ministers and Consuls, and those in which a State shall be Party, the supreme Court shall have original Jurisdiction. In all the other Cases before mentioned, the supreme Court shall have appellate Jurisdiction, both as to Law and Fact, with such Exceptions, and under such Regulations as the Congress shall make.",
+          "note": ""
+        },
+        {
+          "id": "3.2.3",
+          "kind": "clause",
+          "group": "Article III · Section 2",
+          "cite": "Article III, Section 2, Clause 3",
+          "label": "Trial of Crimes",
+          "text": "The Trial of all Crimes, except in Cases of Impeachment, shall be by Jury; and such Trial shall be held in the State where the said Crimes shall have been committed; but when not committed within any State, the Trial shall be at such Place or Places as the Congress may by Law have directed.",
+          "note": ""
+        },
+        {
+          "id": "3.3.1",
+          "kind": "clause",
+          "group": "Article III · Section 3",
+          "cite": "Article III, Section 3, Clause 1",
+          "label": "Treason defined",
+          "text": "Treason against the United States, shall consist only in levying War against them, or in adhering to their Enemies, giving them Aid and Comfort. No Person shall be convicted of Treason unless on the Testimony of two Witnesses to the same overt Act, or on Confession in open Court.",
+          "note": ""
+        },
+        {
+          "id": "3.3.2",
+          "kind": "clause",
+          "group": "Article III · Section 3",
+          "cite": "Article III, Section 3, Clause 2",
+          "label": "Punishment of Treason",
+          "text": "The Congress shall have Power to declare the Punishment of Treason, but no Attainder of Treason shall work Corruption of Blood, or Forfeiture except during the Life of the Person attainted.",
+          "note": ""
+        },
+        {
+          "id": "4.1",
+          "kind": "clause",
+          "group": "Article IV · Section 1",
+          "cite": "Article IV, Section 1",
+          "label": "Full Faith and Credit",
+          "text": "Full Faith and Credit shall be given in each State to the public Acts, Records, and judicial Proceedings of every other State. And the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.",
+          "note": ""
+        },
+        {
+          "id": "4.2.1",
+          "kind": "clause",
+          "group": "Article IV · Section 2",
+          "cite": "Article IV, Section 2, Clause 1",
+          "label": "Privileges and Immunities",
+          "text": "The Citizens of each State shall be entitled to all Privileges and Immunities of Citizens in the several States.",
+          "note": ""
+        },
+        {
+          "id": "4.2.2",
+          "kind": "clause",
+          "group": "Article IV · Section 2",
+          "cite": "Article IV, Section 2, Clause 2",
+          "label": "Interstate Extradition",
+          "text": "A Person charged in any State with Treason, Felony, or other Crime, who shall flee from Justice, and be found in another State, shall on Demand of the executive Authority of the State from which he fled, be delivered up, to be removed to the State having Jurisdiction of the Crime.",
+          "note": ""
+        },
+        {
+          "id": "4.2.3",
+          "kind": "clause",
+          "group": "Article IV · Section 2",
+          "cite": "Article IV, Section 2, Clause 3",
+          "label": "Fugitives from Service",
+          "text": "No Person held to Service or Labour in one State, under the Laws thereof, escaping into another, shall, in Consequence of any Law or Regulation therein, be discharged from such Service or Labour, but shall be delivered up on Claim of the Party to whom such Service or Labour may be due.",
+          "note": ""
+        },
+        {
+          "id": "4.3.1",
+          "kind": "clause",
+          "group": "Article IV · Section 3",
+          "cite": "Article IV, Section 3, Clause 1",
+          "label": "New States",
+          "text": "New States may be admitted by the Congress into this Union; but no new State shall be formed or erected within the Jurisdiction of any other State; nor any State be formed by the Junction of two or more States, or Parts of States, without the Consent of the Legislatures of the States concerned as well as of the Congress.",
+          "note": ""
+        },
+        {
+          "id": "4.3.2",
+          "kind": "clause",
+          "group": "Article IV · Section 3",
+          "cite": "Article IV, Section 3, Clause 2",
+          "label": "Territory and Property",
+          "text": "The Congress shall have Power to dispose of and make all needful Rules and Regulations respecting the Territory or other Property belonging to the United States; and nothing in this Constitution shall be so construed as to Prejudice any Claims of the United States, or of any particular State.",
+          "note": ""
+        },
+        {
+          "id": "4.4",
+          "kind": "clause",
+          "group": "Article IV · Section 4",
+          "cite": "Article IV, Section 4",
+          "label": "Republican Form of Government",
+          "text": "The United States shall guarantee to every State in this Union a Republican Form of Government, and shall protect each of them against Invasion; and on Application of the Legislature, or of the Executive (when the Legislature cannot be convened) against domestic Violence.",
+          "note": ""
+        },
+        {
+          "id": "5",
+          "kind": "clause",
+          "group": "Article V",
+          "cite": "Article V",
+          "label": "Amendments",
+          "text": "The Congress, whenever two thirds of both Houses shall deem it necessary, shall propose Amendments to this Constitution, or, on the Application of the Legislatures of two thirds of the several States, shall call a Convention for proposing Amendments, which, in either Case, shall be valid to all Intents and Purposes, as Part of this Constitution, when ratified by the Legislatures of three fourths of the several States, or by Conventions in three fourths thereof, as the one or the other Mode of Ratification may be proposed by the Congress; Provided that no Amendment which may be made prior to the Year One thousand eight hundred and eight shall in any Manner affect the first and fourth Clauses in the Ninth Section of the first Article; and that no State, without its Consent, shall be deprived of its equal Suffrage in the Senate.",
+          "note": ""
+        },
+        {
+          "id": "6.1",
+          "kind": "clause",
+          "group": "Article VI",
+          "cite": "Article VI, Clause 1",
+          "label": "Debts",
+          "text": "All Debts contracted and Engagements entered into, before the Adoption of this Constitution, shall be as valid against the United States under this Constitution, as under the Confederation.",
+          "note": ""
+        },
+        {
+          "id": "6.2",
+          "kind": "clause",
+          "group": "Article VI",
+          "cite": "Article VI, Clause 2",
+          "label": "Supreme Law of the Land",
+          "text": "This Constitution, and the Laws of the United States which shall be made in Pursuance thereof; and all Treaties made, or which shall be made, under the Authority of the United States, shall be the supreme Law of the Land; and the Judges in every State shall be bound thereby, any Thing in the Constitution or Laws of any State to the Contrary notwithstanding.",
+          "note": ""
+        },
+        {
+          "id": "6.3",
+          "kind": "clause",
+          "group": "Article VI",
+          "cite": "Article VI, Clause 3",
+          "label": "Oath; no religious Test",
+          "text": "The Senators and Representatives before mentioned, and the Members of the several State Legislatures, and all executive and judicial Officers, both of the United States and of the several States, shall be bound by Oath or Affirmation, to support this Constitution; but no religious Test shall ever be required as a Qualification to any Office or public Trust under the United States.",
+          "note": ""
+        },
+        {
+          "id": "7",
+          "kind": "clause",
+          "group": "Article VII",
+          "cite": "Article VII",
+          "label": "Ratification",
+          "text": "The Ratification of the Conventions of nine States, shall be sufficient for the Establishment of this Constitution between the States so ratifying the Same.",
+          "note": ""
+        },
+        {
+          "id": "attestation",
+          "kind": "clause",
+          "group": "Article VII",
+          "cite": "Attestation",
+          "label": "Done in Convention",
+          "text": "done in Convention by the Unanimous Consent of the States present the Seventeenth Day of September in the Year of our Lord one thousand seven hundred and Eighty seven and of the Independance of the United States of America the Twelfth In witness whereof We have hereunto subscribed our Names,",
+          "note": ""
+        },
+        {
+          "id": "signers-washington",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "George Washington",
+          "label": "President and deputy from Virginia",
+          "text": "George Washington\nPresident and deputy from Virginia",
+          "note": ""
+        },
+        {
+          "id": "signers-de",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Delaware",
+          "label": "Signers",
+          "text": "George Read\nGunning Bedford, Jr.\nJohn Dickinson\nRichard Bassett\nJacob Broom",
+          "note": ""
+        },
+        {
+          "id": "signers-md",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Maryland",
+          "label": "Signers",
+          "text": "James McHenry\nDaniel of St. Thomas Jenifer\nDaniel Carroll",
+          "note": ""
+        },
+        {
+          "id": "signers-va",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Virginia",
+          "label": "Signers",
+          "text": "John Blair\nJames Madison, Jr.",
+          "note": ""
+        },
+        {
+          "id": "signers-nc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "North Carolina",
+          "label": "Signers",
+          "text": "William Blount\nRichard Dobbs Spaight\nHugh Williamson",
+          "note": ""
+        },
+        {
+          "id": "signers-sc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "South Carolina",
+          "label": "Signers",
+          "text": "John Rutledge\nCharles Cotesworth Pinckney\nCharles Pinckney\nPierce Butler",
+          "note": ""
+        },
+        {
+          "id": "signers-ga",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Georgia",
+          "label": "Signers",
+          "text": "William Few\nAbraham Baldwin",
+          "note": ""
+        },
+        {
+          "id": "signers-nh",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New Hampshire",
+          "label": "Signers",
+          "text": "John Langdon\nNicholas Gilman",
+          "note": ""
+        },
+        {
+          "id": "signers-ma",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Massachusetts",
+          "label": "Signers",
+          "text": "Nathaniel Gorham\nRufus King",
+          "note": ""
+        },
+        {
+          "id": "signers-ct",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Connecticut",
+          "label": "Signers",
+          "text": "William Samuel Johnson\nRoger Sherman",
+          "note": ""
+        },
+        {
+          "id": "signers-ny",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New York",
+          "label": "Signers",
+          "text": "Alexander Hamilton",
+          "note": ""
+        },
+        {
+          "id": "signers-nj",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New Jersey",
+          "label": "Signers",
+          "text": "William Livingston\nDavid Brearley\nWilliam Paterson\nJonathan Dayton",
+          "note": ""
+        },
+        {
+          "id": "signers-pa",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Pennsylvania",
+          "label": "Signers",
+          "text": "Benjamin Franklin\nThomas Mifflin\nRobert Morris\nGeorge Clymer\nThomas FitzSimons\nJared Ingersoll\nJames Wilson\nGouverneur Morris",
+          "note": ""
+        },
+        {
+          "id": "signers-attest",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Attest",
+          "label": "Secretary",
+          "text": "William Jackson, Secretary",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "rights",
+      "title": "The Bill of Rights",
+      "short": "Bill of Rights",
+      "year": "1791",
+      "blurb": "Amendments I–X, each as one bite, then a clear path into the later amendments.",
+      "source": "https://www.archives.gov/founding-docs/bill-of-rights-transcript",
+      "sourceLabel": "National Archives transcription",
+      "nextDoc": "later",
+      "nextLabel": "Continue to Amendments XI–XXVII",
+      "prevDoc": "constitution",
+      "bites": [
+        {
+          "id": "1",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment I",
+          "label": "Religion, speech, press, assembly, petition",
+          "text": "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "2",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment II",
+          "label": "Keep and bear Arms",
+          "text": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "3",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment III",
+          "label": "Quartering of Soldiers",
+          "text": "No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "4",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment IV",
+          "label": "Searches and Seizures",
+          "text": "The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "5",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment V",
+          "label": "Grand Jury, Double Jeopardy, Due Process",
+          "text": "No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "6",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment VI",
+          "label": "Speedy and public trial",
+          "text": "In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial, by an impartial jury of the State and district wherein the crime shall have been committed, which district shall have been previously ascertained by law, and to be informed of the nature and cause of the accusation; to be confronted with the witnesses against him; to have compulsory process for obtaining witnesses in his favor, and to have the Assistance of Counsel for his defence.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "7",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment VII",
+          "label": "Civil jury trial",
+          "text": "In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "8",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment VIII",
+          "label": "Bail, fines, punishment",
+          "text": "Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "9",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment IX",
+          "label": "Rights retained by the people",
+          "text": "The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.",
+          "note": "Ratified December 15, 1791."
+        },
+        {
+          "id": "10",
+          "kind": "amendment",
+          "group": "Amendments I–X",
+          "cite": "Amendment X",
+          "label": "Powers reserved",
+          "text": "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+          "note": "Ratified December 15, 1791."
+        }
+      ]
+    },
+    {
+      "id": "later",
+      "title": "Later Amendments",
+      "short": "Amendments XI–XXVII",
+      "year": "1795–1992",
+      "blurb": "The rest of the Constitution: Amendments XI through XXVII, section by section.",
+      "source": "https://www.archives.gov/founding-docs/amendments-11-27",
+      "sourceLabel": "National Archives transcription",
+      "nextDoc": null,
+      "nextLabel": null,
+      "prevDoc": "rights",
+      "bites": [
+        {
+          "id": "11",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XI",
+          "label": "Suits against States",
+          "text": "The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.",
+          "note": "Passed by Congress March 4, 1794. Ratified February 7, 1795. Article III, section 2, of the Constitution was modified by amendment 11."
+        },
+        {
+          "id": "12.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XII",
+          "label": "Electors vote for President and Vice-President",
+          "text": "The Electors shall meet in their respective states and vote by ballot for President and Vice-President, one of whom, at least, shall not be an inhabitant of the same state with themselves; they shall name in their ballots the person voted for as President, and in distinct ballots the person voted for as Vice-President, and they shall make distinct lists of all persons voted for as President, and of all persons voted for as Vice-President, and of the number of votes for each, which lists they shall sign and certify, and transmit sealed to the seat of the government of the United States, directed to the President of the Senate;",
+          "note": "Passed by Congress December 9, 1803. Ratified June 15, 1804. A portion of Article II, section 1 of the Constitution was superseded by the 12th amendment."
+        },
+        {
+          "id": "12.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XII",
+          "label": "Counting the votes",
+          "text": "-- the President of the Senate shall, in the presence of the Senate and House of Representatives, open all the certificates and the votes shall then be counted;",
+          "note": ""
+        },
+        {
+          "id": "12.3",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XII",
+          "label": "Choice of President",
+          "text": "-- The person having the greatest number of votes for President, shall be the President, if such number be a majority of the whole number of Electors appointed; and if no person have such majority, then from the persons having the highest numbers not exceeding three on the list of those voted for as President, the House of Representatives shall choose immediately, by ballot, the President. But in choosing the President, the votes shall be taken by states, the representation from each state having one vote; a quorum for this purpose shall consist of a member or members from two-thirds of the states, and a majority of all the states shall be necessary to a choice. And if the House of Representatives shall not choose a President whenever the right of choice shall devolve upon them, before the fourth day of March next following, then the Vice-President shall act as President, as in the case of the death or other constitutional disability of the President.",
+          "note": "The sentence beginning “And if the House of Representatives shall not choose a President” was superseded by section 3 of the 20th amendment."
+        },
+        {
+          "id": "12.4",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XII",
+          "label": "Choice of Vice-President",
+          "text": "-- The person having the greatest number of votes as Vice-President, shall be the Vice-President, if such number be a majority of the whole number of Electors appointed, and if no person have a majority, then from the two highest numbers on the list, the Senate shall choose the Vice-President; a quorum for the purpose shall consist of two-thirds of the whole number of Senators, and a majority of the whole number shall be necessary to a choice. But no person constitutionally ineligible to the office of President shall be eligible to that of Vice-President of the United States.",
+          "note": ""
+        },
+        {
+          "id": "13.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIII, Section 1",
+          "label": "Neither slavery nor involuntary servitude",
+          "text": "Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.",
+          "note": "Passed by Congress January 31, 1865. Ratified December 6, 1865. A portion of Article IV, section 2, of the Constitution was superseded by the 13th amendment."
+        },
+        {
+          "id": "13.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIII, Section 2",
+          "label": "Enforcement",
+          "text": "Congress shall have power to enforce this article by appropriate legislation.",
+          "note": ""
+        },
+        {
+          "id": "14.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIV, Section 1",
+          "label": "Citizenship, due process, equal protection",
+          "text": "All persons born or naturalized in the United States, and subject to the jurisdiction thereof, are citizens of the United States and of the State wherein they reside. No State shall make or enforce any law which shall abridge the privileges or immunities of citizens of the United States; nor shall any State deprive any person of life, liberty, or property, without due process of law; nor deny to any person within its jurisdiction the equal protection of the laws.",
+          "note": "Passed by Congress June 13, 1866. Ratified July 9, 1868. Article I, section 2, of the Constitution was modified by section 2 of the 14th amendment."
+        },
+        {
+          "id": "14.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIV, Section 2",
+          "label": "Apportionment",
+          "text": "Representatives shall be apportioned among the several States according to their respective numbers, counting the whole number of persons in each State, excluding Indians not taxed. But when the right to vote at any election for the choice of electors for President and Vice-President of the United States, Representatives in Congress, the Executive and Judicial officers of a State, or the members of the Legislature thereof, is denied to any of the male inhabitants of such State, being twenty-one years of age, and citizens of the United States, or in any way abridged, except for participation in rebellion, or other crime, the basis of representation therein shall be reduced in the proportion which the number of such male citizens shall bear to the whole number of male citizens twenty-one years of age in such State.",
+          "note": "“twenty-one years of age” was changed by section 1 of the 26th amendment."
+        },
+        {
+          "id": "14.3",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIV, Section 3",
+          "label": "Disqualification",
+          "text": "No person shall be a Senator or Representative in Congress, or elector of President and Vice-President, or hold any office, civil or military, under the United States, or under any State, who, having previously taken an oath, as a member of Congress, or as an officer of the United States, or as a member of any State legislature, or as an executive or judicial officer of any State, to support the Constitution of the United States, shall have engaged in insurrection or rebellion against the same, or given aid or comfort to the enemies thereof. But Congress may by a vote of two-thirds of each House, remove such disability.",
+          "note": ""
+        },
+        {
+          "id": "14.4",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIV, Section 4",
+          "label": "Public debt",
+          "text": "The validity of the public debt of the United States, authorized by law, including debts incurred for payment of pensions and bounties for services in suppressing insurrection or rebellion, shall not be questioned. But neither the United States nor any State shall assume or pay any debt or obligation incurred in aid of insurrection or rebellion against the United States, or any claim for the loss or emancipation of any slave; but all such debts, obligations and claims shall be held illegal and void.",
+          "note": ""
+        },
+        {
+          "id": "14.5",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIV, Section 5",
+          "label": "Enforcement",
+          "text": "The Congress shall have power to enforce, by appropriate legislation, the provisions of this article.",
+          "note": ""
+        },
+        {
+          "id": "15.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XV, Section 1",
+          "label": "Vote shall not be denied on account of race",
+          "text": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of race, color, or previous condition of servitude--",
+          "note": "Passed by Congress February 26, 1869. Ratified February 3, 1870."
+        },
+        {
+          "id": "15.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XV, Section 2",
+          "label": "Enforcement",
+          "text": "The Congress shall have power to enforce this article by appropriate legislation.",
+          "note": ""
+        },
+        {
+          "id": "16",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XVI",
+          "label": "Income tax",
+          "text": "The Congress shall have power to lay and collect taxes on incomes, from whatever source derived, without apportionment among the several States, and without regard to any census or enumeration.",
+          "note": "Passed by Congress July 2, 1909. Ratified February 3, 1913. Article I, section 9, of the Constitution was modified by amendment 16."
+        },
+        {
+          "id": "17.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XVII",
+          "label": "Popular election of Senators",
+          "text": "The Senate of the United States shall be composed of two Senators from each State, elected by the people thereof, for six years; and each Senator shall have one vote. The electors in each State shall have the qualifications requisite for electors of the most numerous branch of the State legislatures.",
+          "note": "Passed by Congress May 13, 1912. Ratified April 8, 1913. Article I, section 3, of the Constitution was modified by the 17th amendment."
+        },
+        {
+          "id": "17.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XVII",
+          "label": "Vacancies",
+          "text": "When vacancies happen in the representation of any State in the Senate, the executive authority of such State shall issue writs of election to fill such vacancies: Provided, That the legislature of any State may empower the executive thereof to make temporary appointments until the people fill the vacancies by election as the legislature may direct.",
+          "note": ""
+        },
+        {
+          "id": "17.3",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XVII",
+          "label": "Not to affect sitting Senators",
+          "text": "This amendment shall not be so construed as to affect the election or term of any Senator chosen before it becomes valid as part of the Constitution.",
+          "note": ""
+        },
+        {
+          "id": "18.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XVIII, Section 1",
+          "label": "Intoxicating liquors prohibited",
+          "text": "After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.",
+          "note": "Passed by Congress December 18, 1917. Ratified January 16, 1919. Repealed by amendment 21."
+        },
+        {
+          "id": "18.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XVIII, Section 2",
+          "label": "Enforcement",
+          "text": "The Congress and the several States shall have concurrent power to enforce this article by appropriate legislation.",
+          "note": ""
+        },
+        {
+          "id": "18.3",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XVIII, Section 3",
+          "label": "Ratification window",
+          "text": "This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.",
+          "note": ""
+        },
+        {
+          "id": "19",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XIX",
+          "label": "Vote shall not be denied on account of sex",
+          "text": "The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.\n\nCongress shall have power to enforce this article by appropriate legislation.",
+          "note": "Passed by Congress June 4, 1919. Ratified August 18, 1920."
+        },
+        {
+          "id": "20.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XX, Section 1",
+          "label": "Terms end in January",
+          "text": "The terms of the President and Vice President shall end at noon on the 20th day of January, and the terms of Senators and Representatives at noon on the 3d day of January, of the years in which such terms would have ended if this article had not been ratified; and the terms of their successors shall then begin.",
+          "note": "Passed by Congress March 2, 1932. Ratified January 23, 1933. Article I, section 4, of the Constitution was modified by section 2 of this amendment. In addition, a portion of the 12th amendment was superseded by section 3."
+        },
+        {
+          "id": "20.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XX, Section 2",
+          "label": "Congress shall assemble",
+          "text": "The Congress shall assemble at least once in every year, and such meeting shall begin at noon on the 3d day of January, unless they shall by law appoint a different day.",
+          "note": ""
+        },
+        {
+          "id": "20.3",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XX, Section 3",
+          "label": "Presidential succession at the start of a term",
+          "text": "If, at the time fixed for the beginning of the term of the President, the President elect shall have died, the Vice President elect shall become President. If a President shall not have been chosen before the time fixed for the beginning of his term, or if the President elect shall have failed to qualify, then the Vice President elect shall act as President until a President shall have qualified; and the Congress may by law provide for the case wherein neither a President elect nor a Vice President elect shall have qualified, declaring who shall then act as President, or the manner in which one who is to act shall be selected, and such person shall act accordingly until a President or Vice President shall have qualified.",
+          "note": ""
+        },
+        {
+          "id": "20.4",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XX, Section 4",
+          "label": "Death among those who may be chosen",
+          "text": "The Congress may by law provide for the case of the death of any of the persons from whom the House of Representatives may choose a President whenever the right of choice shall have devolved upon them, and for the case of the death of any of the persons from whom the Senate may choose a Vice President whenever the right of choice shall have devolved upon them.",
+          "note": ""
+        },
+        {
+          "id": "20.5",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XX, Section 5",
+          "label": "Effective date",
+          "text": "Sections 1 and 2 shall take effect on the 15th day of October following the ratification of this article.",
+          "note": ""
+        },
+        {
+          "id": "20.6",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XX, Section 6",
+          "label": "Ratification window",
+          "text": "This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission.",
+          "note": ""
+        },
+        {
+          "id": "21.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXI, Section 1",
+          "label": "Eighteenth article repealed",
+          "text": "The eighteenth article of amendment to the Constitution of the United States is hereby repealed.",
+          "note": "Passed by Congress February 20, 1933. Ratified December 5, 1933."
+        },
+        {
+          "id": "21.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXI, Section 2",
+          "label": "State liquor laws",
+          "text": "The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.",
+          "note": ""
+        },
+        {
+          "id": "21.3",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXI, Section 3",
+          "label": "Ratification window",
+          "text": "This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by conventions in the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.",
+          "note": ""
+        },
+        {
+          "id": "22.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXII, Section 1",
+          "label": "Presidential term limit",
+          "text": "No person shall be elected to the office of the President more than twice, and no person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President shall be elected to the office of the President more than once. But this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress, and shall not prevent any person who may be holding the office of President, or acting as President, during the term within which this Article becomes operative from holding the office of President or acting as President during the remainder of such term.",
+          "note": "Passed by Congress March 21, 1947. Ratified February 27, 1951."
+        },
+        {
+          "id": "22.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXII, Section 2",
+          "label": "Ratification window",
+          "text": "This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission to the States by the Congress.",
+          "note": ""
+        },
+        {
+          "id": "23.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXIII, Section 1",
+          "label": "Electors for the District",
+          "text": "The District constituting the seat of Government of the United States shall appoint in such manner as the Congress may direct:\n\nA number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State, but in no event more than the least populous State; they shall be in addition to those appointed by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment.",
+          "note": "Passed by Congress June 16, 1960. Ratified March 29, 1961."
+        },
+        {
+          "id": "23.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXIII, Section 2",
+          "label": "Enforcement",
+          "text": "The Congress shall have power to enforce this article by appropriate legislation.",
+          "note": ""
+        },
+        {
+          "id": "24.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXIV, Section 1",
+          "label": "Poll tax",
+          "text": "The right of citizens of the United States to vote in any primary or other election for President or Vice President, for electors for President or Vice President, or for Senator or Representative in Congress, shall not be denied or abridged by the United States or by any State by reason of failure to pay any poll tax or other tax.",
+          "note": "Passed by Congress August 27, 1962. Ratified January 23, 1964."
+        },
+        {
+          "id": "24.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXIV, Section 2",
+          "label": "Enforcement",
+          "text": "The Congress shall have power to enforce this article by appropriate legislation.",
+          "note": ""
+        },
+        {
+          "id": "25.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXV, Section 1",
+          "label": "Vice President becomes President",
+          "text": "In case of the removal of the President from office or of his death or resignation, the Vice President shall become President.",
+          "note": "Passed by Congress July 6, 1965. Ratified February 10, 1967. Article II, section 1, of the Constitution was affected by the 25th amendment."
+        },
+        {
+          "id": "25.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXV, Section 2",
+          "label": "Vacancy in the Vice Presidency",
+          "text": "Whenever there is a vacancy in the office of the Vice President, the President shall nominate a Vice President who shall take office upon confirmation by a majority vote of both Houses of Congress.",
+          "note": ""
+        },
+        {
+          "id": "25.3",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXV, Section 3",
+          "label": "Written declaration of inability",
+          "text": "Whenever the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that he is unable to discharge the powers and duties of his office, and until he transmits to them a written declaration to the contrary, such powers and duties shall be discharged by the Vice President as Acting President.",
+          "note": ""
+        },
+        {
+          "id": "25.4a",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXV, Section 4",
+          "label": "Declaration of inability by others",
+          "text": "Whenever the Vice President and a majority of either the principal officers of the executive departments or of such other body as Congress may by law provide, transmit to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office, the Vice President shall immediately assume the powers and duties of the office as Acting President.",
+          "note": ""
+        },
+        {
+          "id": "25.4b",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXV, Section 4",
+          "label": "Contesting inability",
+          "text": "Thereafter, when the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that no inability exists, he shall resume the powers and duties of his office unless the Vice President and a majority of either the principal officers of the executive department or of such other body as Congress may by law provide, transmit within four days to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office. Thereupon Congress shall decide the issue, assembling within forty-eight hours for that purpose if not in session. If the Congress, within twenty-one days after receipt of the latter written declaration, or, if Congress is not in session, within twenty-one days after Congress is required to assemble, determines by two-thirds vote of both Houses that the President is unable to discharge the powers and duties of his office, the Vice President shall continue to discharge the same as Acting President; otherwise, the President shall resume the powers and duties of his office.",
+          "note": ""
+        },
+        {
+          "id": "26.1",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXVI, Section 1",
+          "label": "Eighteen years of age",
+          "text": "The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.",
+          "note": "Passed by Congress March 23, 1971. Ratified July 1, 1971. Amendment 14, section 2, of the Constitution was modified by section 1 of the 26th amendment."
+        },
+        {
+          "id": "26.2",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXVI, Section 2",
+          "label": "Enforcement",
+          "text": "The Congress shall have power to enforce this article by appropriate legislation.",
+          "note": ""
+        },
+        {
+          "id": "27",
+          "kind": "amendment",
+          "group": "Amendments XI–XXVII",
+          "cite": "Amendment XXVII",
+          "label": "Congressional compensation",
+          "text": "No law, varying the compensation for the services of the Senators and Representatives, shall take effect, until an election of Representatives shall have intervened.",
+          "note": "Originally proposed Sept. 25, 1789. Ratified May 7, 1992."
+        }
+      ]
+    }
+  ],
+  "homeIds": [
+    "declaration",
+    "constitution",
+    "rights"
+  ]
+}

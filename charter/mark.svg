@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Charter">
+  <rect width="64" height="64" rx="14" fill="#f3ead8"/>
+  <rect x="14" y="12" width="36" height="40" rx="3" fill="#faf6eb" stroke="#6d3b22" stroke-width="1.5"/>
+  <path d="M20 22h24M20 29h24M20 36h16" stroke="#6d3b22" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="44" cy="44" r="6" fill="#6d3b22"/>
+</svg>
