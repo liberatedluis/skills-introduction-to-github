@@ -128,10 +128,15 @@ async function fetchText(url) {
 
 function ebibleUrls(id, file) {
   const remote = `https://ebible.org/${id}/${file}`;
+  const target = encodeURIComponent(remote);
+  // ebible.org sends no Access-Control-Allow-Origin, so the browser can only
+  // reach it through the local dev route or a relay. Relays come and go; try
+  // several so one provider going down does not take the reader with it.
   return [
     `/api/ebible/${id}/${file}`,
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(remote)}`,
-    `https://corsproxy.io/?${encodeURIComponent(remote)}`,
+    `https://api.allorigins.win/raw?url=${target}`,
+    `https://api.cors.lol/?url=${target}`,
+    `https://api.codetabs.com/v1/proxy/?quest=${target}`,
   ];
 }
 
@@ -157,6 +162,30 @@ async function loadFromGetbible(source, book, chapter) {
   const data = await fetchJson(`https://api.getbible.net/v2/${source.id}/${book}/${chapter}.json`);
   return (data.verses || []).map((row) => ({ verse: row.verse, text: row.text }));
 }
+
+// getBible serves the same public-domain editions as JSON with CORS enabled,
+// so it can stand in when every eBible relay is down. Protestant 66 books only.
+const GETBIBLE_EQUIVALENT = {
+  engwebp: "web",
+  engwebpb: "web",
+  engwebu: "web",
+  "eng-web": "web",
+  "eng-webbe": "web",
+  "eng-web-c": "web",
+  "eng-asv": "asv",
+  engasvbt: "asv",
+  engBBE: "basicenglish",
+  engDRA: "douayrheims",
+  "eng-kjv": "kjv",
+  "eng-kjv2006": "kjv",
+  engkjvcpb: "kjv",
+  engwebster: "wb",
+  engtnt: "tyndale",
+  engWycliffe: "wycliffe",
+  engwyc2017: "wycliffe",
+  engwyc2018: "wycliffe",
+  engylt: "ylt",
+};
 
 async function loadFromEbible(source, bookMeta, chapter) {
   const file = ebibleFilename(bookMeta.usfm, chapter);
@@ -224,8 +253,17 @@ async function loadChapter(tx, bookMeta, chapter) {
   if (state.cache.has(key)) return state.cache.get(key);
   const source = { kind: tx.source, id: tx.id, name: tx.title };
   let verses = [];
-  if (tx.source === "getbible") verses = await loadFromGetbible(source, bookMeta.id, chapter);
-  else verses = await loadFromEbible(source, bookMeta, chapter);
+  if (tx.source === "getbible") {
+    verses = await loadFromGetbible(source, bookMeta.id, chapter);
+  } else {
+    const standIn = GETBIBLE_EQUIVALENT[tx.id];
+    try {
+      verses = await loadFromEbible(source, bookMeta, chapter);
+    } catch (err) {
+      if (!standIn || bookMeta.id > 66) throw err;
+      verses = await loadFromGetbible({ ...source, kind: "getbible", id: standIn }, bookMeta.id, chapter);
+    }
+  }
   if (!verses.length) throw new Error("empty chapter");
   const payload = { source, verses };
   state.cache.set(key, payload);

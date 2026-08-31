@@ -75,7 +75,8 @@ function cardButton(path, title, subtitle = "", color = "") {
 }
 
 function verseButtons(books, verses) {
-  return (verses || [])
+  if (!(verses || []).length) return `<p class="idx-empty">No linked verses printed for this entry.</p>`;
+  return verses
     .map(([book, chapter, verse]) => {
       const label = refLabel(books, book, chapter, verse);
       return `<button type="button" class="idx-verse" data-go-book="${book}" data-go-chapter="${chapter}" data-go-verse="${verse}">${esc(label)}</button>`;
@@ -265,7 +266,9 @@ function dictionaryView(data, books, path) {
   return `
     <h2>${esc(row.n.toString().padStart(4, "0"))}. ${esc(row.word)}</h2>
     <p class="idx-sub">${esc(row.note)}</p>
-    <p class="idx-sub">Appears ${row.uses.toLocaleString()} times in this WEB edition. Click a verse to jump into the Word.</p>
+    <p class="idx-sub">Appears ${row.uses.toLocaleString()} times in this WEB edition.${
+      (row.verses || []).length ? " Click a verse to jump into the Word." : ""
+    }</p>
     <div class="idx-verse-list">${verseButtons(books, row.verses)}</div>
   `;
 }

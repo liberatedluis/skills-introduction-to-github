@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -124,6 +125,47 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("openIndex", js)
         self.assertIn("Root Index", idx)
         self.assertIn("I AM THE LORD", idx)
+
+    def test_chapter_sources_have_a_cors_safe_fallback(self):
+        js = (ROOT / "assets" / "js" / "app.js").read_text(encoding="utf-8")
+        catalog = json.loads((ROOT / "data" / "translations.json").read_text(encoding="utf-8"))
+        ids = {row["id"] for row in catalog["translations"]}
+
+        # corsproxy.io now requires an API key and answers 401/403.
+        self.assertNotIn("corsproxy.io", js)
+
+        block = js.split("GETBIBLE_EQUIVALENT = {", 1)[1].split("};", 1)[0]
+        pairs = re.findall(r'"?([\w-]+)"?:\s*"([\w-]+)"', block)
+        self.assertGreaterEqual(len(pairs), 12)
+        mapping = dict(pairs)
+        self.assertEqual(mapping["engwebp"], "web")
+        for ebible_id, getbible_id in pairs:
+            self.assertIn(ebible_id, ids)
+            self.assertRegex(getbible_id, r"^[a-z]+$")
+
+    def test_glossary_and_roots_are_clean(self):
+        payload = json.loads((ROOT / "data" / "indexes.json").read_text(encoding="utf-8"))
+
+        # Every glossary word must offer verses to jump into; the PDF omits the
+        # link annotations on many pages, so they come from the printed refs.
+        without_verses = [row["word"] for row in payload["dictionary"] if not row["verses"]]
+        self.assertEqual(without_verses, [])
+
+        titles = [row["title"] for row in payload["roots"]]
+        self.assertEqual(len(titles), len(set(titles)))
+        for title in titles:
+            # A verse reference leaking into a title means the block was read
+            # from the wrong place on a shared page.
+            self.assertNotRegex(title, r"\d+:\d+")
+            self.assertLessEqual(len(title), 40)
+        for word in ("love", "grace", "gospel", "church", "Messiah", "Christ"):
+            self.assertIn(word, titles)
+
+        for row in payload["dictionary"] + payload["roots"]:
+            for book, chapter, verse in row["verses"]:
+                self.assertTrue(1 <= book <= 66, row)
+                self.assertGreater(chapter, 0)
+                self.assertGreater(verse, 0)
 
     def test_getbible_list_of_books_parses(self):
         from make_holy_bible_pdfs import _getbible_book_iter, load_getbible_verses

@@ -14,6 +14,52 @@ DEFAULT_PDF = Path("/tmp/christ-supply-english-bible.pdf")
 OUT = ROOT / "data" / "indexes.json"
 
 VERSE_DEST = re.compile(r"^b(\d{2})c(\d{3})v(\d+)$")
+
+BOOK_ORDER = (
+    "Genesis Exodus Leviticus Numbers Deuteronomy Joshua Judges Ruth|"
+    "I Samuel|II Samuel|I Kings|II Kings|I Chronicles|II Chronicles|"
+    "Ezra Nehemiah Esther Job Psalms Proverbs Ecclesiastes|Song of Solomon|"
+    "Isaiah Jeremiah Lamentations Ezekiel Daniel Hosea Joel Amos Obadiah Jonah "
+    "Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi "
+    "Matthew Mark Luke John Acts Romans|I Corinthians|II Corinthians|"
+    "Galatians Ephesians Philippians Colossians|I Thessalonians|II Thessalonians|"
+    "I Timothy|II Timothy|Titus Philemon Hebrews James|I Peter|II Peter|"
+    "I John|II John|III John|Jude Revelation"
+)
+
+BOOK_ALIASES = {
+    "Song of Songs": "Song of Solomon",
+    "Songs": "Song of Solomon",
+    "Canticles": "Song of Solomon",
+    "Psalm": "Psalms",
+    "Revelations": "Revelation",
+    "Acts of the Apostles": "Acts",
+}
+
+
+def build_book_numbers() -> dict[str, int]:
+    names: list[str] = []
+    for chunk in BOOK_ORDER.split("|"):
+        chunk = chunk.strip()
+        if " " in chunk and not chunk.startswith(("I ", "II ", "III ", "Song")):
+            names.extend(chunk.split())
+        else:
+            names.append(chunk)
+    numbers = {name: i + 1 for i, name in enumerate(names)}
+    for name, number in list(numbers.items()):
+        # The PDF prints roman numerals; accept arabic prefixes too.
+        for roman, arabic in (("III ", "3 "), ("II ", "2 "), ("I ", "1 ")):
+            if name.startswith(roman):
+                numbers[arabic + name[len(roman) :]] = number
+                break
+    for alias, target in BOOK_ALIASES.items():
+        numbers[alias] = numbers[target]
+    return numbers
+
+
+BOOK_NUMBERS = build_book_numbers()
+
+REF_LINE = re.compile(r"^((?:I{1,3}|[123])\s+)?([A-Z][A-Za-z]+(?: of [A-Z][a-z]+)?)\s+(\d+):(\d+)$")
 FOOTER_NOISE = (
     "All Users Are Created Equally By God",
     "LIBERA OMNES UTENTES",
@@ -56,6 +102,27 @@ def page_verses(doc, page: int) -> list[tuple[int, int, int]]:
         if verse and (not found or found[-1] != verse):
             found.append(verse)
     return found
+
+
+def parse_ref(line: str) -> tuple[int, int, int] | None:
+    match = REF_LINE.match(line)
+    if not match:
+        return None
+    prefix, base, chapter, verse = match.groups()
+    name = f"{prefix.strip()} {base}" if prefix else base
+    book = BOOK_NUMBERS.get(name)
+    if not book:
+        return None
+    return book, int(chapter), int(verse)
+
+
+def text_refs(lines: list[str]) -> list[tuple[int, int, int]]:
+    """Verse references printed on the page.
+
+    Many index pages in the PDF show the reference but carry no link
+    annotation, so the printed text is the only complete source.
+    """
+    return [ref for ref in (parse_ref(line) for line in lines) if ref]
 
 
 def unique_verses(rows: list[tuple[int, int, int]]) -> list[tuple[int, int, int]]:
@@ -217,7 +284,17 @@ def dictionary_entries(doc, names: dict) -> list[dict]:
             if line.startswith("Click a verse") or parse_ref_line(line):
                 break
             note_parts.append(line)
-        verses = unique_verses(page_verses(doc, page) + page_verses(doc, min(page + 1, doc.page_count - 1)))
+        next_lines = clean_lines(page_text(doc, min(page + 1, doc.page_count - 1)))
+        for i, line in enumerate(next_lines):
+            if re.match(r"^\d+\.\s+[A-Za-z]", line):
+                next_lines = next_lines[:i]
+                break
+        verses = unique_verses(
+            text_refs(lines)
+            + text_refs(next_lines)
+            + page_verses(doc, page)
+            + page_verses(doc, min(page + 1, doc.page_count - 1))
+        )
         entries.append(
             {
                 "id": key,
@@ -232,23 +309,54 @@ def dictionary_entries(doc, names: dict) -> list[dict]:
     return entries
 
 
+ROOT_LANGUAGE = re.compile(r"^(?:Heb|Gk|Aram|Gr|Lat)[./]", re.I)
+
+
 def root_cards(doc, names: dict) -> list[dict]:
+    """Word-root cards.
+
+    Several roots share a page and a dest can land mid-entry, so the entries
+    are read as blocks anchored on the Hebrew/Greek language line rather than
+    from the top of each dest page.
+    """
     keys = sorted((k for k in names if re.fullmatch(r"root-word-\d+", k)), key=lambda k: int(k.split("-")[-1]))
-    cards = []
-    for key in keys:
-        page = dest_page(names, key)
+    if not keys:
+        return []
+    pages = sorted({dest_page(names, key) for key in keys})
+    blocks: list[dict] = []
+    for page in range(min(pages), min(max(pages) + 2, doc.page_count)):
         lines = clean_lines(page_text(doc, page))
-        title = lines[0] if lines else slug_title(key)
-        roots = lines[1] if len(lines) > 1 else ""
-        note = lines[2] if len(lines) > 2 else ""
-        verses = unique_verses(page_verses(doc, page) + page_verses(doc, min(page + 1, doc.page_count - 1)))
+        anchors = [
+            i
+            for i, line in enumerate(lines)
+            if i and ROOT_LANGUAGE.match(line) and not parse_ref(lines[i - 1]) and len(lines[i - 1]) <= 40
+        ]
+        for slot, i in enumerate(anchors):
+            stop = anchors[slot + 1] - 1 if slot + 1 < len(anchors) else len(lines)
+            body = lines[i + 1 : stop]
+            note = body[0] if body and not parse_ref(body[0]) else ""
+            verses = text_refs(body)
+            if slot + 1 == len(anchors) and page + 1 < doc.page_count:
+                spill = clean_lines(page_text(doc, page + 1))
+                for j, line in enumerate(spill):
+                    if ROOT_LANGUAGE.match(line):
+                        spill = spill[: max(j - 1, 0)]
+                        break
+                verses += text_refs(spill)
+            blocks.append({"title": lines[i - 1], "roots": lines[i][:180], "note": note[:220], "verses": verses})
+    seen: set[str] = set()
+    cards = []
+    for block in blocks:
+        if block["title"].lower() in seen:
+            continue
+        seen.add(block["title"].lower())
         cards.append(
             {
-                "id": key,
-                "title": title,
-                "roots": roots[:180],
-                "note": note[:220],
-                "verses": [[b, c, v] for b, c, v in verses[:12]],
+                "id": f"root-word-{len(cards) + 1:03d}",
+                "title": block["title"],
+                "roots": block["roots"],
+                "note": block["note"],
+                "verses": [[b, c, v] for b, c, v in unique_verses(block["verses"])[:12]],
             }
         )
     return cards
