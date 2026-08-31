@@ -4,70 +4,63 @@ Three public-domain US founding texts:
 
 1. The Declaration of Independence
 2. The Constitution of the United States (preamble, articles, sections, clauses)
-3. The Bill of Rights (Amendments I–X), with a path into later amendments so the Constitution is whole
+3. The Bill of Rights (Amendments I–X), then later amendments so the Constitution is whole
 
-Created by Liberated Luis / Christ Supply. Free. No ads, accounts, or tracking. Not a Bible app.
+Web. Light and dark PDFs. iPhone app. Every surface has the same bites. Free. No ads, accounts, or tracking. Not a Bible app.
 
-## Open it
+Created by Liberated Luis / Christ Supply.
 
-From this folder:
-
-```bash
-python3 -m http.server 8765
-```
-
-Then open [http://localhost:8765](http://localhost:8765).
-
-Or, from the repo root:
+## 1. Web reader
 
 ```bash
-python3 scripts/serve.py --port 8080
+cd charter && python3 -m http.server 8765
 ```
 
-Then open [http://localhost:8080/charter/](http://localhost:8080/charter/).
+http://localhost:8765
 
-`index.html` is static HTML, CSS, and JS. After the first load on http(s), a service worker keeps the reader offline.
+From the repo root: `python3 scripts/serve.py --port 8080` then `/charter/`.
 
-## How it reads
+One thought per screen. Hash URLs. Copy / Share. Contents. Parchment and dark mode. Offline after the first load.
 
-- Home is a table of the three documents.
-- One bite per screen: a clause, a grievance, a self-evident truth, or one amendment.
-- Next / Prev, swipe, or arrow keys. A contents rail (drawer on a phone) jumps to any bite.
-- Every bite has a stable hash URL, for example `#/declaration/grievance-17` or `#/constitution/preamble`.
-- **Copy** and **Share** use the Web Share API, with clipboard as fallback.
-- Cream / parchment by default, with a dark mode. Progress shows where you are, without scores.
+Examples: `#/declaration/grievance-17` · `#/constitution/preamble` · `#/rights/1` · `#/later/11`
 
-Deep links restore the exact bite after a reload.
+## 2. Light and dark PDFs
 
-## PDFs
+One thought per page, 6×9. Every book, both editions:
 
-One thought per page, in both parchment and dark editions:
+| Book | Light | Dark |
+| --- | --- | --- |
+| Charter (all three) | [charter-light.pdf](pdfs/charter-light.pdf) | [charter-dark.pdf](pdfs/charter-dark.pdf) |
+| Declaration | [declaration-light.pdf](pdfs/declaration-light.pdf) | [declaration-dark.pdf](pdfs/declaration-dark.pdf) |
+| Constitution | [constitution-light.pdf](pdfs/constitution-light.pdf) | [constitution-dark.pdf](pdfs/constitution-dark.pdf) |
+| Bill of Rights and later amendments | [rights-light.pdf](pdfs/rights-light.pdf) | [rights-dark.pdf](pdfs/rights-dark.pdf) |
 
-- [pdfs/charter-light.pdf](pdfs/charter-light.pdf)
-- [pdfs/charter-dark.pdf](pdfs/charter-dark.pdf)
-
-Rebuild after text or layout changes:
+Print preview: [print.html](print.html) · [print.html?theme=dark](print.html?theme=dark)
 
 ```bash
 node make_pdfs.mjs
 ```
 
-Print preview (then browser Print / Save as PDF): [print.html](print.html) or `print.html?theme=dark`.
+## 3. iPhone app
 
-## iPhone app
+Native SwiftUI in [`ios/`](ios/). Same texts, the whole PDF library, share (web URL + `charter://`), contents, dark/light, offline. iPhone and iPad.
 
-Native SwiftUI app in [`ios/`](ios/). Open `ios/Charter.xcodeproj` in Xcode, set your signing team, run on an iPhone. Same bites, both PDFs, share, and dark/light, offline. See [ios/README.md](ios/README.md).
+```bash
+open ios/Charter.xcodeproj
+```
+
+Set your signing team, run on an iPhone or iPad. iOS 17+. After text changes: `node ios/export_bundle.mjs`. See [ios/README.md](ios/README.md).
 
 ## Texts
 
-Legal wording is the National Archives transcriptions. It is not paraphrased. Short labels (for example “Commerce”) sit above the original words and never replace them.
+National Archives transcriptions. Not paraphrased. Short labels never replace the original words.
 
-- [Declaration of Independence](https://www.archives.gov/founding-docs/declaration-transcript)
+- [Declaration](https://www.archives.gov/founding-docs/declaration-transcript)
 - [Constitution](https://www.archives.gov/founding-docs/constitution-transcript)
 - [Bill of Rights](https://www.archives.gov/founding-docs/bill-of-rights-transcript)
 - [Amendments XI–XXVII](https://www.archives.gov/founding-docs/amendments-11-27)
 
-The Federalist Papers are not included.
+No Federalist Papers.
 
 ```bash
 node test_texts.mjs

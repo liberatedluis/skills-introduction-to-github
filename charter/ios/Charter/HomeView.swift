@@ -60,6 +60,11 @@ struct HomeView: View {
             .lineLimit(2)
             .minimumScaleFactor(0.85)
 
+            NavigationLink("The whole library — light and dark PDFs", value: Screen.pdfs)
+                .font(.footnote.weight(.medium))
+                .lineLimit(1)
+                .minimumScaleFactor(0.85)
+
             HStack(spacing: 4) {
                 Text("Created by Christ Supply,")
                 Link("Support Here", destination: URL(string: "https://christ.supply/support-us")!)

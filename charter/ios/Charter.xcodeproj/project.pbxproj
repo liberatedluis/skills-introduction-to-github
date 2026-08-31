@@ -17,6 +17,12 @@
 		A10000000000000000000027 /* texts.json in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000047 /* texts.json */; };
 		A10000000000000000000028 /* charter-light.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000048 /* charter-light.pdf */; };
 		A10000000000000000000029 /* charter-dark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000049 /* charter-dark.pdf */; };
+		A1000000000000000000002C /* declaration-light.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000004D /* declaration-light.pdf */; };
+		A1000000000000000000002D /* declaration-dark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000004E /* declaration-dark.pdf */; };
+		A1000000000000000000002E /* constitution-light.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000004F /* constitution-light.pdf */; };
+		A1000000000000000000002F /* constitution-dark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000050 /* constitution-dark.pdf */; };
+		A10000000000000000000030 /* rights-light.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000051 /* rights-light.pdf */; };
+		A10000000000000000000031 /* rights-dark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000052 /* rights-dark.pdf */; };
 		A1000000000000000000002A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000004A /* Assets.xcassets */; };
 		A1000000000000000000002B /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1000000000000000000004B /* PDFKit.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +39,12 @@
 		A10000000000000000000047 /* texts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = texts.json; sourceTree = "<group>"; };
 		A10000000000000000000048 /* charter-light.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "charter-light.pdf"; sourceTree = "<group>"; };
 		A10000000000000000000049 /* charter-dark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "charter-dark.pdf"; sourceTree = "<group>"; };
+		A1000000000000000000004D /* declaration-light.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "declaration-light.pdf"; sourceTree = "<group>"; };
+		A1000000000000000000004E /* declaration-dark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "declaration-dark.pdf"; sourceTree = "<group>"; };
+		A1000000000000000000004F /* constitution-light.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "constitution-light.pdf"; sourceTree = "<group>"; };
+		A10000000000000000000050 /* constitution-dark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "constitution-dark.pdf"; sourceTree = "<group>"; };
+		A10000000000000000000051 /* rights-light.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "rights-light.pdf"; sourceTree = "<group>"; };
+		A10000000000000000000052 /* rights-dark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "rights-dark.pdf"; sourceTree = "<group>"; };
 		A1000000000000000000004A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1000000000000000000004B /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
 		A1000000000000000000004C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +92,12 @@
 				A10000000000000000000047 /* texts.json */,
 				A10000000000000000000048 /* charter-light.pdf */,
 				A10000000000000000000049 /* charter-dark.pdf */,
+				A1000000000000000000004D /* declaration-light.pdf */,
+				A1000000000000000000004E /* declaration-dark.pdf */,
+				A1000000000000000000004F /* constitution-light.pdf */,
+				A10000000000000000000050 /* constitution-dark.pdf */,
+				A10000000000000000000051 /* rights-light.pdf */,
+				A10000000000000000000052 /* rights-dark.pdf */,
 				A1000000000000000000004A /* Assets.xcassets */,
 				A1000000000000000000004C /* Info.plist */,
 			);
@@ -156,6 +174,12 @@
 				A10000000000000000000027 /* texts.json in Resources */,
 				A10000000000000000000028 /* charter-light.pdf in Resources */,
 				A10000000000000000000029 /* charter-dark.pdf in Resources */,
+				A1000000000000000000002C /* declaration-light.pdf in Resources */,
+				A1000000000000000000002D /* declaration-dark.pdf in Resources */,
+				A1000000000000000000002E /* constitution-light.pdf in Resources */,
+				A1000000000000000000002F /* constitution-dark.pdf in Resources */,
+				A10000000000000000000030 /* rights-light.pdf in Resources */,
+				A10000000000000000000031 /* rights-dark.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +255,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -244,7 +268,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -265,7 +289,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -278,7 +302,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

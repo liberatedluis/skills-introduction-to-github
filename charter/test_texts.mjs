@@ -60,10 +60,10 @@ const expectedPdfs = [
 ];
 const missing = expectedPdfs.filter((name) => !existsSync(new URL(`./pdfs/${name}`, import.meta.url)));
 if (missing.length) {
-  console.warn("PDFs not built yet:", missing.join(", "));
-} else {
-  console.log(`ok: ${expectedPdfs.length} light/dark PDFs`);
+  console.error("missing PDFs:", missing.join(", "));
+  process.exit(1);
 }
+console.log(`ok: ${expectedPdfs.length} light/dark PDFs`);
 
 if (!findBite("declaration", "signers")?.bite.cite) {
   console.error("declaration/signers alias failed");

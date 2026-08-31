@@ -19,19 +19,21 @@ function marks(left, right, inner) {
   `;
 }
 
-export function renderPrintPages(docs, theme) {
+export function renderPrintPages(docs, theme, options = {}) {
+  const heading = options.heading || (docs.length === 1 ? docs[0].title : "Charter");
+  const lede = options.lede || (docs.length === 1
+    ? `${docs[0].blurb} One thought per page.`
+    : "Three founding texts. One thought per page.");
   const title = page(
     marks(
       theme === "dark" ? "Dark edition" : "Light edition",
       "One thought at a time",
       `
-      <p class="kicker">Three founding texts</p>
-      <h1>Charter</h1>
-      <p class="lede">Three founding texts. One thought per page.</p>
+      <p class="kicker">${escapeHtml(docs.length > 2 ? "Three founding texts" : "Charter")}</p>
+      <h1>${escapeHtml(heading)}</h1>
+      <p class="lede">${escapeHtml(lede)}</p>
       <ul class="list">
-        <li>The Declaration of Independence</li>
-        <li>The Constitution of the United States</li>
-        <li>The Bill of Rights, then later amendments</li>
+        ${docs.map((doc) => `<li>${escapeHtml(doc.title)}</li>`).join("")}
       </ul>
       <p class="source">National Archives transcriptions. Labels are not the legal text.</p>
     `

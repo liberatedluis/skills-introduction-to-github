@@ -1,20 +1,40 @@
 import PDFKit
 import SwiftUI
 
+struct PDFBook: Identifiable, Hashable {
+    let id: String
+    let title: String
+    let resourcePrefix: String
+}
+
 struct PDFLibraryView: View {
     @Environment(\.colorScheme) private var scheme
+    @State private var book: PDFBook = PDFLibraryView.books[0]
     @State private var edition: Edition = .light
+
+    static let books: [PDFBook] = [
+        PDFBook(id: "charter", title: "Charter (all three)", resourcePrefix: "charter"),
+        PDFBook(id: "declaration", title: "Declaration", resourcePrefix: "declaration"),
+        PDFBook(id: "constitution", title: "Constitution", resourcePrefix: "constitution"),
+        PDFBook(id: "rights", title: "Bill of Rights and later amendments", resourcePrefix: "rights"),
+    ]
 
     enum Edition: String, CaseIterable, Identifiable {
         case light
         case dark
         var id: String { rawValue }
-        var title: String { self == .light ? "Light PDF" : "Dark PDF" }
-        var resource: String { self == .light ? "charter-light" : "charter-dark" }
+        var title: String { self == .light ? "Light" : "Dark" }
     }
 
     var body: some View {
         VStack(spacing: 0) {
+            Picker("Book", selection: $book) {
+                ForEach(Self.books) { item in
+                    Text(item.title).tag(item)
+                }
+            }
+            .pickerStyle(.menu)
+            .padding([.horizontal, .top])
             Picker("Edition", selection: $edition) {
                 ForEach(Edition.allCases) { item in
                     Text(item.title).tag(item)
@@ -22,10 +42,10 @@ struct PDFLibraryView: View {
             }
             .pickerStyle(.segmented)
             .padding()
-            PDFKitView(resource: edition.resource)
+            PDFKitView(resource: "\(book.resourcePrefix)-\(edition.rawValue)")
                 .background(CharterTheme.page(for: scheme))
         }
-        .navigationTitle("Charter PDFs")
+        .navigationTitle("The whole library")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             edition = scheme == .dark ? .dark : .light

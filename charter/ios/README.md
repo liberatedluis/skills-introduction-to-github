@@ -1,6 +1,6 @@
 # Charter for iPhone
 
-A native SwiftUI app. Same three founding texts as the web app, plus both PDFs, offline, share, and dark/light. Not a Bible app.
+A native SwiftUI app. Same three founding texts as the web app, plus the whole PDF library (every book, light and dark), offline, share, and dark/light. Not a Bible app.
 
 ## Open in Xcode
 
@@ -16,7 +16,7 @@ open Charter.xcodeproj
 3. Choose an iPhone simulator or your device.
 4. Run.
 
-Requires Xcode 15+ and iOS 17.
+Requires Xcode 15+ and iOS 17. iPhone and iPad.
 
 ## What it includes
 
@@ -25,7 +25,7 @@ Requires Xcode 15+ and iOS 17.
 - Contents sheet
 - Copy and the system share sheet (`charter://declaration/grievance-17`)
 - Later amendments XI–XXVII
-- Light and dark PDFs in-app (PDFKit)
+- The whole library in-app (Charter, Declaration, Constitution, Bill of Rights + later amendments × light/dark, PDFKit)
 - Theme: System / Light / Dark
 - Continue where you left off
 - Footer: Created by Christ Supply, [Support Here](https://christ.supply/support-us)
@@ -36,11 +36,13 @@ Texts are the National Archives transcriptions, bundled as `Charter/texts.json`.
 node export_bundle.mjs
 ```
 
-That copies `texts.json` and both PDFs into the app target.
+That copies `texts.json` and all eight PDFs into the app target.
 
 ## Deep links
 
-`charter://declaration/grievance-17`  
-`charter://constitution/preamble`  
-`charter://rights/1`  
-`charter://later/11`
+Share includes the public web URL and the app URL:
+
+`https://liberatedluis.github.io/skills-introduction-to-github/charter/#/declaration/grievance-17`  
+`charter://declaration/grievance-17`
+
+Also: `charter://constitution/preamble` · `charter://rights/1` · `charter://later/11`

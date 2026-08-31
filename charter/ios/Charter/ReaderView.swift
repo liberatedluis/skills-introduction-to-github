@@ -151,7 +151,8 @@ struct ReaderView: View {
     }
 
     private func shareText(doc: CharterDocument, bite: Bite) -> String {
-        "\(bite.text)\n\n— \(doc.title), \(bite.cite)\ncharter://\(doc.id)/\(bite.id)"
+        let web = "https://liberatedluis.github.io/skills-introduction-to-github/charter/#/\(doc.id)/\(bite.id)"
+        return "\(bite.text)\n\n— \(doc.title), \(bite.cite)\n\(web)\ncharter://\(doc.id)/\(bite.id)"
     }
 
     private func copy(doc: CharterDocument, bite: Bite) {
