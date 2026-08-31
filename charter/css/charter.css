@@ -207,6 +207,8 @@ html.page-home .brand strong {
 
 .tools {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 0.4rem;
 }
 
@@ -592,8 +594,8 @@ html.page-home .foot {
   font-size: 0.92rem;
 }
 
-@media (max-width: 400px) {
-  html.page-home .brand em {
+@media (max-width: 520px) {
+  .brand em {
     display: none;
   }
 }
