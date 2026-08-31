@@ -98,9 +98,17 @@ function showToast(message) {
   showToast.timer = setTimeout(() => toast.classList.remove("show"), 1600);
 }
 
+function setPage(page) {
+  root.classList.toggle("page-home", page === "home");
+  root.classList.toggle("page-reader", page === "reader");
+  document.body.classList.toggle("page-home", page === "home");
+  document.body.classList.toggle("page-reader", page === "reader");
+}
+
 function renderHome() {
   current = null;
   document.title = "Charter";
+  setPage("home");
   homeView.classList.remove("hidden");
   readerView.classList.add("hidden");
   contentsBtn.hidden = true;
@@ -117,6 +125,7 @@ function renderBite(docId, biteId) {
   const { doc, bite, index } = found;
   current = { doc, bite, index };
   document.title = `${bite.cite} · ${doc.short} · Charter`;
+  setPage("reader");
   homeView.classList.add("hidden");
   readerView.classList.remove("hidden");
   contentsBtn.hidden = false;
