@@ -60,11 +60,6 @@ struct HomeView: View {
             .lineLimit(2)
             .minimumScaleFactor(0.85)
 
-            NavigationLink("The whole library — light and dark PDFs", value: Screen.pdfs)
-                .font(.footnote.weight(.medium))
-                .lineLimit(1)
-                .minimumScaleFactor(0.85)
-
             HStack(spacing: 4) {
                 Text("Created by Christ Supply,")
                 Link("Support Here", destination: URL(string: "https://christ.supply/support-us")!)
@@ -85,6 +80,9 @@ struct HomeView: View {
                     Text("Charter").font(.system(.headline, design: .serif))
                     Text("One thought at a time").font(.caption2).foregroundStyle(.secondary)
                 }
+            }
+            ToolbarItem(placement: .topBarLeading) {
+                NavigationLink("PDFs", value: Screen.pdfs)
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
