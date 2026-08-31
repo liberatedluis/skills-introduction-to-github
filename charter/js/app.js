@@ -138,6 +138,7 @@ function renderBite(docId, biteId) {
   progressBar.style.width = `${((index + 1) / doc.bites.length) * 100}%`;
   prevBtn.disabled = index === 0 && !doc.prevDoc;
   nextBtn.disabled = index === doc.bites.length - 1 && !doc.nextDoc;
+  nextBtn.textContent = index === doc.bites.length - 1 && doc.nextDoc ? "Continue" : "Next";
   if (index === doc.bites.length - 1 && doc.nextDoc) {
     continueLink.hidden = false;
     continueLink.href = hrefFor(doc.nextDoc, catalog[doc.nextDoc].bites[0].id);
@@ -158,19 +159,25 @@ function route() {
   window.scrollTo(0, 0);
 }
 
+function goTo(docId, biteId) {
+  const next = hrefFor(docId, biteId);
+  if (location.hash !== next) location.hash = next;
+  route();
+}
+
 function goRelative(step) {
   if (!current) return;
   const nextIndex = current.index + step;
   if (nextIndex >= 0 && nextIndex < current.doc.bites.length) {
-    location.hash = hrefFor(current.doc.id, current.doc.bites[nextIndex].id).slice(1);
+    goTo(current.doc.id, current.doc.bites[nextIndex].id);
     return;
   }
   if (step > 0 && current.doc.nextDoc) {
-    location.hash = hrefFor(current.doc.nextDoc, catalog[current.doc.nextDoc].bites[0].id).slice(1);
+    goTo(current.doc.nextDoc, catalog[current.doc.nextDoc].bites[0].id);
   }
   if (step < 0 && current.doc.prevDoc) {
     const prev = catalog[current.doc.prevDoc];
-    location.hash = hrefFor(prev.id, prev.bites[prev.bites.length - 1].id).slice(1);
+    goTo(prev.id, prev.bites[prev.bites.length - 1].id);
   }
 }
 
@@ -216,6 +223,12 @@ function renderHomeCards() {
   );
 }
 
+document.getElementById("homeBtn").addEventListener("click", (event) => {
+  event.preventDefault();
+  if (location.hash !== "#/" && location.hash !== "") location.hash = "#/";
+  route();
+});
+
 themeBtn.addEventListener("click", () => {
   const next = root.dataset.theme === "dark" ? "light" : "dark";
   localStorage.setItem(THEME_KEY, next);
@@ -238,6 +251,11 @@ prevBtn.addEventListener("click", () => goRelative(-1));
 nextBtn.addEventListener("click", () => goRelative(1));
 copyBtn.addEventListener("click", copyBite);
 shareBtn.addEventListener("click", shareBite);
+continueLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (!current?.doc.nextDoc) return;
+  goTo(current.doc.nextDoc, catalog[current.doc.nextDoc].bites[0].id);
+});
 
 document.addEventListener("keydown", (event) => {
   if (event.target.matches("input, textarea")) return;
@@ -252,6 +270,7 @@ document.addEventListener("touchstart", (event) => {
 
 document.addEventListener("touchend", (event) => {
   if (!current) return;
+  if (event.target.closest("button, a, input")) return;
   const dx = event.changedTouches[0].clientX - touchStartX;
   if (Math.abs(dx) < 72) return;
   goRelative(dx < 0 ? 1 : -1);
