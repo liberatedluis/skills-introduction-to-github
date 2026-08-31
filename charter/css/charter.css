@@ -107,7 +107,8 @@ button,
 
 button:hover,
 .ghost:hover,
-.primary:hover {
+.primary:hover,
+.ghost[aria-current="page"] {
   border-color: var(--accent-soft);
 }
 
@@ -541,6 +542,54 @@ html.page-home .foot {
   flex: 0 0 auto;
   padding: 0.4rem var(--pad) calc(0.4rem + env(safe-area-inset-bottom));
   font-size: 0.78rem;
+}
+
+.library {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.library h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  font-weight: 550;
+  margin: 0 0 0.4rem;
+}
+
+.library .lede-soft {
+  margin: 0 0 1.15rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.library .lede-soft code {
+  font-size: 0.86em;
+}
+
+.pdf-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pdf-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 0.35rem 0.75rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pdf-row h2 {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 550;
+  margin: 0;
+}
+
+.pdf-row a {
+  font-size: 0.92rem;
 }
 
 @media (max-width: 400px) {

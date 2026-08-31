@@ -26,7 +26,11 @@ Examples: `#/declaration/grievance-17` · `#/constitution/preamble` · `#/rights
 
 ## 2. Light and dark PDFs
 
-One thought per page, 6×9. Every book, both editions:
+One thought per page, 6×9. Every book, both editions. They live in this repo at [`charter/pdfs/`](pdfs/) and are listed on [pdfs.html](pdfs.html). After merge, GitHub Pages serves the same files:
+
+`https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/<name>.pdf`
+
+Until then they are on the PR branch: [`charter/pdfs/`](https://github.com/liberatedluis/skills-introduction-to-github/tree/cursor/charter-civic-reader-4579/charter/pdfs).
 
 | Book | Light | Dark |
 | --- | --- | --- |
@@ -34,6 +38,15 @@ One thought per page, 6×9. Every book, both editions:
 | Declaration | [declaration-light.pdf](pdfs/declaration-light.pdf) | [declaration-dark.pdf](pdfs/declaration-dark.pdf) |
 | Constitution | [constitution-light.pdf](pdfs/constitution-light.pdf) | [constitution-dark.pdf](pdfs/constitution-dark.pdf) |
 | Bill of Rights and later amendments | [rights-light.pdf](pdfs/rights-light.pdf) | [rights-dark.pdf](pdfs/rights-dark.pdf) |
+
+Public Pages URLs (after `main` deploys):
+
+- [charter-light.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/charter-light.pdf) · [charter-dark.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/charter-dark.pdf)
+- [declaration-light.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/declaration-light.pdf) · [declaration-dark.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/declaration-dark.pdf)
+- [constitution-light.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/constitution-light.pdf) · [constitution-dark.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/constitution-dark.pdf)
+- [rights-light.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/rights-light.pdf) · [rights-dark.pdf](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/rights-dark.pdf)
+
+Listing page: [pdfs.html](https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs.html)
 
 Print preview: [print.html](print.html) · [print.html?theme=dark](print.html?theme=dark)
 

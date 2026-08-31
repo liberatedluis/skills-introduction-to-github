@@ -1,7 +1,8 @@
-const CACHE = "charter-v2";
+const CACHE = "charter-v3";
 const ASSETS = [
   "./",
   "./index.html",
+  "./pdfs.html",
   "./print.html",
   "./css/charter.css",
   "./css/print.css",

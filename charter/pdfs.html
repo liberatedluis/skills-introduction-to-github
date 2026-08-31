@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f3ead8" />
+    <meta
+      name="description"
+      content="Download Charter’s light and dark 6×9 PDFs of the Declaration, Constitution, and Bill of Rights."
+    />
+    <title>PDFs · Charter</title>
+    <link rel="icon" href="mark.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="css/charter.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <a class="brand" href="index.html">
+          <strong>Charter</strong>
+          <em>One thought at a time</em>
+        </a>
+        <div class="tools">
+          <a class="ghost" href="index.html">Home</a>
+          <a class="ghost" href="pdfs.html" aria-current="page">PDFs</a>
+          <button type="button" id="themeBtn" class="ghost" aria-pressed="false">Dark</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="library">
+          <h1>PDFs</h1>
+          <p class="lede-soft">
+            Eight 6×9 books, one thought per page. In this repo at
+            <code>charter/pdfs/</code>. After merge they are also at
+            <a href="https://liberatedluis.github.io/skills-introduction-to-github/charter/pdfs/">GitHub Pages</a>.
+          </p>
+          <ul class="pdf-list">
+            <li class="pdf-row">
+              <h2>Charter</h2>
+              <a href="pdfs/charter-light.pdf">Light</a>
+              <a href="pdfs/charter-dark.pdf">Dark</a>
+            </li>
+            <li class="pdf-row">
+              <h2>Declaration</h2>
+              <a href="pdfs/declaration-light.pdf">Light</a>
+              <a href="pdfs/declaration-dark.pdf">Dark</a>
+            </li>
+            <li class="pdf-row">
+              <h2>Constitution</h2>
+              <a href="pdfs/constitution-light.pdf">Light</a>
+              <a href="pdfs/constitution-dark.pdf">Dark</a>
+            </li>
+            <li class="pdf-row">
+              <h2>Bill of Rights</h2>
+              <a href="pdfs/rights-light.pdf">Light</a>
+              <a href="pdfs/rights-dark.pdf">Dark</a>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="foot">
+        Created by Christ Supply,
+        <a href="https://christ.supply/support-us" target="_blank" rel="noopener">Support Here</a>
+      </footer>
+    </div>
+
+    <script>
+      const THEME_KEY = "charter-theme";
+      const root = document.documentElement;
+      const themeBtn = document.getElementById("themeBtn");
+      const saved = localStorage.getItem(THEME_KEY);
+      const theme =
+        saved === "light" || saved === "dark"
+          ? saved
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+
+      function applyTheme(next) {
+        root.dataset.theme = next;
+        themeBtn.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
+        themeBtn.textContent = next === "dark" ? "Light" : "Dark";
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", next === "dark" ? "#161310" : "#f3ead8");
+      }
+
+      applyTheme(theme);
+      themeBtn.addEventListener("click", () => {
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
+    </script>
+  </body>
+</html>
