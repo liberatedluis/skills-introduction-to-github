@@ -54,6 +54,10 @@ node make_pdfs.mjs
 
 Print preview (then browser Print / Save as PDF): [print.html](print.html) or `print.html?theme=dark`.
 
+## iPhone app
+
+Native SwiftUI app in [`ios/`](ios/). Open `ios/Charter.xcodeproj` in Xcode, set your signing team, run on an iPhone. Same bites, both PDFs, share, and dark/light, offline. See [ios/README.md](ios/README.md).
+
 ## Texts
 
 Legal wording is the National Archives transcriptions. It is not paraphrased. Short labels (for example “Commerce”) sit above the original words and never replace them.
