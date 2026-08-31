@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { copyFileSync, mkdirSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { documents, homeDocuments } from "../js/texts.js";
@@ -34,6 +34,14 @@ const bundle = {
 };
 
 writeFileSync(join(dest, "texts.json"), JSON.stringify(bundle, null, 2) + "\n");
-copyFileSync(join(root, "../pdfs/charter-light.pdf"), join(dest, "charter-light.pdf"));
-copyFileSync(join(root, "../pdfs/charter-dark.pdf"), join(dest, "charter-dark.pdf"));
-console.log("exported", bundle.documents.reduce((n, doc) => n + doc.bites.length, 0), "bites");
+let pdfs = 0;
+for (const slug of ["charter", "declaration", "constitution", "rights"]) {
+  for (const theme of ["light", "dark"]) {
+    const name = `${slug}-${theme}.pdf`;
+    const from = join(root, "../pdfs", name);
+    if (!existsSync(from)) continue;
+    copyFileSync(from, join(dest, name));
+    pdfs += 1;
+  }
+}
+console.log("exported", bundle.documents.reduce((n, doc) => n + doc.bites.length, 0), "bites and", pdfs, "PDFs");

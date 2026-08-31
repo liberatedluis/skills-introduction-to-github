@@ -373,12 +373,120 @@
           "note": ""
         },
         {
-          "id": "signers",
+          "id": "signers-nh",
           "kind": "signers",
-          "group": "Closing",
-          "cite": "Signers",
-          "label": "Subscribed names",
-          "text": "Georgia: Button Gwinnett, Lyman Hall, George Walton.\n\nNorth Carolina: William Hooper, Joseph Hewes, John Penn.\n\nSouth Carolina: Edward Rutledge, Thomas Heyward, Jr., Thomas Lynch, Jr., Arthur Middleton.\n\nMassachusetts: John Hancock.\n\nMaryland: Samuel Chase, William Paca, Thomas Stone, Charles Carroll of Carrollton.\n\nVirginia: George Wythe, Richard Henry Lee, Thomas Jefferson, Benjamin Harrison, Thomas Nelson, Jr., Francis Lightfoot Lee, Carter Braxton.\n\nPennsylvania: Robert Morris, Benjamin Rush, Benjamin Franklin, John Morton, George Clymer, James Smith, George Taylor, James Wilson, George Ross.\n\nDelaware: Caesar Rodney, George Read, Thomas McKean.\n\nNew York: William Floyd, Philip Livingston, Francis Lewis, Lewis Morris.\n\nNew Jersey: Richard Stockton, John Witherspoon, Francis Hopkinson, John Hart, Abraham Clark.\n\nNew Hampshire: Josiah Bartlett, William Whipple.\n\nMassachusetts: Samuel Adams, John Adams, Robert Treat Paine, Elbridge Gerry.\n\nRhode Island: Stephen Hopkins, William Ellery.\n\nConnecticut: Roger Sherman, Samuel Huntington, William Williams, Oliver Wolcott.\n\nNew Hampshire: Matthew Thornton.",
+          "group": "Signers",
+          "cite": "New Hampshire",
+          "label": "Signers",
+          "text": "Josiah Bartlett\nWilliam Whipple\nMatthew Thornton",
+          "note": ""
+        },
+        {
+          "id": "signers-ma",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Massachusetts",
+          "label": "Signers",
+          "text": "John Hancock\nSamuel Adams\nJohn Adams\nRobert Treat Paine\nElbridge Gerry",
+          "note": ""
+        },
+        {
+          "id": "signers-ri",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Rhode Island",
+          "label": "Signers",
+          "text": "Stephen Hopkins\nWilliam Ellery",
+          "note": ""
+        },
+        {
+          "id": "signers-ct",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Connecticut",
+          "label": "Signers",
+          "text": "Roger Sherman\nSamuel Huntington\nWilliam Williams\nOliver Wolcott",
+          "note": ""
+        },
+        {
+          "id": "signers-ny",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New York",
+          "label": "Signers",
+          "text": "William Floyd\nPhilip Livingston\nFrancis Lewis\nLewis Morris",
+          "note": ""
+        },
+        {
+          "id": "signers-nj",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New Jersey",
+          "label": "Signers",
+          "text": "Richard Stockton\nJohn Witherspoon\nFrancis Hopkinson\nJohn Hart\nAbraham Clark",
+          "note": ""
+        },
+        {
+          "id": "signers-pa",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Pennsylvania",
+          "label": "Signers",
+          "text": "Robert Morris\nBenjamin Rush\nBenjamin Franklin\nJohn Morton\nGeorge Clymer\nJames Smith\nGeorge Taylor\nJames Wilson\nGeorge Ross",
+          "note": ""
+        },
+        {
+          "id": "signers-de",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Delaware",
+          "label": "Signers",
+          "text": "Caesar Rodney\nGeorge Read\nThomas McKean",
+          "note": ""
+        },
+        {
+          "id": "signers-md",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Maryland",
+          "label": "Signers",
+          "text": "Samuel Chase\nWilliam Paca\nThomas Stone\nCharles Carroll of Carrollton",
+          "note": ""
+        },
+        {
+          "id": "signers-va",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Virginia",
+          "label": "Signers",
+          "text": "George Wythe\nRichard Henry Lee\nThomas Jefferson\nBenjamin Harrison\nThomas Nelson, Jr.\nFrancis Lightfoot Lee\nCarter Braxton",
+          "note": ""
+        },
+        {
+          "id": "signers-nc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "North Carolina",
+          "label": "Signers",
+          "text": "William Hooper\nJoseph Hewes\nJohn Penn",
+          "note": ""
+        },
+        {
+          "id": "signers-sc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "South Carolina",
+          "label": "Signers",
+          "text": "Edward Rutledge\nThomas Heyward, Jr.\nThomas Lynch, Jr.\nArthur Middleton",
+          "note": ""
+        },
+        {
+          "id": "signers-ga",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Georgia",
+          "label": "Signers",
+          "text": "Button Gwinnett\nLyman Hall\nGeorge Walton",
           "note": ""
         }
       ]
@@ -1170,12 +1278,129 @@
           "note": ""
         },
         {
-          "id": "signers",
+          "id": "signers-washington",
           "kind": "signers",
-          "group": "Article VII",
-          "cite": "Signers",
-          "label": "Subscribed names",
-          "text": "G°. Washington, Presidt and deputy from Virginia.\n\nDelaware: Geo: Read, Gunning Bedford jun, John Dickinson, Richard Bassett, Jaco: Broom.\n\nMaryland: James McHenry, Dan of St Thos. Jenifer, Danl. Carroll.\n\nVirginia: John Blair, James Madison Jr.\n\nNorth Carolina: Wm. Blount, Richd. Dobbs Spaight, Hu Williamson.\n\nSouth Carolina: J. Rutledge, Charles Cotesworth Pinckney, Charles Pinckney, Pierce Butler.\n\nGeorgia: William Few, Abr Baldwin.\n\nNew Hampshire: John Langdon, Nicholas Gilman.\n\nMassachusetts: Nathaniel Gorham, Rufus King.\n\nConnecticut: Wm. Saml. Johnson, Roger Sherman.\n\nNew York: Alexander Hamilton.\n\nNew Jersey: Wil: Livingston, David Brearley, Wm. Paterson, Jona: Dayton.\n\nPennsylvania: B Franklin, Thomas Mifflin, Robt. Morris, Geo. Clymer, Thos. FitzSimons, Jared Ingersoll, James Wilson, Gouv Morris.\n\nAttest William Jackson Secretary.",
+          "group": "Signers",
+          "cite": "George Washington",
+          "label": "President and deputy from Virginia",
+          "text": "George Washington\nPresident and deputy from Virginia",
+          "note": ""
+        },
+        {
+          "id": "signers-de",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Delaware",
+          "label": "Signers",
+          "text": "George Read\nGunning Bedford, Jr.\nJohn Dickinson\nRichard Bassett\nJacob Broom",
+          "note": ""
+        },
+        {
+          "id": "signers-md",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Maryland",
+          "label": "Signers",
+          "text": "James McHenry\nDaniel of St. Thomas Jenifer\nDaniel Carroll",
+          "note": ""
+        },
+        {
+          "id": "signers-va",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Virginia",
+          "label": "Signers",
+          "text": "John Blair\nJames Madison, Jr.",
+          "note": ""
+        },
+        {
+          "id": "signers-nc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "North Carolina",
+          "label": "Signers",
+          "text": "William Blount\nRichard Dobbs Spaight\nHugh Williamson",
+          "note": ""
+        },
+        {
+          "id": "signers-sc",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "South Carolina",
+          "label": "Signers",
+          "text": "John Rutledge\nCharles Cotesworth Pinckney\nCharles Pinckney\nPierce Butler",
+          "note": ""
+        },
+        {
+          "id": "signers-ga",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Georgia",
+          "label": "Signers",
+          "text": "William Few\nAbraham Baldwin",
+          "note": ""
+        },
+        {
+          "id": "signers-nh",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New Hampshire",
+          "label": "Signers",
+          "text": "John Langdon\nNicholas Gilman",
+          "note": ""
+        },
+        {
+          "id": "signers-ma",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Massachusetts",
+          "label": "Signers",
+          "text": "Nathaniel Gorham\nRufus King",
+          "note": ""
+        },
+        {
+          "id": "signers-ct",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Connecticut",
+          "label": "Signers",
+          "text": "William Samuel Johnson\nRoger Sherman",
+          "note": ""
+        },
+        {
+          "id": "signers-ny",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New York",
+          "label": "Signers",
+          "text": "Alexander Hamilton",
+          "note": ""
+        },
+        {
+          "id": "signers-nj",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "New Jersey",
+          "label": "Signers",
+          "text": "William Livingston\nDavid Brearley\nWilliam Paterson\nJonathan Dayton",
+          "note": ""
+        },
+        {
+          "id": "signers-pa",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Pennsylvania",
+          "label": "Signers",
+          "text": "Benjamin Franklin\nThomas Mifflin\nRobert Morris\nGeorge Clymer\nThomas FitzSimons\nJared Ingersoll\nJames Wilson\nGouverneur Morris",
+          "note": ""
+        },
+        {
+          "id": "signers-attest",
+          "kind": "signers",
+          "group": "Signers",
+          "cite": "Attest",
+          "label": "Secretary",
+          "text": "William Jackson, Secretary",
           "note": ""
         }
       ]

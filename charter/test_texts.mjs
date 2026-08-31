@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { documents, homeDocuments, findBite, hrefFor } from "./js/texts.js";
 
 let errors = 0;
@@ -46,3 +47,38 @@ if (errors) {
 }
 
 console.log(`ok: ${seen.size} unique bites`);
+
+const expectedPdfs = [
+  "charter-light.pdf",
+  "charter-dark.pdf",
+  "declaration-light.pdf",
+  "declaration-dark.pdf",
+  "constitution-light.pdf",
+  "constitution-dark.pdf",
+  "rights-light.pdf",
+  "rights-dark.pdf",
+];
+const missing = expectedPdfs.filter((name) => !existsSync(new URL(`./pdfs/${name}`, import.meta.url)));
+if (missing.length) {
+  console.warn("PDFs not built yet:", missing.join(", "));
+} else {
+  console.log(`ok: ${expectedPdfs.length} light/dark PDFs`);
+}
+
+if (!findBite("declaration", "signers")?.bite.cite) {
+  console.error("declaration/signers alias failed");
+  process.exit(1);
+}
+if (findBite("declaration", "signers-va")?.bite.text.includes("Thomas Jefferson") !== true) {
+  console.error("Virginia Declaration signers missing Jefferson");
+  process.exit(1);
+}
+if (findBite("constitution", "signers-washington")?.bite.text.includes("George Washington") !== true) {
+  console.error("Washington signer name not expanded");
+  process.exit(1);
+}
+if (/G°\.|Presidt|Jaco:|Gouv |Abr Baldwin|Wil:/.test(JSON.stringify(documents))) {
+  console.error("abbreviated signer names remain");
+  process.exit(1);
+}
+console.log("ok: signer names");

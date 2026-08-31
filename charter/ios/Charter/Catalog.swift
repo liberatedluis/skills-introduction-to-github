@@ -13,7 +13,9 @@ struct Catalog: Sendable {
     }
 
     func lookup(docId: String, biteId: String) -> (CharterDocument, Bite, Int)? {
-        guard let doc = document(id: docId), let index = doc.bites.firstIndex(where: { $0.id == biteId }) else {
+        guard let doc = document(id: docId) else { return nil }
+        let resolved = biteId == "signers" ? (doc.bites.first { $0.kind == "signers" }?.id ?? biteId) : biteId
+        guard let index = doc.bites.firstIndex(where: { $0.id == resolved }) else {
             return nil
         }
         return (doc, doc.bites[index], index)

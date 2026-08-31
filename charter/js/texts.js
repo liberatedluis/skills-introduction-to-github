@@ -15,7 +15,10 @@ export function biteCount(doc) {
 export function findBite(docId, biteId) {
   const doc = catalog[docId];
   if (!doc) return null;
-  const index = doc.bites.findIndex((bite) => bite.id === biteId);
+  const resolved = biteId === "signers"
+    ? doc.bites.find((bite) => bite.kind === "signers")?.id
+    : biteId;
+  const index = doc.bites.findIndex((bite) => bite.id === resolved);
   if (index < 0) return null;
   return { doc, bite: doc.bites[index], index };
 }
