@@ -1,6 +1,6 @@
 # Christ Supply Holy Bible
 
-**1,300 translations.** Three ways to read. Every page is marked **ChristSupply.Net**.
+**1,300 translations.** Four ways to read. Every page is marked **ChristSupply.Net**.
 
 Made by Liberated Luis With Cursor, Claude Opus, and MacBook · [ChristSupply.Net](https://christsupply.net)
 
@@ -32,6 +32,10 @@ git lfs pull
 python3 -m pip install -r requirements.txt
 python3 scripts/make_holy_bible_pdfs.py --workers 4
 ```
+
+## 4. iPhone Matrix app
+
+Native SwiftUI companion in [`ios/`](ios/): Root Index → rainbow / theme → verse → World English Bible, offline on the phone. Open [`ios/ChristSupplyMatrix.xcodeproj`](ios/ChristSupplyMatrix.xcodeproj) in Xcode on Liberateds-Mac-Studio. See [`ios/README.md`](ios/README.md).
 
 ## Credits
 
