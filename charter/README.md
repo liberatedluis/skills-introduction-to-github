@@ -39,6 +39,21 @@ Then open [http://localhost:8080/charter/](http://localhost:8080/charter/).
 
 Deep links restore the exact bite after a reload.
 
+## PDFs
+
+One thought per page, in both parchment and dark editions:
+
+- [pdfs/charter-light.pdf](pdfs/charter-light.pdf)
+- [pdfs/charter-dark.pdf](pdfs/charter-dark.pdf)
+
+Rebuild after text or layout changes:
+
+```bash
+node make_pdfs.mjs
+```
+
+Print preview (then browser Print / Save as PDF): [print.html](print.html) or `print.html?theme=dark`.
+
 ## Texts
 
 Legal wording is the National Archives transcriptions. It is not paraphrased. Short labels (for example “Commerce”) sit above the original words and never replace them.

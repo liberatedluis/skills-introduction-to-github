@@ -236,6 +236,19 @@ main {
   font-size: 0.95rem;
 }
 
+.pdf-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.1rem;
+  margin: 1.15rem 0 0;
+}
+
+.pdf-links a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.1rem;
+}
+
 .reader {
   display: grid;
   grid-template-columns: 1fr;

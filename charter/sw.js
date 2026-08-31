@@ -1,9 +1,12 @@
-const CACHE = "charter-v1";
+const CACHE = "charter-v2";
 const ASSETS = [
   "./",
   "./index.html",
+  "./print.html",
   "./css/charter.css",
+  "./css/print.css",
   "./js/app.js",
+  "./js/print.js",
   "./js/texts.js",
   "./js/declaration.js",
   "./js/constitution.js",
