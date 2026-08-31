@@ -100,7 +100,7 @@ function showToast(message) {
 
 function renderHome() {
   current = null;
-  document.title = "Charter · Civic reader";
+  document.title = "Charter";
   homeView.classList.remove("hidden");
   readerView.classList.add("hidden");
   contentsBtn.hidden = true;

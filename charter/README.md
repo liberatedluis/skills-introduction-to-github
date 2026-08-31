@@ -1,12 +1,12 @@
 # Charter
 
-A spreadable, mindfully edible civic reader of three public-domain US founding texts:
+Three public-domain US founding texts:
 
 1. The Declaration of Independence
 2. The Constitution of the United States (preamble, articles, sections, clauses)
 3. The Bill of Rights (Amendments I–X), with a path into later amendments so the Constitution is whole
 
-Created by Liberated Luis / Christ Supply. Free. No ads, accounts, or tracking. This is a civic reader, not a Bible app.
+Created by Liberated Luis / Christ Supply. Free. No ads, accounts, or tracking. Not a Bible app.
 
 ## Open it
 

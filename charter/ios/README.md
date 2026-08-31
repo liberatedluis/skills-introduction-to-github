@@ -1,6 +1,6 @@
 # Charter for iPhone
 
-A native SwiftUI civic reader. Same three founding texts as the web app, plus both PDFs, offline, share, and dark/light. Not a Bible app.
+A native SwiftUI app. Same three founding texts as the web app, plus both PDFs, offline, share, and dark/light. Not a Bible app.
 
 ## Open in Xcode
 

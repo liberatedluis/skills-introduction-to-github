@@ -11,7 +11,7 @@ struct HomeView: View {
                 Text("Three founding texts. One thought at a time.")
                     .font(.system(.largeTitle, design: .serif))
                     .foregroundStyle(CharterTheme.text(for: scheme))
-                Text("A quiet civic reader of the Declaration, the Constitution, and the Bill of Rights. Free. Offline. No ads, accounts, or tracking.")
+                Text("A quiet reader of the Declaration, the Constitution, and the Bill of Rights. Free. Offline. No ads, accounts, or tracking.")
                     .font(.system(.body, design: .serif))
                     .foregroundStyle(CharterTheme.soft(for: scheme))
 
@@ -82,7 +82,7 @@ struct HomeView: View {
             ToolbarItem(placement: .principal) {
                 VStack(spacing: 0) {
                     Text("Charter").font(.system(.headline, design: .serif))
-                    Text("Civic reader").font(.caption2).foregroundStyle(.secondary)
+                    Text("One thought at a time").font(.caption2).foregroundStyle(.secondary)
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {

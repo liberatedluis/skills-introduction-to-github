@@ -23,9 +23,9 @@ export function renderPrintPages(docs, theme) {
   const title = page(
     marks(
       theme === "dark" ? "Dark edition" : "Light edition",
-      "Civic reader",
+      "One thought at a time",
       `
-      <p class="kicker">Civic reader</p>
+      <p class="kicker">Three founding texts</p>
       <h1>Charter</h1>
       <p class="lede">Three founding texts. One thought per page.</p>
       <ul class="list">
